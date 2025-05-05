@@ -1,23 +1,22 @@
-<section id="projects" class="projects">
+<section id="realisations" class="projects">
     <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-            <h2>Our Projects</h2>
-            <p>Consequatur libero assumenda est voluptatem est quidem illum et officia imilique qui vel
-                architecto
-                accusamus fugit aut qui distinctio</p>
+            <h2>Nos réalisations</h2>
+          
         </div>
 
         <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
             data-portfolio-sort="original-order">
 
-            <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
-                <li data-filter="*" class="filter-active">All</li>
+            {{-- <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">Toutes</li>
                 <li data-filter=".filter-remodeling">Remodeling</li>
                 <li data-filter=".filter-construction">Construction</li>
                 <li data-filter=".filter-repairs">Repairs</li>
                 <li data-filter=".filter-design">Design</li>
-            </ul><!-- End Projects Filters -->
+
+            </ul><!-- End Projects Filters --> --}}
 
             <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 

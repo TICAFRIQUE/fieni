@@ -153,8 +153,8 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 //Route frontend
 Route::get('/', [SiteController::class, 'index'])->name('site.index'); // route sur le landing page
 
-Route::get('/service-detail', [SiteController::class, 'serviceDetail'])->name('service-detail.index'); // route sur le landing page
+Route::get('/service-detail', [SiteController::class, 'serviceDetail'])->name('service-detail'); // 
+Route::get('/contact', [SiteController::class, 'contact'])->name('contact'); // 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+

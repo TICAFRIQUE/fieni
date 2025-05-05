@@ -1,5 +1,9 @@
 @extends('frontend.pages.layouts.app')
 
+@section('title')
+  Service-detail
+@endsection
+
 
 @section('content')
    <!-- ======= Breadcrumbs ======= -->

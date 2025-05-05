@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="text-center">
-                                            <a href="{{ route('service-detail.index') }}"
+                                            <a href="{{ route('service-detail') }}"
                                                 class="btn btn-warning border-0 rounded-0 fw-semibold ">Savoir
                                                 plus
                                                 <i class="bi bi-arrow-right"></i></a>

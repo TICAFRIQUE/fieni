@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\Slide;
+use App\Models\Equipe;
 use App\Models\Service;
 use App\Models\Reference;
 use App\Models\MotDirecteur;
@@ -30,15 +31,20 @@ class SiteController extends Controller
             //3- recuperer les services active
             $data_service = Service::active()->get();
 
-            //Recuperer les references actives
+            //4-Recuperer les references actives
             $data_reference = Reference::active()->get();
+
+            //5-Recuperer les membres equipe actives
+            $data_equipe = Equipe::active()->get();
 
             return view('frontend.index', compact(
                 'data_slide',
                 'data_presentation',
                 'data_mot_directeur',
                 'data_service',
-                'data_reference'
+                'data_reference',
+                'data_equipe'
+
             ));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -51,10 +57,31 @@ class SiteController extends Controller
     // {
     //     return view('index');
     // }  
-    
-    
+
+
     public function serviceDetail()
     {
-        return view('frontend.pages.service_detail');
+        try {
+            $data_service = Service::active()->get();
+
+            return view('frontend.pages.service_detail', compact('data_service'));
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th->getMessage();
+        }
+    }
+
+
+
+    public function Contact()
+    {
+        try {
+            $data_service = Service::active()->get();
+
+            return view('frontend.pages.contact' , compact('data_service'));
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th->getMessage();
+        }
     }
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>UpConstruction Bootstrap Template - Index</title>
+    <title> {{config('app.name')}} - @yield('title')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -40,21 +40,22 @@
     <header id="header" class="header d-flex align-items-center">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="/" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="asset_front/img/logo.png" alt=""> -->
-                <h1>UpConstruction<span>.</span></h1>
+                <h1>SageConstruction<span>.</span></h1>
             </a>
 
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="#accueil" class="active">Accueil</a></li>
+                    <li><a href="#accueil" class="{{ Route::is('site.index') ? 'active' : '' }}">Accueil</a></li>
                     <li><a href="#a-propos">Qui sommes nous</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#realisations">Realisations</a></li>
                     <li><a href="#equipe">Notre equipes</a></li>
+
 
                     {{-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -75,7 +76,7 @@
                             <li><a href="#">Dropdown 4</a></li>
                         </ul>
                     </li> --}}
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{{route('contact')}}" class="{{ Route::is('contact') ? 'active' : '' }}">Contact</a></li>
                 </ul>
             </nav><!-- .navbar -->
 

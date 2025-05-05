@@ -29,4 +29,9 @@ class Equipe extends Model implements HasMedia
             mt_rand()]);
         });
     }
+
+
+    public function scopeActive($query){
+        return $query->whereStatus('active');
+    }
 }
