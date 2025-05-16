@@ -98,6 +98,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('', 'index')->name('presentation.index');
         route::get('create', 'create')->name('presentation.create');
         route::post('store', 'store')->name('presentation.store');
+        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('presentation.upload-tinymce');
         route::get('edit{id}', 'edit')->name('presentation.edit');
         route::post('update/{id}', 'update')->name('presentation.update');
         route::get('delete/{id}', 'delete')->name('presentation.delete');
@@ -137,7 +138,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('delete/{id}', 'delete')->name('reference.delete');
     });
 
-    
+
     // equipe
     Route::prefix('equipe')->controller(EquipeController::class)->group(function () {
         route::get('', 'index')->name('equipe.index');
@@ -155,6 +156,3 @@ Route::get('/', [SiteController::class, 'index'])->name('site.index'); // route 
 
 Route::get('/service-detail', [SiteController::class, 'serviceDetail'])->name('service-detail'); // 
 Route::get('/contact', [SiteController::class, 'contact'])->name('contact'); // 
-
-
-

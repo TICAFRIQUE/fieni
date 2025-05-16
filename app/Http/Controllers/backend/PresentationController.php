@@ -6,11 +6,12 @@ use App\Models\Presentation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class PresentationController extends Controller
 {
     //
-    
+
     public function index()
     {
         $data_presentation = Presentation::get();
@@ -27,20 +28,55 @@ class PresentationController extends Controller
 
     public function store(Request $request)
     {
-        //request validation .....
-        // dd($request->all());
-        $data_presentation = Presentation::create([
-            'status' => $request['status'],
-            'description' => $request['description'],
+        $request->validate([
+            'status' => 'required|string',
+            'description' => 'required|string',
+            'draft_token' => 'required|string',
+            'image' => 'nullable|image|max:1024',
         ]);
 
-        if (request()->hasFile('image')) {
-            // $data_presentation->clearMediaCollection('serviceImage');
-            $data_presentation->addMediaFromRequest('image')->toMediaCollection('image');
+        $presentation = Presentation::create([
+            'status' => $request->status,
+            'description' => $request->description,
+        ]);
+
+        if ($request->hasFile('image')) {
+            $presentation->addMediaFromRequest('image')->toMediaCollection('image');
         }
 
-        Alert::Success('Opération', 'SuccessMessage');
+        // Associer les images TinyMCE au modèle enregistré
+        Media::where('custom_properties->draft_token', $request->draft_token)
+            ->where('model_type', Presentation::class)
+            ->where('model_id', 0)
+            ->get()
+            ->each(function ($media) use ($presentation) {
+                $media->model_id = $presentation->id;
+                $media->save();
+            });
+
+        Alert::success('Succès', 'Présentation enregistrée avec images.');
         return back();
+    }
+
+    public function uploadFromTinyMCE(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|image|max:1024',
+            'draft_token' => 'required|string',
+        ]);
+
+        $fakePresentation = new Presentation();
+        $fakePresentation->id = 0; // modèle fictif
+        $fakePresentation->exists = true;
+
+        $media = $fakePresentation->addMediaFromRequest('file')
+            ->usingFileName(time() . '_' . $request->file('file')->getClientOriginalName())
+            ->withCustomProperties(['draft_token' => $request->draft_token])
+            ->toMediaCollection('tiny-images');
+
+        return response()->json([
+            'location' => $media->getUrl(),
+        ]);
     }
 
 
