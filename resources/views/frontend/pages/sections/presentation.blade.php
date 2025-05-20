@@ -2,13 +2,17 @@
     <div class="container">
 
         <div class="row justify-content-around gy-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="col-lg-6 img-bg" style="background-image: url({{$data_presentation->getFirstMediaUrl('image')}});"
-                data-aos="zoom-in" data-aos-delay="100"></div>
+            <div class="col-lg-6 img-bg"
+                style="background-image: url('{{ $data_presentation?->getFirstMediaUrl('image') ?? asset('images/default.jpg') }}');"
+                data-aos="zoom-in" data-aos-delay="100">
+            </div>
+
 
             <div class="col-lg-5 d-flex flex-column justify-content-center">
                 <h3>Qui sommes nous ?</h3>
                 <p>
-                    {!! $data_presentation->description !!}
+                   {!! $data_presentation->description ?? '' !!}
+
                 </p>
             </div>
         </div>

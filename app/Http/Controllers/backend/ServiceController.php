@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Models\Service;
+use App\Models\chantier;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class ServiceController extends Controller
+class chantierController extends Controller
 {
 
     public function index()
     {
-        $data_service = Service::get();
+        $data_chantier = chantier::get();
 
-        return view('backend.pages.service.index', compact('data_service'));
+        return view('backend.pages.chantier.index', compact('data_chantier'));
     }
 
 
     public function create(Request $request)
     {
-        return view('backend.pages.service.create');
+        return view('backend.pages.chantier.create');
     }
 
 
@@ -29,15 +29,15 @@ class ServiceController extends Controller
         //request validation .....
         // dd($request->all());
 
-        // verifier si le service existe en base de données
-        $condition = Service::where('titre', $request['titre'])->exists();
+        // verifier si le chantier existe en base de données
+        $condition = chantier::where('titre', $request['titre'])->exists();
 
 
         if ($condition) {
-            return back()->with('error', 'Le service existe deja');
+            return back()->with('error', 'Le chantier existe deja');
         }
 
-        $data_service = Service::firstOrCreate([
+        $data_chantier = chantier::firstOrCreate([
             'titre' => $request['titre'],
             // 'lien' => $request['lien'],
             'status' => $request['status'],
@@ -45,7 +45,7 @@ class ServiceController extends Controller
         ]);
 
         if (request()->hasFile('image')) {
-            $data_service->addMediaFromRequest('image')->toMediaCollection('image');
+            $data_chantier->addMediaFromRequest('image')->toMediaCollection('image');
         }
 
         Alert::Success('Opération', 'SuccessMessage');
@@ -55,9 +55,9 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        $data_service = Service::find($id);
+        $data_chantier = chantier::find($id);
 
-        return view('backend.pages.service.edit', compact('data_service'));
+        return view('backend.pages.chantier.edit', compact('data_chantier'));
     }
 
 
@@ -67,7 +67,7 @@ class ServiceController extends Controller
 
         //request validation ......
 
-        $data_service = tap(Service::find($id))->update([
+        $data_chantier = tap(chantier::find($id))->update([
             'titre' => $request['titre'],
             // 'lien' => $request['lien'],
             'status' => $request['status'],
@@ -75,8 +75,8 @@ class ServiceController extends Controller
         ]);
 
         if (request()->hasFile('image')) {
-            $data_service->clearMediaCollection('image');
-            $data_service->addMediaFromRequest('image')->toMediaCollection('image');
+            $data_chantier->clearMediaCollection('image');
+            $data_chantier->addMediaFromRequest('image')->toMediaCollection('image');
         }
 
         Alert::success('Opération réussi', 'Success Message');
@@ -86,7 +86,7 @@ class ServiceController extends Controller
 
     public function delete($id)
     {
-        Service::find($id)->delete();
+        chantier::find($id)->delete();
         return response()->json([
             'status' => 200,
         ]);

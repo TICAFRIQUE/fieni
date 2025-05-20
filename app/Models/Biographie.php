@@ -8,7 +8,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Presentation extends Model implements HasMedia
+class Biographie extends Model implements HasMedia
 {
     //
     use HasFactory, InteractsWithMedia;
@@ -26,7 +26,7 @@ class Presentation extends Model implements HasMedia
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->id = IdGenerator::generate(['table' => 'presentations', 'length' => 10, 'prefix' =>
+            $model->id = IdGenerator::generate(['table' => 'biographies', 'length' => 10, 'prefix' =>
             mt_rand()]);
         });
     }

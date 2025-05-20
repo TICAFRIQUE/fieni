@@ -77,7 +77,7 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('dashboard.*') ? 'active' : '' }} "
                             href="{{ route('dashboard.index') }}">
-                            <i class="ri-dashboard-2-line"></i> <span>TABLEAU DE BORD</span>
+                            <i class="ri-dashboard-3-fill"></i> <span>TABLEAU DE BORD</span>
                         </a>
                     </li>
                 @endcan
@@ -93,11 +93,21 @@
                     </li>
                 @endcan
 
-                @can('voir-presentation')
+                @can('voir-biographie')
                     <li class="nav-item">
-                        <a class="nav-link menu-link {{ Route::is('presentation.*') ? 'active' : '' }} "
-                            href="{{ route('presentation.index') }}">
-                            <i class="ri-dashboard-2-line"></i> <span>Qui sommes nous</span>
+                        <a class="nav-link menu-link {{ Route::is('biographie.*') ? 'active' : '' }} "
+                            href="{{ route('biographie.index') }}">
+                            <i class="ri-book-fill"></i> <span>Biographie</span>
+                        </a>
+                    </li>
+                @endcan
+
+
+                @can('voir-programme')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('programme.*') ? 'active' : '' }} "
+                            href="{{ route('programme.index') }}">
+                            <i class="ri-file-list-fill"></i> <span>Programme</span>
                         </a>
                     </li>
                 @endcan
@@ -133,13 +143,13 @@
 
 
                 @can('voir-equipe')
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ Route::is('equipe.*') ? 'active' : '' }} "
-                        href="{{ route('equipe.index') }}">
-                        <i class="ri-dashboard-2-line"></i> <span>Equipes</span>
-                    </a>
-                </li>
-            @endcan
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('equipe.*') ? 'active' : '' }} "
+                            href="{{ route('equipe.index') }}">
+                            <i class="ri-dashboard-2-line"></i> <span>Equipes</span>
+                        </a>
+                    </li>
+                @endcan
 
 
 

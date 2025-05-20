@@ -10,10 +10,11 @@ use App\Http\Controllers\backend\ModuleController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ParametreController;
+use App\Http\Controllers\backend\ProgrammeController;
 use App\Http\Controllers\backend\ReferenceController;
+use App\Http\Controllers\backend\BiographieController;
 use App\Http\Controllers\backend\PermissionController;
 use App\Http\Controllers\backend\MotDirecteurController;
-use App\Http\Controllers\backend\PresentationController;
 
 
 
@@ -93,15 +94,27 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     });
 
 
-    // presentation
-    Route::prefix('presentation')->controller(PresentationController::class)->group(function () {
-        route::get('', 'index')->name('presentation.index');
-        route::get('create', 'create')->name('presentation.create');
-        route::post('store', 'store')->name('presentation.store');
-        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('presentation.upload-tinymce');
-        route::get('edit{id}', 'edit')->name('presentation.edit');
-        route::post('update/{id}', 'update')->name('presentation.update');
-        route::get('delete/{id}', 'delete')->name('presentation.delete');
+    // biographie
+    Route::prefix('biographie')->controller(BiographieController::class)->group(function () {
+        route::get('', 'index')->name('biographie.index');
+        route::get('create', 'create')->name('biographie.create');
+        route::post('store', 'store')->name('biographie.store');
+        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('biographie.upload-tinymce'); // upload image tinymce
+        route::get('edit{id}', 'edit')->name('biographie.edit');
+        route::post('update/{id}', 'update')->name('biographie.update');
+        route::get('delete/{id}', 'delete')->name('biographie.delete');
+    });
+
+
+    // programme
+    Route::prefix('programme')->controller(ProgrammeController::class)->group(function () {
+        route::get('', 'index')->name('programme.index');
+        route::get('create', 'create')->name('programme.create');
+        route::post('store', 'store')->name('programme.store');
+        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('programme.upload-tinymce'); // upload image tinymce
+        route::get('edit{id}', 'edit')->name('programme.edit');
+        route::post('update/{id}', 'update')->name('programme.update');
+        route::get('delete/{id}', 'delete')->name('programme.delete');
     });
 
 

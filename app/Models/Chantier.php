@@ -8,17 +8,19 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Presentation extends Model implements HasMedia
+class Chantier extends Model implements HasMedia
 {
+    //
     //
     use HasFactory, InteractsWithMedia;
 
     public $incrementing = false;
 
     protected $fillable = [
+        'titre',
         'description',
+        'lien',
         'status',
-
     ];
 
 
@@ -26,12 +28,10 @@ class Presentation extends Model implements HasMedia
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->id = IdGenerator::generate(['table' => 'presentations', 'length' => 10, 'prefix' =>
+            $model->id = IdGenerator::generate(['table' => 'chantiers', 'length' => 10, 'prefix' =>
             mt_rand()]);
         });
     }
-
-
 
     public function scopeActive($query)
     {
