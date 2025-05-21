@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('titre')->nullable();
             $table->text('description')->nullable(); // mot en texte
-            $table->string('lien')->nullable();
             $table->enum('status', ['active', 'desactive'])->nullable();
             $table->timestamps();
         });

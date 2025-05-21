@@ -8,6 +8,7 @@ use App\Http\Controllers\frontend\SiteController;
 use App\Http\Controllers\backend\EquipeController;
 use App\Http\Controllers\backend\ModuleController;
 use App\Http\Controllers\backend\ServiceController;
+use App\Http\Controllers\backend\ChantierController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ParametreController;
 use App\Http\Controllers\backend\ProgrammeController;
@@ -129,14 +130,15 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     });
 
 
-    // service
-    Route::prefix('service')->controller(ServiceController::class)->group(function () {
-        route::get('', 'index')->name('service.index');
-        route::get('create', 'create')->name('service.create');
-        route::post('store', 'store')->name('service.store');
-        route::get('edit{id}', 'edit')->name('service.edit');
-        route::post('update/{id}', 'update')->name('service.update');
-        route::get('delete/{id}', 'delete')->name('service.delete');
+    // chantier
+    Route::prefix('chantier')->controller(ChantierController::class)->group(function () {
+        route::get('', 'index')->name('chantier.index');
+        route::get('create', 'create')->name('chantier.create');
+        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('chantier.upload-tinymce'); // upload image tinymce
+        route::post('store', 'store')->name('chantier.store');
+        route::get('edit{id}', 'edit')->name('chantier.edit');
+        route::post('update/{id}', 'update')->name('chantier.update');
+        route::get('delete/{id}', 'delete')->name('chantier.delete');
     });
 
 

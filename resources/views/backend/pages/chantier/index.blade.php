@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('title')
-  Service
+  chantier
 @endsection
 @section('css')
     <!--datatable css-->
@@ -13,21 +13,21 @@
 @section('content')
     @component('backend.components.breadcrumb')
         @slot('li_1')
-            Liste des services
+            Liste des chantiers
         @endslot
         @slot('title')
-           Service
+           chantier
         @endslot
     @endcomponent
 
 
     <div class="row">
         <div class="text-end mb-4">
-            <a href="{{ route('service.create') }}" class="btn btn-primary"> <i class="ri ri-add-fill"></i> Ajouter un
-                service</a>
+            <a href="{{ route('chantier.create') }}" class="btn btn-primary"> <i class="ri ri-add-fill"></i> Ajouter un
+                chantier</a>
         </div>
 
-        @foreach ($data_service as $item)
+        @foreach ($data_chantier as $item)
             <div class="col-sm-6 col-xl-4" id="row_{{ $item['id'] }}">
                 <div class="card">
                     <img class="card-img-top img-fluid" src="{{ URL::asset($item->getFirstMediaUrl('image')) }}"
@@ -41,7 +41,7 @@
                     </div>
                     <div class="card-footer">
                         <a href="/" target="_blank" class="card-link link-secondary"><i class="ri ri-eye-2-fill "></i> voir</a>
-                        <a href=" {{ route('service.edit', $item['id']) }}" class="card-link link-secondary text-success "><i
+                        <a href=" {{ route('chantier.edit', $item['id']) }}" class="card-link link-secondary text-success "><i
                                 class="ri ri-edit-2-fill "></i>
                             Modifier</a>
                         <a href="#" data-id="{{ $item['id'] }}"
@@ -79,7 +79,7 @@
 
     <script>
        $(document).ready(function(){
-        var route = "service"
+        var route = "chantier"
         delete_row(route);
        })
     </script>

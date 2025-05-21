@@ -1,22 +1,29 @@
 @extends('backend.layouts.master')
 @section('title')
-  Service
+    chantier
 @endsection
 @section('content')
     @component('backend.components.breadcrumb')
-    @slot('li_1')
-        Service
-    @endslot
-    @slot('title')
-        Créer un service
-    @endslot
-@endcomponent
+        @slot('li_1')
+            chantier
+        @endslot
+        @slot('title')
+            Créer un chantier
+        @endslot
+    @endcomponent
+
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="row g-3 needs-validation" method="post" action="{{ route('service.store') }}" novalidate
+                    <!-- ========== Start generer un code uuid pour attribuer a limage temporaire ========== -->
+                    @php
+                        $draft_token = \Str::uuid()->toString();
+                    @endphp
+                    <!-- ========== End generer un code uuid pour attribuer a limage temporaire ========== -->
+
+                    <form class="row g-3 needs-validation" method="post" action="{{ route('chantier.store') }}" novalidate
                         enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
@@ -27,18 +34,9 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-md-3">
-                            <label for="validationCustom01" class="form-label">Lien de redirection </label>
-                            <input type="link" name="lien" class="form-control" id="validationCustom01" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-
-                        </div> --}}
-
                         <div class="col-md-4">
                             <label for="validationCustom01" class="form-label">Image </label>
-                            <input type="file" name="image" class="form-control" id="validationCustom01" required>
+                            <input type="file" name="image" class="form-control" id="validationCustom01" accept="/*" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -58,6 +56,9 @@
                         </div>
 
                         <div class="col-md-12">
+                            <!-- ========== Start recuperer le token draft_token ========== -->
+                            <input type="hidden" name="draft_token" value="{{ $draft_token }}">
+                            <!-- ========== End recuperer le token draft_token ========== -->
                             <label for="validationCustom01" class="form-label">Description</label>
                             <textarea name="description" class="tinymce-editor" required> </textarea><!-- End TinyMCE Editor -->
                             <div class="valid-feedback">
@@ -79,7 +80,8 @@
     <script src="{{ URL::asset('build/js/pages/modal.init.js') }}"></script>
     {{-- <script src="{{ URL::asset('build/js/pages/form-editor.init.js') }}"></script> --}}
     <script src="{{ URL::asset('build/tinymce/tinymce.min.js') }}"></script>
-
+    <script src="{{ URL::asset('build/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ URL::asset('build/tinymce/fr_FR.js') }}"></script>
     <script>
         /**
          * Initiate TinyMCE Editor
@@ -88,97 +90,38 @@
         var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         tinymce.init({
-            deprecation_warnings: false,
+            language: 'fr_FR',
+            language_url: 'build/tinymce/fr_FR.js',
             selector: 'textarea.tinymce-editor',
-            plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
-            imagetools_cors_hosts: ['picsum.photos'],
-            menubar: 'file edit view insert format tools table help',
+            height: 300,
+            plugins: 'image code lists link preview fullscreen charmap emoticons hr pagebreak nonbreaking anchor insertdatetime advlist wordcount imagetools textpattern noneditable help codesample',
             toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-            toolbar_sticky: true,
-            autosave_ask_before_unload: true,
-            autosave_interval: '30s',
-            autosave_prefix: '{path}{query}-{id}-',
-            autosave_restore_when_empty: false,
-            autosave_retention: '2m',
-            image_advtab: true,
-            link_list: [{
-                    title: 'My page 1',
-                    value: 'https://www.tiny.cloud'
-                },
-                {
-                    title: 'My page 2',
-                    value: 'http://www.moxiecode.com'
-                }
-            ],
-            image_list: [{
-                    title: 'My page 1',
-                    value: 'https://www.tiny.cloud'
-                },
-                {
-                    title: 'My page 2',
-                    value: 'http://www.moxiecode.com'
-                }
-            ],
-            image_class_list: [{
-                    title: 'None',
-                    value: ''
-                },
-                {
-                    title: 'Some class',
-                    value: 'class-name'
-                }
-            ],
-            importcss_append: true,
-            file_picker_callback: function(callback, value, meta) {
-                /* Provide file and text for the link dialog */
-                if (meta.filetype === 'file') {
-                    callback('https://www.google.com/logos/google.jpg', {
-                        text: 'My text'
-                    });
+            // toolbar: 'undo redo | link image | code',
+            images_upload_handler: function(blobInfo, success, failure) {
+                const file = blobInfo.blob();
+
+                // Vérifie que le fichier ne dépasse pas 1 Mo (1 048 576 octets)
+                if (file.size > 1048576) {
+                    failure('L’image ne doit pas dépasser 1 Mo.');
+                    return;
                 }
 
-                /* Provide image and alt text for the image dialog */
-                if (meta.filetype === 'image') {
-                    callback('https://www.google.com/logos/google.jpg', {
-                        alt: 'My alt text'
-                    });
-                }
+                const formData = new FormData();
+                formData.append('file', file, blobInfo.filename());
+                formData.append('draft_token', document.querySelector('input[name="draft_token"]').value);
 
-                /* Provide alternative source and posted for the media dialog */
-                if (meta.filetype === 'media') {
-                    callback('movie.mp4', {
-                        source2: 'alt.ogg',
-                        poster: 'https://www.google.com/logos/google.jpg'
-                    });
-                }
-            },
-            templates: [{
-                    title: 'New Table',
-                    description: 'creates a new table',
-                    content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>'
-                },
-                {
-                    title: 'Starting my story',
-                    description: 'A cure for writers block',
-                    content: 'Once upon a time...'
-                },
-                {
-                    title: 'New list with dates',
-                    description: 'New List with dates',
-                    content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>'
-                }
-            ],
-            template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-            template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-            height: 600,
-            image_caption: true,
-            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-            noneditable_noneditable_class: 'mceNonEditable',
-            toolbar_mode: 'sliding',
-            contextmenu: 'link image imagetools table',
-            skin: useDarkMode ? 'oxide-dark' : 'oxide',
-            content_css: useDarkMode ? 'dark' : 'default',
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                fetch("{{ route('chantier.upload-tinymce') }}", {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                                'content')
+                        },
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(json => success(json.location))
+                    .catch(error => failure('Upload échoué : ' + error.message));
+            }
         });
     </script>
 @endsection

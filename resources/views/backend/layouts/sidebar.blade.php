@@ -113,11 +113,11 @@
                 @endcan
 
 
-                @can('voir-service')
+                @can('voir-chantier')
                     <li class="nav-item">
-                        <a class="nav-link menu-link {{ Route::is('service.*') ? 'active' : '' }} "
-                            href="{{ route('service.index') }}">
-                            <i class="ri-dashboard-2-line"></i> <span>Services</span>
+                        <a class="nav-link menu-link {{ Route::is('chantier.*') ? 'active' : '' }} "
+                            href="{{ route('chantier.index') }}">
+                            <i class="ri-dashboard-2-line"></i> <span>Chantiers</span>
                         </a>
                     </li>
                 @endcan

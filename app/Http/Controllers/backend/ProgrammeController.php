@@ -119,15 +119,26 @@ class ProgrammeController extends Controller
         try {
             //request validation ......
 
-            $data_programme = tap(Programme::find($id))->update([
+            $programme = tap(Programme::find($id))->update([
                 'status' => $request['status'],
                 'description' => $request['description'],
             ]);
 
             if (request()->hasFile('image')) {
-                $data_programme->clearMediaCollection('image');
-                $data_programme->addMediaFromRequest('image')->toMediaCollection('image');
+                $programme->clearMediaCollection('image');
+                $programme->addMediaFromRequest('image')->toMediaCollection('image');
             }
+
+             // Associer les images TinyMCE au modèle enregistré
+            Media::where('custom_properties->draft_token', $request->draft_token)
+                ->where('model_type', Programme::class)
+                ->where('model_id', 0)
+                ->get()
+                ->each(function ($media) use ($programme) {
+                    $media->model_id = $programme->id;
+                    $media->save();
+                });
+
 
             Alert::success('Opération réussi', 'Success Message');
             return back();
