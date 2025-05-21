@@ -117,7 +117,17 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('chantier.*') ? 'active' : '' }} "
                             href="{{ route('chantier.index') }}">
-                            <i class="ri-dashboard-2-line"></i> <span>Chantiers</span>
+                            <i class="ri-building-4-fill"></i> <span>Chantiers</span>
+                        </a>
+                    </li>
+                @endcan
+
+
+                 @can('voir-actualite')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('actualite.*') ? 'active' : '' }} "
+                            href="{{ route('actualite.index') }}">
+                            <i class="ri-news-fill"></i> <span>Actualites</span>
                         </a>
                     </li>
                 @endcan

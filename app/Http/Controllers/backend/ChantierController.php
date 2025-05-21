@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class chantierController extends Controller
+class ChantierController extends Controller
 {
 
     public function index()

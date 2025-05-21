@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('programmes', function (Blueprint $table) {
             $table->id();
-             $table->text('description')->nullable(); // mot en texte
+             $table->longText('description')->nullable(); // mot en texte
             $table->enum('status', ['active', 'desactive'])->nullable();
             $table->timestamps();
         });     

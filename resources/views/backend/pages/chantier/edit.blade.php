@@ -38,7 +38,7 @@
                         <div class="col-md-4">
                             <label for="validationCustom01" class="form-label">Image </label>
                             <input type="file" name="image" class="form-control" id="validationCustom01"
-                                accept="*">
+                                accept="image/*" >
                             <div class="valid-feedback">
                                 Looks good!
                             </div>

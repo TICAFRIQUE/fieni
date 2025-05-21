@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\EquipeController;
 use App\Http\Controllers\backend\ModuleController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\ChantierController;
+use App\Http\Controllers\backend\ActualiteController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ParametreController;
 use App\Http\Controllers\backend\ProgrammeController;
@@ -139,6 +140,19 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('edit{id}', 'edit')->name('chantier.edit');
         route::post('update/{id}', 'update')->name('chantier.update');
         route::get('delete/{id}', 'delete')->name('chantier.delete');
+    });
+
+
+
+    // actualite
+    Route::prefix('actualite')->controller(ActualiteController::class)->group(function () {
+        route::get('', 'index')->name('actualite.index');
+        route::get('create', 'create')->name('actualite.create');
+        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('actualite.upload-tinymce'); // upload image tinymce
+        route::post('store', 'store')->name('actualite.store');
+        route::get('edit{id}', 'edit')->name('actualite.edit');
+        route::post('update/{id}', 'update')->name('actualite.update');
+        route::get('delete/{id}', 'delete')->name('actualite.delete');
     });
 
 

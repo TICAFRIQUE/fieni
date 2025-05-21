@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chantiers', function (Blueprint $table) {
+        Schema::create('actualites', function (Blueprint $table) {
             $table->id();
             $table->string('titre')->nullable();
-            $table->longText('description')->nullable(); // mot en texte
-            $table->enum('status', ['active', 'desactive'])->nullable();
+            $table->string('slug')->nullable();
+            $table->longText('description')->nullable();
+            $table->enum('status', ['active', 'desactive'])->default('active');
+            $table->enum('vedette', ['oui', 'non'])->default('non');
+            $table->dateTime('date_publication')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chantiers');
+        Schema::dropIfExists('actualites');
     }
 };
