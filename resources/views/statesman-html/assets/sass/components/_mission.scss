@@ -1,0 +1,154 @@
+.missionv2 {
+  &__item {
+    box-shadow: 2px 0px 15px 2px $color-shadow;
+    padding: 20px;
+    border-radius: 5px;
+    &__image {
+      position: relative;
+      margin-bottom: 20px;
+      img {
+        border-radius: 5px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        background-color: $color-dark;
+      }
+    }
+    &__video {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      .play-btn-box {
+        width: 140px;
+        height: 140px;
+        i {
+          font-size: 16px;
+        }
+      }
+      
+      .play-btn-line1 {
+        width: 110px;
+        height: 110px;
+      }
+      
+      .play-btn-line2 {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .play-button {
+        width: 60px;
+        height: 60px;
+      }
+      @include respond(desktop) {
+        .play-btn-box {
+          width: 100px;
+          height: 100px;
+          i {
+            font-size: 16px;
+          }
+        }
+        
+        .play-btn-line1 {
+          width: 80px;
+          height: 80px;
+        }
+        
+        .play-btn-line2 {
+          width: 60px;
+          height: 60px;
+        }
+        
+        .play-button {
+          width: 40px;
+          height: 40px;
+        
+        }
+      }
+      @include respond(tablet) {
+        .play-btn-box {
+          width: 140px;
+          height: 140px;
+          i {
+            font-size: 16px;
+          }
+        }
+        
+        .play-btn-line1 {
+          width: 110px;
+          height: 110px;
+        }
+        
+        .play-btn-line2 {
+          width: 80px;
+          height: 80px;
+        }
+        
+        .play-button {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+    &__title {
+      margin-bottom: 20px;
+      a:hover {
+        color: $color-primary;
+      }
+    }
+    &__desc {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Mission version 01
+.missionv3 {
+  background: $section-bg-dark;
+  &__item {
+    background: $color-light;
+    padding: 15px;
+    @include respond(desktop) {
+      padding: 20px;
+    }
+    h3 {
+      color: $color-primary;
+    }
+    &__icon {
+      font-size: 45px;
+      color: $color-gray;
+    }
+  }
+}
+
+// DARK VERSION 
+.theme-dark {
+  .missionv2{
+    background: $color-dark;
+    &__item {
+      background: $color-secondary;
+
+      &__title{
+        a {
+          color: $color-light;
+          &:hover{
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+  .missionv3 {
+    &__item {
+      background-color: $color-dark;
+      color: $color-light;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+// Team version 01
+.team {
+    background-image: url(../images/portfolio/team-member-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position: center center;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.9;
+        width: 100%;
+        height: 100%;
+        background-color: $color-dark;
+    }
+    &__area {
+        z-index: 1;
+        position: relative;
+    }
+    &__member {
+        position: relative;
+        transition: all 2s;
+        &__content {
+            position: absolute;
+            bottom: 0;
+            padding: 20px;
+            width: 100%;
+            background-color: $color-secondary;
+            color: $color-light;
+            text-align: center;
+            h3 {
+                color: $color-light;
+                margin-bottom: 10px;
+            }
+            p {
+                margin-bottom: 0;
+            }
+            .social-icon {
+                justify-content: center;
+                margin-top: 0;
+                margin-bottom: 20px;
+                transition: all 2s;
+            }
+        }
+        &__image {
+            transition: all 2s;
+            .social-icon {
+                position: absolute;
+                bottom: 50px;
+                transition: all .5s;
+            }
+        }
+        &:hover {
+            .team__member__image {
+                .social-icon {
+                    bottom: 130px;
+                }
+            }
+        }
+    }
+}
+// Team version 02
+.member02 {
+    .btn-next,
+    .btn-prev {
+        &::after {
+        font-size: 20px;
+        font-weight: bold;
+        background-color: $color-secondary;
+        padding: 10px 15px;
+        border-radius: 50%;
+        color: $color-light;
+        transition: all 0.3s;
+        }
+        &:hover {
+        &::after {
+            background-color: $color-primary;
+        }
+        }
+    }
+    .btn-next {
+        right: 30px;
+        @include respond(mini) {
+            right: 15px;
+        }
+    }
+    .btn-prev {
+        left: 30px;
+        @include respond(mini) {
+            left: 15px;
+        }
+    }
+}
+
+// DARK VERSION
+.theme-dark {
+    .member02 {
+        background-color: $color-dark;
+    }
+}

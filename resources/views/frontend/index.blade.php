@@ -1,18 +1,43 @@
-@extends('frontend.pages.layouts.app')
+@extends('frontend.layouts.app')
+@section('title', 'Accueil')
 
-{{-- @include('frontend.pages.sections.slide') --}}
 
 @section('content')
-@include('frontend.pages.sections.slide')
+  <!-- ========== Header start ========== -->
+@include('frontend.sections.sect_menu')
+<!-- ========== Header end ========== -->
 
-@include('frontend.pages.sections.presentation')
+<!-- ========== Hero section start ========== -->
+@include('frontend.sections.sect_slide')
+<!-- ========== Hero section end ========== -->
+<!-- ========== About section start========== -->
+@include('frontend.sections.sect_biographie')
+<!-- ========== About section end ========== -->
+<!-- ========== Countdown start ========== -->
+@include('frontend.sections.sect_election_time')
+<!-- ========== Countdown end ========== -->
+<!-- ========== Mission start ========== -->
+@include('frontend.sections.sect_programme')
+<!-- ========== Mission end ========== -->
+<!-- ========== Donation start ========== -->
+@include('frontend.sections.sect_don')
+<!-- ========== Donation end ========== -->
+<!-- ========== Event start ========== -->
+@include('frontend.sections.sect_agenda')
+<!-- ========== Event end ========== -->
+<!-- ========== fun fact section start ========== -->
+@include('frontend.sections.sect_statistique')t
+<!-- ========== fun fact section end ========== -->
+<!-- ========== Testimonial start ========== -->
+@include('frontend.sections.sect_temoignage')
+<!-- ========== Testimonial end ========== -->
 
-@include('frontend.pages.sections.service')
+<!-- ========== Blog section start ========== -->
+@include('frontend.sections.sect_actualite')
+<!-- ========== Blog section end ========== -->
+<!-- ========== Contact section start ========== -->
+@include('frontend.sections.sect_contact')
+<!-- ========== Contact section end ========== -->
 
-@include('frontend.pages.sections.realisation')
-
-@include('frontend.pages.sections.reference')
-
-@include('frontend.pages.sections.equipe')
-    
+  
 @endsection

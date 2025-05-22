@@ -1,0 +1,22 @@
+.not-found {
+  padding: 150px 0;
+  h1 {
+    font-size: 150px;
+    color: $color-primary;
+  }
+  h3 {
+    font-size: 65px;
+  }
+  p {
+    font-size: 22px;
+  }
+  @include respond(tablet) {
+    padding: 100px 0;
+  }
+}
+
+.theme-dark {
+  .not-found {
+    background-color: $color-dark;
+  }
+}

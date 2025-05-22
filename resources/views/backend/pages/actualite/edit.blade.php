@@ -77,7 +77,7 @@
                                     <input type="hidden" name="draft_token" value="{{ $draft_token }}">
                                     <!-- ========== End recuperer le token draft_token ========== -->
                                     <label for="validationCustom01" class="form-label">Description</label>
-                                    <textarea name="description" class="tinymce-editor" required> 
+                                    <textarea name="description" class="tinymce-editor"> 
                                         {!! $data_actualite['description'] !!}
                                     </textarea><!-- End TinyMCE Editor -->
                                     <div class="valid-feedback">
@@ -139,7 +139,7 @@
                                         class="img-fluid mb-2" style="width: 100%; height: 200px; object-fit: cover;">
 
                                     <input type="file" name="image_une" class="form-control" id="imageInputUne"
-                                        accept="image/*" required>
+                                        accept="image/*">
                                     <small class="text-danger" id="sizeError" style="display: none;">L'image ne doit pas
                                         dépasser 1
                                         Mo.</small>
@@ -194,7 +194,6 @@
         /**
          * Initiate TinyMCE Editor
          */
-
         var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         tinymce.init({
@@ -232,8 +231,8 @@
             }
         });
 
-
-        // Vérification de la taille de l'image avant l'envoi en jQuery
+        // IMAGE A LA UNE
+        // Vérification de la taille de l'image en une avant l'envoi en jQuery
         $('#imageInputUne').on('change', function() {
             var file = this.files[0];
             var maxSize = 1 * 1024 * 1024; // 1 Mo en octets
@@ -246,31 +245,32 @@
             }
         });
 
+        //IMAGES DE LA GALERIE
 
+        let addedImages = []; // tableau pour stocker les images ajoutées
 
-        // recuperer les images de la galerie depuis la base de données
-        // et les afficher dans le tableau
+        // recuperer les images de la galerie dejà enregistré depuis la base de données et les afficher dans le tableau
         const imageGallery = @json($galerie);
-
         const imageTableBody = document.getElementById('imageTableBody');
+
         imageGallery.forEach(image => {
+            const base64Image = `data:image/jpeg;base64,${image}`;
+            addedImages.push(base64Image);
+
             const imageElement = `
         <div class="col-12 col-md-6">
             <div class="image-wrapper border border-secondary rounded">
-                <img src="data:image/jpeg;base64,${image}"  alt="galerieImage">
-                <button type="button" class="remove-image">&times;</button>            
+                <img src="${base64Image}" alt="galerieImage">
+                <button type="button" class="remove-image">&times;</button>
             </div>
         </div>
     `;
-            imageTableBody.insertAdjacentHTML('beforeend', imageElement);
+            $('#imageTableBody').append(imageElement);
         });
 
 
 
-
-        /// Ajout de l'image dans la galerie
-        let addedImages = [];
-
+        // Ajouter plus d'image dans la galerie
         function showAlert(message, type = 'danger') {
             const alert = `
             <div class="alert alert-${type} alert-dismissible fade show" role="alert">
@@ -328,6 +328,56 @@
             addedImages = addedImages.filter(img => img !== src);
             $(this).closest('.col-12').remove();
         });
+
+
+
+        // Envoi du formulaire
+        $('#actualiteForm').on('submit', function(e) {
+            e.preventDefault();
+            //Mettre à jour le textarea avec le contenu de TinyMCE
+            tinymce.triggerSave();
+
+
+            const formData = new FormData(this);
+            addedImages.forEach((image, index) => {
+                formData.append(`galerie[]`, image);
+            });
+            //recuperer id de l'actualite
+            const actualiteId = @json($id);
+
+            $.ajax({
+                url: "/admin/actualite/update/" + actualiteId,
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+
+                    if (response.success === true) {
+                        $('#imageTableBody').empty(); // Effacer le contenu de la galerie
+                        Swal.fire({
+                            title: 'Good job!',
+                            text: 'You clicked the button!',
+                            icon: 'success',
+                            showCancelButton: true,
+                            customClass: {
+                                confirmButton: 'btn btn-primary w-xs me-2 mt-2',
+                                cancelButton: 'btn btn-danger w-xs mt-2',
+                            },
+                            buttonsStyling: false,
+                            showCloseButton: true
+                        })
+
+                        window.location.href = "{{ route('actualite.index') }}";
+                        // location.reload()
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Gérer les erreurs
+                    console.error(error);
+                }
+            });
+        })
     </script>
 @endsection
 @endsection

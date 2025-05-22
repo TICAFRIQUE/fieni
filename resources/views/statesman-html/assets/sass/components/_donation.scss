@@ -1,0 +1,107 @@
+
+.donation {
+  color: $color-light;
+  p {
+    margin-bottom: 0;
+  }
+  &__wrapper {
+    background-image: url(../images/donation.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px;
+    position: relative;
+    background-position: center center;
+    ::placeholder {
+      color: $color-light;
+    }
+    @include respond(phone) {
+      padding: 15px;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+      width: 100%;
+      height: 100%;
+      background-color: $color-dark;
+    }
+    &__content {
+      position: relative;
+      z-index: 1;
+    }
+    &__title {
+      color: $color-light;
+    }
+    form {
+      margin-bottom: 20px;
+      input {
+        width: 100%;
+        padding: 20px;
+        border: 1px solid $color-light;
+        background-color: transparent;
+        color: $color-light;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    &__amount {
+      margin-bottom: 20px;
+      &__item {
+        border: 1px solid $color-light;
+        text-align: center;
+        padding: 20px;
+        cursor: pointer;
+        @include respond(mini) {
+          padding: 10px;
+        }
+        p {
+          margin-bottom: 0;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  &__subscribe {
+    &__title {
+      color: $color-dark;
+    }
+    form {
+      input {
+        border: 0;
+        border-radius: 5px;
+        box-shadow: 2px 0px 15px 5px $color-shadow;
+        padding: 15px 15px;
+        margin-bottom: 20px;
+        &:focus {
+          outline: none;
+          box-shadow: 2px 0px 15px 5px $color-shadow;
+        }
+      }
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+.success-msg,
+.error-msg {
+  font-size: 15px;
+  text-align: center;
+  padding: 10px;
+  display: none;
+  margin: 0px !important;
+}
+.error-msg {
+  color: $color-danger !important;
+}
+.success-msg {
+  color: $color-success;
+}
+.section-bg-dark {
+  .donation__subscribe__title {
+    color: $color-light;
+  }
+}

@@ -1,0 +1,60 @@
+.counters {
+  &__stats {
+    &__number {
+      color: $color-light;
+      font-size: 40px;
+
+      .odometer{
+        font-weight: bold;
+      }
+h6{
+    color: $color-light;
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+    }
+
+    &__icon {
+      font-size: 60px;
+      line-height: 0px;
+    }
+  }
+}
+.countersv2 {
+  &__stats {
+    &__number {
+      background-color: $section-bg-light;
+      padding: 20px;
+      font-size: 40px;
+      border-radius: 5px;
+      .odometer{
+        font-weight: bold;
+      }
+      h6{
+        margin-bottom: 0px;
+        font-weight: 500;
+      }
+    }
+    &__icon {
+      font-size: 60px;
+      line-height: 0px;
+    }
+  }
+}
+
+// DARK VERSION
+.theme-dark {
+  .countersv2 {
+    background-color: $color-dark;
+    color: $color-light;
+    &__stats {
+      &__number {
+        background-color: $section-bg-dark;
+        color: $color-light;
+        h6 {
+          color: $color-light;
+        }
+      }
+    }
+  }
+}

@@ -67,7 +67,7 @@ class ActualiteController extends Controller
             $request->validate([
                 'status' => 'required|string',
                 'titre' => 'required|string',
-                'description' => 'required',
+                'description' => '',
                 'draft_token' => 'required|string',
                 'image_une' => 'required|image|max:1024',
 
@@ -176,16 +176,55 @@ class ActualiteController extends Controller
 
         try {
             //request validation ......
+            // dd($request->all());
+
+            $request->validate([
+                'status' => 'required|string',
+                'titre' => 'required|string',
+                'description' => '',
+                'draft_token' => 'required|string',
+                'image_une' => 'image|max:1024',
+
+            ]);
 
             $actualite = tap(Actualite::find($id))->update([
                 'titre' => $request['titre'],
                 'status' => $request['status'],
                 'description' => $request['description'],
+                'vedette' => $request['vedette'],
+                'status' => $request['status'],
+                'date_publication' => $request['date_publication'],
             ]);
 
-            if (request()->hasFile('image')) {
+
+            // image a la une
+            if (request()->hasFile('image_une')) {
                 $actualite->clearMediaCollection('image');
-                $actualite->addMediaFromRequest('image')->toMediaCollection('image');
+                $actualite->addMediaFromRequest('image_une')->toMediaCollection('image');
+            }
+
+
+
+            // gallery d'images 1 ou plusieurs
+            if (request()->filled('galerie')) {
+                $actualite->clearMediaCollection('galerie');
+
+                foreach ($request->input('galerie') as $fileData) {
+                    // Décoder l'image base64
+                    $fileData = explode(',', $fileData);
+                    $fileExtension = explode('/', explode(';', $fileData[0])[0])[1];
+                    $decodedFile = base64_decode($fileData[1]);
+
+                    // Créer un fichier temporaire
+                    $tempFilePath = sys_get_temp_dir() . '/' . uniqid() . '.' . $fileExtension;
+                    file_put_contents($tempFilePath, $decodedFile);
+
+                    // Ajouter l'image à la collection de médias
+                    $media = $actualite->addMedia($tempFilePath)->toMediaCollection('galerie');
+
+                    // Optimiser l'image après l'ajout
+                    \Spatie\ImageOptimizer\OptimizerChainFactory::create()->optimize($media->getPath());
+                }
             }
 
 
@@ -199,10 +238,18 @@ class ActualiteController extends Controller
                     $media->save();
                 });
 
-            Alert::success('Opération réussi', 'Success Message');
-            return back();
+            // Réponse en cas de succès
+            return response()->json([
+                'success' => true,
+                'message' => 'Actualité modifié avec succès',
+                'data' => $actualite->with('media')->first()
+            ], 201);
         } catch (\Throwable $th) {
-            return $th->getMessage();
+            // Réponse en cas d'erreur
+            return response()->json([
+                'success' => false,
+                'message' => 'Erreur lors de la modification de l\'actualité : ' . $th->getMessage(),
+            ], 500);
         }
     }
 

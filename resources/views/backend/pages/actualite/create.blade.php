@@ -75,7 +75,7 @@
                                     <input type="hidden" name="draft_token" value="{{ $draft_token }}">
                                     <!-- ========== End recuperer le token draft_token ========== -->
                                     <label for="validationCustom01" class="form-label">Description</label>
-                                    <textarea name="description" class="tinymce-editor" required> </textarea><!-- End TinyMCE Editor -->
+                                    <textarea name="description" class="tinymce-editor" > </textarea><!-- End TinyMCE Editor -->
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -350,7 +350,7 @@
                             showCloseButton: true
                         })
 
-                        // window.location.href = "{{ route('actualite.index') }}";
+                        window.location.href = "{{ route('actualite.index') }}";
                         // location.reload()
                     }
                 },

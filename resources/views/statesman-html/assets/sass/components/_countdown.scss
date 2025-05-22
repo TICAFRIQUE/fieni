@@ -1,0 +1,65 @@
+.countdown {
+  background-image: url(../images/countdown.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: center center;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    background-color: $color-dark;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    color: $color-light;
+
+    ul {
+      padding: 0;
+      display: flex;
+      gap: 2%;
+      align-items: center;
+      justify-content: center;
+      @include respond(tablet) {
+        flex-wrap: wrap;
+      }
+      li {
+        list-style: none;
+        margin: 0;
+        width: 130px;
+        height: 130px;
+        border: 1px solid $color-light;
+        display: inline-block;
+        text-align: center;
+        border-radius: 5px;
+        position: relative;
+        margin-bottom: 10px;
+
+        @include respond(tablet) {
+          width: 48%;
+        }
+        span {
+          font-size: 40px;
+          display: block;
+          padding-top: 12px;
+        }
+
+        p {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          margin-bottom: 0;
+          padding: 8px;
+          color: $color-dark;
+          background-color: $section-bg-light;
+        }
+      }
+    }
+  }
+}

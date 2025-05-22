@@ -1,0 +1,209 @@
+.blog-details {
+  &__content {
+    &__publish-time {
+      ul {
+        display: flex;
+        align-content: center;
+        padding-left: 0;
+        padding: 30px 0 30px 0;
+        li {
+          &:not(:last-child) {
+            padding-right: 20px;
+          }
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          i {
+            font-size: 20px;
+            color: $color-primary;
+          }
+        }
+      }
+    }
+    &__title {
+      margin-bottom: 10px;
+    }
+    .para {
+      margin-bottom: 15px;
+    }
+    blockquote {
+      background-color: $color-shadow;
+      color: $color-dark;
+      font-style: italic;
+      padding: 10px 30px;
+      margin-bottom: 28px;
+      border-left: 5px solid $color-primary;
+      p {
+        margin-bottom: 0;
+      }
+    }
+    .blog-tag {
+      padding-top: 35px;
+      margin-bottom: 35px;
+      .social-icon {
+        margin-top: 0;
+      }
+      h4 {
+        margin-bottom: 0;
+        margin-right: 20px;
+      }
+      .tag-list {
+        gap: 10px;
+        li {
+          padding: 6px 20px;
+          border: 1px solid $color-border;
+          a:hover {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+    .comment {
+      &__title {
+        border-bottom: 1px solid $color-border;
+      }
+      &__wrapper {
+        padding-top: 50px;
+      }
+      &__image {
+        margin-right: 25px;
+        @include respond(laptop) {
+          margin-right: 20px;
+        }
+        @include respond(tablet) {
+          margin-right: 10px;
+        }
+        @include respond(tablet) {
+          margin-right: 10px;
+        }
+        img {
+          width: 200px;
+          height: 110px;
+          object-fit: cover;
+          @include respond(laptop) {
+            width: 280px;
+            height: 100px;
+            object-fit: cover;
+          }
+          @include respond(tablet) {
+            width: 300px;
+            object-fit: cover;
+          }
+        }
+      }
+      &__content {
+        &__top-area {
+          margin-bottom: 15px;
+        }
+        &__reply {
+          a {
+            border: 1px solid $color-primary;
+            padding: 6px 30px;
+            color: $color-primary;
+            font-weight: 500;
+            i {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      &__form {
+        padding-top: 60px;
+        &__inner {
+          display: flex;
+          flex-direction: column;
+          label {
+            font-weight: 500;
+            margin-bottom: 10px;
+          }
+          input {
+            margin-bottom: 25px;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid $color-border;
+            &:focus {
+              border: 1px solid $color-border;
+              outline: none;
+            }
+          }
+          textarea {
+            margin-bottom: 25px;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid $color-border;
+            &:focus {
+              border: 1px solid $color-border;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// DARK VERSION
+.theme-dark {
+  .blog-details {
+    background: $color-dark;
+    &__content {
+      blockquote {
+        color: $color-light;
+      }
+      .blog-tag {
+        .tag-list {
+          li {
+            border-color: $color-gray;
+          }
+          a {
+            color: $color-light;
+            &:hover {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+      &__publish-time {
+        ul {
+          li {
+            color: $color-light;
+          }
+        }
+      }
+      .comment {
+        &__title {
+          border-color: $color-gray;
+        }
+        &__form {
+          &__inner {
+            label {
+              color: $color-light;
+            }
+            input, textarea {
+              background-color: $section-bg-dark;
+              color: $color-light;
+              border-color: $color-gray;
+            }
+          }
+        }
+      }
+    }
+  }
+  .post-content {
+    color: $color-light;
+    a {
+      color: $color-light;
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  .category-list {
+    a {
+      color: $color-light;
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,276 @@
+
+// ABOUT 2
+.about-v2 {
+  &__image {
+    position: relative;
+    &__box {
+      width: 210px;
+      height: 190px;
+      position: absolute;
+      object-fit: cover;
+      right: -15%;
+      top: 15%;
+
+      @include respond(desktop){
+        top: -3%
+      }
+      @include respond(laptop){
+        right: 0;
+        top: 13%;
+      }
+      @include respond(phone){
+        width: 200px;
+        height: 180px;
+        object-fit: cover;
+        top: 8%;
+      }
+      @include respond(mini){
+        width: 160px;
+        height: 180px;
+        top: 0;
+      }
+
+      .image__box__content {
+        overflow: hidden;
+        position: relative;
+        height: inherit;
+        padding: 22px;
+        z-index: 1;
+        color: $color-light;
+
+        @include respond(mini){
+         padding: 22px;
+        }
+
+        &::before {
+          content: "";
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          right: 0;
+          bottom: 21px;
+          transform: skewY(9deg);
+          background: $color-primary;
+        }
+
+        span {
+          font-size: 60px;
+
+          @include respond(mini){
+           font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+  &__tab-btn {
+    ul {
+      display: flex;
+      padding: 0px;
+      border: 1px solid $color-border;
+      border-radius: 5px;
+      @include respond(mini) {
+        display: block;
+      }
+      li {
+        width: 33.33%;
+        text-align: center;
+        border-radius: 5px;
+
+        &.active {
+          background-color: $color-primary;
+          a {
+            color: $color-light;
+          }
+        }
+
+        a {
+          display: inherit;
+          padding: 10px 0px;
+          color: $color-dark;
+          @include respond(mini) {
+            padding: 5px 0;
+          }
+        }
+
+        p {
+          margin-bottom: 0px;
+        }
+        @include respond(mini) {
+          width: 100%;
+          &:not(:last-child) {
+            border-bottom: 1px solid $color-border;
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    &__details {
+      padding-top: 20px;
+      li {
+        margin-bottom: 20px;
+        p {
+          margin-bottom: 0px;
+          color: $color-gray;
+        }
+      }
+    }
+  }
+}
+
+[dir='rtl'] {
+  .about-v2__image__box {
+    left: -15%;
+      @include respond(laptop){
+        left: 0;
+      }
+  }
+}
+
+// DARK VERSION 
+.theme-dark {
+  .about-v2 {
+    background-color: $color-dark;
+    color: $color-light;
+    .about-v2__tab-btn ul li p {
+      color: $color-light;
+    }
+  }
+}
+
+// Index 02 about section
+.aboutv2 {
+  &__image {
+    padding: 0 30px;
+    border-right: 5px solid transform;
+    border-left: 5px solid transform;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0px;
+      height: 40%;
+      width: 5px;
+      border-radius: 5px;
+      background-color: $color-primary;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0px;
+      height: 40%;
+      width: 5px;
+      border-radius: 5px;
+      background-color: $color-primary; 
+    }
+    &__admin {
+      height: 500px;
+      object-fit: cover;
+      @include respond(desktop) {
+        height: 580px;
+      }
+      @include respond(tablet) {
+        height: auto;
+      }
+      
+    }
+    &__shape {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      z-index: -1;
+    }
+    &__exp {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 10px 20px 13px 20px;
+      background-color: $color-primary;
+      color: $color-light;
+      p {
+        margin-bottom: 0;
+      }
+      h3 {
+        font-size: 45px;
+        color: $color-light;
+      }
+    }
+  }
+  &__content {
+    ul {
+      li {
+        margin-bottom: 7px;
+        i {
+          margin-right: 10px;
+          color: $color-primary;
+        }
+      }
+    }
+    .social-icon {
+      margin: 20px 0 25px 0;
+    }
+  }
+}
+
+// About section version 03
+.aboutv3 {
+  &__content {
+    ul {
+      li {
+        margin-bottom: 7px;
+        i {
+          margin-right: 10px;
+          color: $color-primary;
+        }
+      }
+    }
+    .social-icon {
+      margin: 20px 0 25px 0;
+    }
+  }
+  .btn-next,
+  .btn-prev {
+    &::after {
+      font-size: 20px;
+      font-weight: bold;
+      background-color: $color-light;
+      padding: 10px 15px;
+      border-radius: 50%;
+      color: $color-dark;
+      transition: all 0.3s;
+    }
+    &:hover {
+      &::after {
+        background-color: $color-primary;
+        color: $color-light;
+      }
+    }
+  }
+
+  .btn-next {
+    right: 30px;
+  }
+
+  .btn-prev {
+    left: 30px;
+  }
+}
+
+// DARK VERSION
+.theme-dark {
+  .aboutv2 {
+    background-color: $color-dark;
+    &__content ul li {
+      color: $color-light;
+    }
+  }
+  .aboutv3 {
+    background-color: $color-dark;
+    &__content ul li {
+      color: $color-light;
+    }
+  }
+}

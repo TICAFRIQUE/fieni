@@ -1,0 +1,587 @@
+.hero {
+  &__content {
+    color: $color-light;
+    z-index: 999;
+    h1 {
+      color: $color-light;
+    }
+    @include respond(laptop) {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+  }
+  &__image {
+    position: relative;
+    min-height: 750px;
+    transition: all 2s;
+    z-index: 999;
+    @include respond(desktop) {
+      min-height: 700px;
+    }
+    @include respond(laptop) {
+      min-height: 600px;
+    }
+    @include respond(tablet) {
+      min-height: 500px;
+    }
+    .back-shape {
+      background: $color-primary;
+      width: 100%;
+      height: 600px;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      position: absolute;
+      bottom: 0;
+    
+      @include respond(desktop) {
+        height: 500px;
+      }
+      @include respond(mini) {
+        height: 450px;
+      }
+    }
+    .front-img {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      @include respond(laptop) {
+        max-height: 100%;
+        left: 15%;
+      }
+      @media screen and (max-width: 450px){
+        left: 5%;
+      }
+      @include respond(mini) {
+        left: 0;
+      }
+    }
+  }
+  // Swiper pagination
+  .swiper-pagination {
+    bottom: 20px;
+    text-align: left;
+
+    &-bullet {
+      width: var(
+        --swiper-pagination-bullet-width,
+        var(--swiper-pagination-bullet-size, 5px)
+      );
+      height: var(
+        --swiper-pagination-bullet-height,
+        var(--swiper-pagination-bullet-size, 5px)
+      );
+      background: $color-light;
+      opacity: 1;
+    }
+    @include respond(laptop) {
+      display: none;
+    }
+  }
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 6px);
+    width: 22px;
+    height: 8px;
+    border-radius: 2px;
+  }
+  span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    position: relative;
+    background: $color-primary;
+  }
+
+  // Hero content and image animation
+  .swiper-wrapper .swiper-slide-active {
+    .hero__content {
+      .badge-text {
+        animation: slideContent 0.4s linear 0.5s backwards;
+      }
+      h1 {
+        animation: slideContent 0.5s linear 0.6s backwards;
+      }
+      p {
+        animation: slideContent 0.7s linear 0.7s backwards;
+      }
+      a {
+        animation: slideContent 0.8s linear 0.8s backwards;
+      }
+    }
+    .hero__image .back-shape {
+      animation: slideImage 0.5s linear 0.5s backwards;
+    }
+    .hero__image .front-img {
+      animation: slideImage 1s linear 1s backwards;
+    }
+  }
+
+  .swiper-slide {
+    padding-top: 130px;
+    transition: all 2s ease;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: inOut 9s infinite alternate;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      z-index: -1;
+      background-color: #282f31b2;
+    }
+    @include respond(big-desktop) {
+      padding-top: 20px;
+    }
+    @include respond(laptop) {
+      padding-top: 130px;
+    }
+  }
+  .btn-next {
+    right: 30px;
+    @include respond(mini) {
+      right: 15px;
+    }
+  }
+
+  .btn-prev {
+    left: 30px;
+    @include respond(mini) {
+      left: 15px;
+    }
+  }
+}
+
+// index-2
+.hero-2 {
+  &__wrapper {
+    padding: 210px 0px 120px 0px;
+    transition: all 2s ease;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: inOut 9s infinite alternate;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.7;
+      width: 100%;
+      height: 100%;
+      background-color: $color-dark;
+    }
+
+    @include respond(laptop){
+      padding: 190px 0px 100px 0px;
+    }
+    @include respond(tablet){
+      padding: 160px 0px 70px 0px;
+    }
+    @media only screen and (max-width: 450px) {
+      padding: 130px 0px 40px 0px;
+    } 
+  }
+  &__content {
+    color: $color-light;
+    z-index: 1;
+    h1 {
+      color: $color-light;
+    }
+    @include respond(laptop) {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    &__big-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: $section-bg-light;
+      border-radius: 5px;
+      color: $color-dark;
+      padding: 10px 20px;
+      @include respond(phone) {
+        display: block;
+      }
+
+      p {
+        margin: 0;
+      }
+      .sub-title {
+        color: $color-gray;
+      }
+
+      .video-btn {
+        .play-btn-box {
+          width: 100px;
+          height: 100px;
+          background: none;
+          i {
+            font-size: 16px;
+          }
+        }
+
+        .play-btn-line1 {
+          width: 80px;
+          height: 80px;
+        }
+
+        .play-btn-line2 {
+          width: 60px;
+          height: 60px;
+        }
+
+        .play-button {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+  &__image {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    .around-shape {
+      width: 480px;
+      display: flex;
+      height: 480px;
+      background: $color-light;
+      border-radius: 50%;
+      border: 7px solid $color-primary;
+      align-items: center;
+      justify-content: center;
+      @include respond(phone) {
+        width: 420px;
+        height: 420px;
+      }
+      @media screen and (max-width: 450px) {
+        width: 370px;
+        height: 370px;
+      }
+      @include respond(mini) {
+        width: 320px;
+        height: 320px;
+      }
+      @include respond(extraMini) {
+        width: 300px;
+        height: 300px;
+      }
+    }
+    .round-shape {
+      background: $color-primary;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      overflow: hidden;
+      @include respond(phone) {
+        width: 390px;
+        height: 390px;
+      }
+      @media screen and (max-width: 450px) {
+        width: 340px;
+        height: 340px;
+      }
+      @include respond(mini) {
+        width: 290px;
+        height: 290px;
+      }
+      @include respond(extraMini) {
+        width: 270px;
+        height: 270px;
+      }
+
+      .hero-img {
+        animation: slideImage .8s linear .3s backwards;
+      }
+    }
+    &-details {
+      &-1 {
+        position: absolute;
+        left: -30px;
+        top: -20px;
+        animation: slideContent 0.4s linear 0.6s backwards;
+        @include respond(laptop) {
+          left: -5px;
+          top: -5px;
+        }
+      }
+      &-2 {
+        position: absolute;
+        right: -30px;
+        bottom: -20px;
+        animation: slideContent2 0.5s linear 0.5s backwards;
+        @include respond(laptop) {
+          right: -5px;
+          bottom: -5px;
+        }
+        @include respond(phone) {
+          right: 5px;
+          bottom: 5px;
+        }
+      }
+    }
+    &-img__details-1 {
+      position: absolute;
+      left: 5px;
+      bottom: 36px;
+      animation: slideContent 0.5s linear 0.5s backwards;
+
+      @include respond(laptop) {
+        left: 70px;
+        bottom: 55px;
+      }
+      @include respond(tablet) {
+        left: 5px;
+        bottom: 36px;
+      }
+      @include respond(phone) {
+        left: 30px;
+        bottom: 36px;
+      }
+      @include respond(mini) {
+        left: 25px;
+        bottom: 15px;
+      }
+    }
+    &-img__details-2 {
+      position: absolute;
+      right: 10px;
+      top: 25px;
+      animation: slideContent2 0.5s linear 0.5s backwards;
+
+      @include respond(laptop) {
+        right: 100px;
+        top: 20px;
+      }
+      @include respond(tablet) {
+        right: 10px;
+        top: 25px;
+      }
+      @include respond(phone) {
+        right: 40px;
+        top: 25px;
+      }
+      @include respond(mini) {
+        right: 10px;
+        top: 20px;
+      }
+    }
+  }
+
+  [class*="hero-2__image-details"] {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    background-color: $color-light;
+    border-radius: 5px;
+
+    i {
+      font-size: 25px;
+      padding: 10px;
+      background: $color-primary;
+      margin-right: 15px;
+      border-radius: 5px;
+      color: $color-light;
+    }
+    @include respond(phone) {
+      padding: 10px;
+      i {
+        font-size: 20px;
+        padding: 8px;
+        margin-right: 10px;
+      }
+    }
+    @media screen and (max-width: 450px) {
+      i {
+        display: none;
+      }
+    }
+    @include respond(mini) {
+      padding: 5px;
+    }
+  }
+
+  [class*="hero-2__image-img__details"] {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 10px;
+    background: $color-light;
+    transition: all 0.5s;
+    &:hover {
+      background-color: $color-primary;
+    }
+    @media screen and (max-width: 450px) {
+      width: 70px;
+      height: 70px;
+      padding: 5px;
+    }
+
+    &.current {
+      background-color: $color-primary;
+    }
+  }
+  // Hero content and image animation
+
+  .hero-2__content {
+    .badge-text {
+      animation: slideContent 0.4s linear 0.5s backwards;
+    }
+    h1 {
+      animation: slideContent 0.5s linear 0.6s backwards;
+    }
+    p {
+      animation: slideContent 0.7s linear 0.7s backwards;
+    }
+    a {
+      animation: slideContent 0.8s linear 0.8s backwards;
+    }
+  }
+}
+
+//Dark version
+.theme-dark {
+  .badge-text {
+    color: $color-primary;
+  }
+  [class*="hero-2__image-details"] {
+    h5 {
+      color: $color-dark;
+    }
+    p {
+      color: $color-dark;
+    }
+  }
+  .hero-2__content__big-btn {
+    background-color: $section-bg-dark;
+  }
+}
+
+// Hero 03 version
+.hero-3 {
+  &__slide-wrapper {
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 80px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    @include respond(laptop) {
+      height: 650px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: $color-dark;
+      opacity: 0.8;
+      width: 100%;
+      height: 100%;
+      top: 0;
+    }
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      overflow: hidden;
+
+      &__content {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  &__content {
+    z-index: 2;
+    position: relative;
+    text-align: center;
+    h1 {
+      color: $color-light;
+    }
+    p {
+      color: $color-light;
+      &:first-child {
+        color: $color-primary;
+      }
+    }
+  }
+  &__image {
+    z-index: 1;
+    position: relative;
+  }
+  .swiper-wrapper .swiper-slide-active {
+    .hero-3__content {
+      .badge-text {
+        animation: slideContent 0.4s linear 0.5s backwards;
+      }
+      h1 {
+        animation: slideContent 0.5s linear 0.6s backwards;
+      }
+      p {
+        animation: slideContent 0.7s linear 0.7s backwards;
+      }
+      a {
+        animation: slideContent 0.8s linear 0.8s backwards;
+      }
+    }
+    .hero__image .back-shape {
+      animation: slideImage 0.5s linear 0.5s backwards;
+    }
+    .hero__image .front-img {
+      animation: slideImage 1s linear 1s backwards;
+    }
+  }
+  .btn-next {
+    right: 30px;
+    @include respond(mini) {
+      right: 40%;
+    }
+    @include respond(extraMini) {
+      right: 38%;
+    }
+  }
+
+  .btn-prev {
+    left: 30px;
+    @include respond(mini) {
+      left: 40%;
+    }
+    @include respond(extraMini) {
+      left: 38%;
+    }
+  }
+  @include respond(mini) {
+    .swiper-button-next, .swiper-button-prev {
+      top: auto;
+      bottom: 10px;
+    }
+  }
+}
+
+[class*="hero"] {
+  .btn-next,
+  .btn-prev {
+    &::after {
+      font-size: 20px;
+      font-weight: bold;
+      background-color: $color-secondary;
+      padding: 10px 15px;
+      border-radius: 50%;
+      color: $color-light;
+      transition: all 0.3s;
+    }
+    &:hover {
+      &::after {
+        background-color: $color-primary;
+      }
+    }
+  }
+}

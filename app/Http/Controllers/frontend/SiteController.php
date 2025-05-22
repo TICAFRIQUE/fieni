@@ -16,39 +16,45 @@ class SiteController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function index(Request $request)
-    {
-        try {
-            //1- recuperer les sliders 
-            $data_slide = Slide::active()->get();
+    // public function index(Request $request)
+    // {
+    //     try {
+    //         //1- recuperer les sliders 
+    //         $data_slide = Slide::active()->get();
 
-            //recuperer la presentation
-            $data_presentation = Presentation::active()->first();
+    //         //recuperer la presentation
+    //         $data_presentation = Presentation::active()->first();
 
-            //2-recuperer le mot directeur active
-            $data_mot_directeur = MotDirecteur::active()->first();
+    //         //2-recuperer le mot directeur active
+    //         $data_mot_directeur = MotDirecteur::active()->first();
 
-            //3- recuperer les services active
-            $data_service = Service::active()->get();
+    //         //3- recuperer les services active
+    //         $data_service = Service::active()->get();
 
-            //4-Recuperer les references actives
-            $data_reference = Reference::active()->get();
+    //         //4-Recuperer les references actives
+    //         $data_reference = Reference::active()->get();
 
-            //5-Recuperer les membres equipe actives
-            $data_equipe = Equipe::active()->get();
+    //         //5-Recuperer les membres equipe actives
+    //         $data_equipe = Equipe::active()->get();
 
-            return view('frontend.index', compact(
-                'data_slide',
-                'data_presentation',
-                'data_mot_directeur',
-                'data_service',
-                'data_reference',
-                'data_equipe'
+    //         return view('frontend.index', compact(
+    //             'data_slide',
+    //             'data_presentation',
+    //             'data_mot_directeur',
+    //             'data_service',
+    //             'data_reference',
+    //             'data_equipe'
 
-            ));
-        } catch (\Throwable $th) {
-            return $th->getMessage();
-        }
+    //         ));
+    //     } catch (\Throwable $th) {
+    //         return $th->getMessage();
+    //     }
+    // }
+
+
+
+    public function index(){
+        return view('frontend.index');
     }
 
 

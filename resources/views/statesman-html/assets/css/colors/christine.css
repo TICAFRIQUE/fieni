@@ -1,0 +1,149 @@
+:root {
+    --primary: #EF5B0C;
+    --secondary: #F5742F;
+    --colorDark: #843207;
+  }
+  
+  /* background color */
+  /* Primary */
+  ::selection,
+  .btn__primary,
+  .play-button,
+  .theme-dark .switch-box .slider,
+  .header .navbar .navbar-nav li a:hover:after,
+  .header .navbar .navbar-nav li.active a:after,
+  .theme-light .switch-box .slider,
+  [class*="hero"] .btn-next:hover::after,
+  [class*="hero"] .btn-prev:hover::after,
+  [class*="hero"] .btn-next:hover::after,
+  [class*="hero"] .btn-next:hover::after,
+  .hero span.swiper-pagination-bullet.swiper-pagination-bullet-active,
+  .about-v2__image__box .image__box__content::before,
+  .about-v2__tab-btn ul li.active,
+  .event__content__tag,
+  .testimonialv2 .testimonial__user__video a,
+  .testimonialv2 .testimonialv2__wrapper .swiper-button-next:hover::after,
+  .testimonialv2 .testimonialv2__wrapper .swiper-button-prev:hover::after,
+  .social-icon a,
+  .hero__image .back-shape,
+  .hero-2 [class*="hero-2__image-details"] i,
+  .hero-2__image .round-shape,
+  .hero-2 [class*="hero-2__image-img__details"].current,
+  .hero-2 [class*="hero-2__image-img__details"]:hover,
+  .aboutv2__image::before,
+  .aboutv2__image::after,
+  .aboutv2__image__exp,
+  .career__item__icon,
+  .blogv2__item__image__date,
+  .gallery .each-box .light-icon a:hover,
+  .aboutv3 .btn-next:hover::after,
+  .aboutv3 .btn-prev:hover::after,
+  .member02 .btn-next:hover::after,
+  .member02 .btn-prev:hover::after,
+  .contact__address ul li i,
+  .blog__pagination .page-link:hover,
+  .blog__sidebar__item .blog-category__title::after, .menu > .nav-item a::after {
+    background-color: var(--primary);
+  }
+  
+  /* Secondary */
+  [class*="hero"] .btn-next::after,
+  [class*="hero"] .btn-prev::after,
+  .btn__primary::before,
+  .btn__primary::after,
+  .btn__primary::before,
+  .btn__primary::before,
+  .event__content__tag:hover,
+  .testimonialv2 .testimonial__user__video a:hover {
+    background-color: var(--secondary);
+  }
+  
+  /* Color dark */
+  .testimonialv2 .testimonialv2__wrapper .swiper-button-next::after,
+  .testimonialv2 .testimonialv2__wrapper .swiper-button-prev::after,
+  .social-icon a:hover,
+  .theme-dark .testimonialv2 .testimonial__user__video a:hover,
+  .career__item:hover .career__item__icon,
+  .gallery-filter li .active,
+  .member02 .btn-next::after,
+  .member02 .btn-prev::after {
+    background-color: var(--colorDark);
+  }
+  
+  /* color primary */
+  /* Primary */
+  .badge-text,
+  .btn__link,
+  .header .navbar .navbar-brand__title,
+  .theme-dark .nav-item:hover span i,
+  .header .navbar .navbar-nav li a:hover,
+  .header .navbar .navbar-nav li.active a,
+  .header .navbar .navbar-nav li.active i,
+  .menu > .nav-item:hover .nav-link,
+  .menu > .nav-item.submenu .dropdown-menu .nav-item:hover > .nav-link,
+  .menu > .nav-item.submenu .dropdown-menu .nav-item:focus > .nav-link,
+  [class*="section__title"] p:first-child,
+  .missionv2__item__title a:hover,
+  .event #event-nav li:hover .event__item__content__title,
+  .event #event-nav li.active .event__item__content__title,
+  .event__item__content__text__time p i,
+  .event__content ul li i,
+  .testimonialv2 .testimonial__user__subtitle,
+  .blog__content h3 a:hover,
+  .blog__content p,
+  .form__label,
+  .color-primary,
+  .theme-dark .badge-text,
+  .theme-dark .missionv2__item__title a:hover,
+  .contact__content__icon,
+  .event__content h3 a:hover,
+  .footer__event__title a:hover,
+  .theme-dark .event__content h3 a:hover,
+  .aboutv2__content ul li i,
+  .blogv2__item__content ul li i,
+  .footer #instafeed a::after,
+  .blogv2__item__content h3 a:hover,
+  .hero-3__content p:first-child,
+  .aboutv3__content ul li i,
+  .missionv3__item h3,
+  .contact__address ul li a:hover,
+  .theme-dark .footer__event li a:hover,
+  .theme-dark .blogv2__item__content h3 a:hover,
+  .blog-title ul li a,
+  .blog__pagination .page-link,
+  .blog-details__content__publish-time ul li i,
+  .blog__sidebar__item .category-list li a:hover,
+  .theme-dark .blogv2__item__content ul li a:hover,
+  .blog__sidebar__item .category-list li a svg, .theme-dark .blog__sidebar__item .post-tag ul li a:hover, .blog-details__content blockquote .author h4, .blog-details__content .comment__content__reply a, .blog__sidebar__item .blog-category__area ul li .post-content a:hover {
+    color: var(--primary);
+  }
+  
+  /* Secondary */
+  .btn__link:hover {
+    color: var(--secondary);
+  }
+  /* Tertiary */
+  
+  /* border */
+  .testimonialv2 .testimonialv2__wrapper .testimonial__user,
+  .contact__content__successfully,
+  [class*="play-btn-line"],
+  .hero-2__image .around-shape,
+  .blog-details__content blockquote,
+  blockquote,
+  .gallery .each-box .light-icon a:hover, .blog-details__content .comment__content__reply a {
+    border-color: var(--primary);
+  }
+  /* Primary */
+  
+  /* Secondary */
+  
+  /* Tertiary */
+  
+  /* extra */
+  [class*="play-btn-line"] {
+    border-right-color: transparent;
+  }
+  .blog__sidebar__item .category-list li a:hover, .blog__sidebar__item .category-list li a svg {
+    fill: var(--primary);
+  }

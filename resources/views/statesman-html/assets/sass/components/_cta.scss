@@ -1,0 +1,96 @@
+// Video Cta version
+.video-cta {
+    background-image: url(../images/video-cta.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position: center center;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+      width: 100%;
+      height: 100%;
+      background-color: $color-dark;
+    }
+    &__content {
+        position: relative;
+        z-index: 1;
+    }
+    &__btn {
+            position: relative;
+            top: 50%;
+            @include respond(tablet) {
+              padding-top: 70px;
+            }
+    }
+}
+// Cta version 02
+.cta {
+  color: $color-light;
+  &__content {
+    text-align: center;
+    h3 {
+      color: $color-light;
+      font-size: 30px;
+      &:last-child {
+        font-size: 50px;
+      }
+
+      @include respond(phone) {
+        font-size: 25px;
+        &:last-child{
+          font-size: 35px;
+        }
+      }
+      @include respond(mini) {
+        font-size: 22px;
+        &:last-child{
+          font-size: 25px;
+        }
+      }
+    }
+  }
+  &__subscribe {
+    &__title {
+      color: $color-dark;
+    }
+    form {
+      input {
+        border: 0;
+        border-radius: 5px;
+        box-shadow: 2px 0px 15px 5px $color-shadow;
+        padding: 15px 15px;
+        margin-bottom: 20px;
+        &:focus {
+          outline: none;
+          box-shadow: 2px 0px 15px 5px $color-shadow;
+        }
+      }
+      button {
+        width: 100%;
+      }
+    }
+  }
+  .success-msg,
+.error-msg {
+  font-size: 15px;
+  text-align: center;
+  padding: 10px;
+  display: none;
+  margin: 0px !important;
+}
+.error-msg {
+  color: $color-danger !important;
+}
+.success-msg {
+  color: $color-success;
+}
+.section-bg-dark {
+  .donation__subscribe__title {
+    color: $color-light;
+  }
+}
+}

@@ -1,0 +1,237 @@
+.rtl {
+  .navbar-nav>li .sub-menu-toggle {
+    @include respond(laptop) {
+      left: 0;
+      right: auto;
+    }
+  }
+  .header .navbar .navbar-brand {
+    margin: 0;
+  }
+  .hero .swiper-button-next {
+    right: auto;
+    left: 30px;
+  }
+  .hero .swiper-button-prev {
+    right: 30px;
+    left: auto;
+  }
+  .section__title__left {
+    text-align: right;
+    @include respond(tablet){
+      text-align: center;
+    }
+  }
+  .countdown__content ul li {
+    margin-right: 0;
+    @include respond(phone) {
+      &:first-child {
+        margin-bottom: 10px;
+      }
+      &:nth-child(2) {
+          margin-bottom: 10px;
+      }
+    }
+    &:not(:first-child) {
+      margin-right: 20px;
+      @include respond(phone) {
+        margin-right: 0;
+      }
+    }
+    @include respond(phone) {
+        width: 48%;
+    }
+  }
+  .aboutv2__content ul li i {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+  .testimonialv2 .testimonialv2__wrapper .swiper-button-next {
+    right: 11%;
+    @include respond(desktop) {
+      right: 18%;
+    }
+    @include respond(laptop) {
+      right: 18%;
+    }
+    @include respond(tablet) {
+      right: 20%;
+    }
+    @include respond(mini) {
+      right: 28%;
+    }
+  }
+  .testimonialv2 .testimonialv2__wrapper .swiper-button-prev {
+    @include respond(laptop) {
+      right: 10%;
+    }
+    @include respond(tablet) {
+      right: 12%;
+    }
+    @include respond(mini) {
+      right: 13%;
+    }
+  }
+  .testimonialv2__image {
+    margin-left: 0;
+    margin-right: -90px;
+
+    @include respond(laptop) {
+      margin-right: 0;
+    }
+  }
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: 30px;
+  }
+  .social-icon {
+    a {
+      margin-right: 0;
+      &:not(:first-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+  .blog__content {
+    margin-right: 0;
+    margin-left: 15%;
+  }
+  .contact__content__successfully {
+    border-left: 0;
+    border-right: 2px solid $color-primary;
+  }
+  .contact__content__icon {
+    left: 30px;
+    right: auto;
+  }
+  .footer__title {
+    padding-right: 0;
+  }
+  .footer #instafeed a::after {
+    left: -40%;
+  }
+}
+
+// Blog Grid rtl
+.rtl {
+  .page-item:last-child .page-link {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .page-item:first-child .page-link {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+
+// Index 02 rtl version
+.rtl {
+  .hero-2 [class*="hero-2__image-details"] i {
+    margin-right: 0;
+    margin-left: 15px;
+  }
+  @include respond(desktop) {
+    .hero-2__image-details-2 {
+      right: -15px;
+    }
+  }
+  @include respond(tablet) {
+    .hero-2__image-details-2 {
+      right: 0px;
+    }
+  }
+  @include respond(laptop) {
+    .hero-2__image-details-1 {
+      left: 0;
+    }
+  }
+}
+
+// Index 03 rtl version
+.rtl {
+  .event__wrapper .tab-content img {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 5px;
+  }
+.hero-3 {
+  .btn-next {
+      right: auto;
+      left: 30px;
+  }
+  .btn-prev {
+    left: auto;
+    right: 30px;
+  }
+
+  .btn-next {
+    @include respond(mini) {
+      left: 40%;
+    }
+    @include respond(extraMini) {
+      left: 38%;
+    }
+  }
+
+  .btn-prev {
+    @include respond(mini) {
+      right: 40%;
+    }
+    @include respond(extraMini) {
+      right: 38%;
+    }
+  }
+
+}
+  .aboutv3 {
+    &__content ul li i {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+    .btn-next {
+      right: auto;
+      left: 30px;
+    }
+    .btn-prev {
+      left: auto;
+      right: 30px;
+    }
+  }
+  .member02 {
+    .btn-next {
+      right: auto;
+      left: 30px;
+    }
+    .btn-prev {
+      left: auto;
+      right: 30px;
+    }
+  }
+}
+
+// Details Left Sidebar rtl
+.rtl {
+    .blog__sidebar__item .blog-category {
+      &__area ul li .post-img {
+        margin-right: 0;
+        margin-left: 15px;
+      }
+      &__title::after {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .blog-details__content .comment__image {
+      margin-right: 0;
+      margin-left: 25px;
+    }
+    .blog-details__content .blog-tag h4 {
+      margin-right: 0;
+      margin-left: 15px;
+    }
+}

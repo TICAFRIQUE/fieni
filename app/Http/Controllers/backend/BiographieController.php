@@ -115,6 +115,16 @@ class BiographieController extends Controller
             $data_biographie->addMediaFromRequest('image')->toMediaCollection('image');
         }
 
+        // Associer les images TinyMCE au modèle enregistré
+        Media::where('custom_properties->draft_token', $request->draft_token)
+            ->where('model_type', Biographie::class)
+            ->where('model_id', 0)
+            ->get()
+            ->each(function ($media) use ($data_biographie) {
+                $media->model_id = $data_biographie->id;
+                $media->save();
+            });
+
         Alert::success('Opération réussi', 'Success Message');
         return back();
     }
