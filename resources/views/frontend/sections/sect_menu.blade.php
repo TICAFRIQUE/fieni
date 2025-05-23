@@ -72,17 +72,21 @@
                  <!-- Réseaux sociaux à gauche -->
                  <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start mb-2 mb-md-0">
                      <div class="social-icons d-flex gap-3">
-                         <a href="{{$parametre->lien_facebook ?? ''}}" class="text-dark"><i class="icofont-facebook"></i></a>
-                         <a href="{{$parametre->lien_twitter ?? ''}}" class="text-dark"><i class="icofont-twitter"></i></a>
-                         <a href="{{$parametre->lien_instagram ?? ''}}" class="text-dark"><i class="icofont-instagram"></i></a>
-                         <a href="{{$parametre->lien_youtube ?? ''}}" class="text-dark"><i class="icofont-youtube-play"></i></a>
+                         <a href="{{ $parametre->lien_facebook ?? '' }}" class="text-dark"><i
+                                 class="icofont-facebook"></i></a>
+                         <a href="{{ $parametre->lien_twitter ?? '' }}" class="text-dark"><i
+                                 class="icofont-twitter"></i></a>
+                         <a href="{{ $parametre->lien_instagram ?? '' }}" class="text-dark"><i
+                                 class="icofont-instagram"></i></a>
+                         <a href="{{ $parametre->lien_youtube ?? '' }}" class="text-dark"><i
+                                 class="icofont-youtube-play"></i></a>
                      </div>
                  </div>
 
                  <!-- Boutons à droite -->
                  <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
                      <div class="top-buttons d-flex gap-2">
-                         <a href="#" class="btn btn-sm btn__primary" ><span>Parrainer mon candidat</span></a>
+                         <a href="#" class="btn btn-sm btn__primary"><span>Parrainer mon candidat</span></a>
                          <a href="#" class="btn btn-sm btn__primary-outline"><span>Adhérez à PROCI-DPS</span></a>
                          <a href="#" class="btn btn-sm btn__primary"><span>Faire un Don</span></a>
 
@@ -95,11 +99,24 @@
      <div class="container-fluid">
          <div class="row">
              <nav class="navbar navbar-expand-lg">
-                 <a class="navbar-brand" href="index.html">
-                     {{-- <h1 class="navbar-brand__title">Statesman</h1> --}}
-                     <img class="navbar-brand__logo-dark" width="50%" src="{{ URL::asset($parametre->logo_header ?? asset('assets_web/images/web/logo-fieni.png'))}}" alt="logo" />
-                     <img class="navbar-brand__logo-white" width="50%" src="{{ URL::asset($parametre->logo_header ?? asset('assets_web/images/web/logo-fieni.png'))}}" alt="logo" />
-                 </a>
+                 <div class="d-flex justify-content-between ">
+                     <a class="navbar-brand" href="{{ route('site.accueil') }}">
+                         {{-- <h1 class="navbar-brand__title">Statesman</h1> --}}
+                         <img class="navbar-brand__logo-dark" width="50%"
+                             src="{{ URL::asset($parametre->logo_header ?? asset('assets_web/images/web/logo-fieni.png')) }}"
+                             alt="logo" />
+                         <img class="navbar-brand__logo-white" width="50%"
+                             src="{{ URL::asset($parametre->logo_header ?? asset('assets_web/images/web/logo-fieni.png')) }}"
+                             alt="logo" />
+
+                     </a>
+
+                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                         aria-expanded="true" aria-label="Toggle navigation">
+                         <span></span><span></span><span></span><span></span><span></span><span></span>
+                     </button>
+                 </div>
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul id="onepage-nav" class="navbar-nav menu ms-lg-auto align-items-lg-center">
                          <li class="nav-item">
@@ -148,11 +165,7 @@
                          </li>
                      </ul>
                  </div>
-                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                     aria-expanded="true" aria-label="Toggle navigation">
-                     <span></span><span></span><span></span><span></span><span></span><span></span>
-                 </button>
+
              </nav>
          </div>
      </div>
