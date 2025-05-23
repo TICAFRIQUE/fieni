@@ -4,7 +4,7 @@
              <div class="col-lg-5 order-2 order-lg-1 about-v2__image" data-aos="fade-right" data-aos-duration="1000"
                  data-aos-delay="250">
                  <img class="img-fluid"
-                     src="{{ URL::asset($biographie?->getFirstMediaUrl('image') ?? asset('assets_web/images/web/fieni.jpg')) }}"
+                     src="{{ URL::asset($data_biographie?->getFirstMediaUrl('image') ?? asset('assets_web/images/web/fieni.jpg')) }}"
                      alt="image fieni" />
                  {{-- <div class="about-v2__image__box">
                      <div class="image__box__content">
