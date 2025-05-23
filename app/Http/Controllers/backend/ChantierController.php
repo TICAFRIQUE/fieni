@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Models\chantier;
+use App\Models\Chantier;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -14,7 +14,7 @@ class ChantierController extends Controller
     public function index()
     {
         try {
-            $data_chantier = chantier::with('media')->get();
+            $data_chantier = Chantier::with('media')->get();
 
             return view('backend.pages.chantier.index', compact('data_chantier'));
         } catch (\Throwable $th) {
@@ -71,14 +71,14 @@ class ChantierController extends Controller
                 'image' => 'nullable|image|max:1024',
             ]);
             // verifier si le chantier existe en base de données
-            $condition = chantier::where('titre', $request['titre'])->exists();
+            $condition = Chantier::where('titre', $request['titre'])->exists();
 
 
             if ($condition) {
                 return back()->with('error', 'Le chantier existe deja');
             }
 
-            $chantier = chantier::firstOrCreate([
+            $chantier = Chantier::firstOrCreate([
                 'titre' => $request['titre'],
                 'status' => $request['status'],
                 'description' => $request['description'],
@@ -111,7 +111,7 @@ class ChantierController extends Controller
     public function edit($id)
     {
         try {
-            $data_chantier = chantier::find($id);
+            $data_chantier = Chantier::find($id);
 
             return view('backend.pages.chantier.edit', compact('data_chantier'));
         } catch (\Throwable $th) {
@@ -134,7 +134,7 @@ class ChantierController extends Controller
             'image' => 'nullable|image|max:1024',
          ]);
 
-        $chantier = tap(chantier::find($id))->update([
+        $chantier = tap(Chantier::find($id))->update([
             'titre' => $request['titre'],
             'status' => $request['status'],
             'description' => $request['description'],
@@ -166,7 +166,7 @@ class ChantierController extends Controller
 
     public function delete($id)
     {
-        chantier::find($id)->delete();
+        Chantier::find($id)->delete();
         return response()->json([
             'status' => 200,
         ]);
