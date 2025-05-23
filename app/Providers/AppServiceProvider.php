@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use App\Models\Slide;
 use App\Models\Parametre;
 use Spatie\Permission\Models\Role;
@@ -25,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+
+Carbon::setLocale('fr');
 
 
 

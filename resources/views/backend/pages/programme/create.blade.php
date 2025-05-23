@@ -4,7 +4,7 @@
 
     @component('backend.components.breadcrumb')
         @slot('li_1')
-           Programme
+            Programme
         @endslot
         @slot('title')
             Créer un programme
@@ -27,11 +27,11 @@
                         enctype="multipart/form-data">
                         @csrf
 
+                    
 
                         <div class="col-md-10">
                             <label for="validationCustom01" class="form-label">Image (1024x680) </label>
-                            <input type="file" name="image" class="form-control" id="validationCustom01"
-                                accept="image/*">
+                            <input type="file" name="image" class="form-control" id="imageInput" accept="image/*">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -128,6 +128,8 @@
                     .catch(error => failure('Upload échoué : ' + error.message));
             }
         });
+
+       
     </script>
 @endsection
 @endsection

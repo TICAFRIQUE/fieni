@@ -94,7 +94,7 @@ class ProgrammeController extends Controller
             Alert::success('Succès', 'Présentation enregistrée avec images.');
             return back();
         } catch (\Throwable $th) {
-            return $th->getMessage();
+            return back()->with('error', $th->getMessage());
         }
     }
 
@@ -107,7 +107,8 @@ class ProgrammeController extends Controller
 
             return view('backend.pages.programme.edit', compact('data_programme'));
         } catch (\Throwable $th) {
-            return $th->getMessage();
+
+            return back()->with('error', $th->getMessage());
         }
     }
 
@@ -129,7 +130,7 @@ class ProgrammeController extends Controller
                 $programme->addMediaFromRequest('image')->toMediaCollection('image');
             }
 
-             // Associer les images TinyMCE au modèle enregistré
+            // Associer les images TinyMCE au modèle enregistré
             Media::where('custom_properties->draft_token', $request->draft_token)
                 ->where('model_type', Programme::class)
                 ->where('model_id', 0)

@@ -126,6 +126,13 @@ class ChantierController extends Controller
 
        try{
          //request validation ......
+         $request->validate([
+            'titre' => 'required|string',
+            'status' => 'required|string',
+            'description' => 'required|string',
+            'draft_token' => 'required|string',
+            'image' => 'nullable|image|max:1024',
+         ]);
 
         $chantier = tap(chantier::find($id))->update([
             'titre' => $request['titre'],
@@ -152,7 +159,7 @@ class ChantierController extends Controller
         Alert::success('Opération réussi', 'Success Message');
         return back();
        }catch(\Throwable $th ){
-            return $th->getMessage();
+        return back()->with('error', $th->getMessage());
        }
     }
 

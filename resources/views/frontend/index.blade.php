@@ -3,6 +3,8 @@
 
 
 @section('content')
+
+
   <!-- ========== Header start ========== -->
 @include('frontend.sections.sect_menu')
 <!-- ========== Header end ========== -->
@@ -20,23 +22,27 @@
 @include('frontend.sections.sect_programme')
 <!-- ========== Mission end ========== -->
 <!-- ========== Donation start ========== -->
-@include('frontend.sections.sect_don')
+{{-- @include('frontend.sections.sect_don') --}}
 <!-- ========== Donation end ========== -->
 <!-- ========== Event start ========== -->
-@include('frontend.sections.sect_agenda')
+{{-- @include('frontend.sections.sect_agenda') --}}
 <!-- ========== Event end ========== -->
 <!-- ========== fun fact section start ========== -->
 @include('frontend.sections.sect_statistique')t
 <!-- ========== fun fact section end ========== -->
-<!-- ========== Testimonial start ========== -->
-@include('frontend.sections.sect_temoignage')
-<!-- ========== Testimonial end ========== -->
+
 
 <!-- ========== Blog section start ========== -->
 @include('frontend.sections.sect_actualite')
 <!-- ========== Blog section end ========== -->
 <!-- ========== Contact section start ========== -->
-@include('frontend.sections.sect_contact')
+
+<!-- ========== Testimonial start ========== -->
+{{-- @include('frontend.sections.sect_temoignage') --}}
+<!-- ========== Testimonial end ========== -->
+
+
+{{-- @include('frontend.sections.sect_contact') --}}
 <!-- ========== Contact section end ========== -->
 
   

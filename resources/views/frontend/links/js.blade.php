@@ -1,7 +1,7 @@
  <!--====== jquery js ======-->
     <script src="{{asset('assets_web/js/jquery.min.js')}}"></script>
     <!--====== Bootstrap js ======-->
-    <script src="a{{asset('ssets_web/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets_web/js/bootstrap.bundle.min.js')}}"></script>
     <!--====== One page nav ======-->
     <script src="{{asset('assets_web/js/onepageNav.js')}}"></script>
     <!--====== Ajaxchimp js ======-->

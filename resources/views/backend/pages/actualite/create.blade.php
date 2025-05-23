@@ -122,12 +122,17 @@
 
                                 <div class="col-md-12">
                                     <label for="validationCustom01" class="form-label">Image à la une</label>
-                                    <input type="file" name="image_une" class="form-control" id="imageInputUne"
+                                    <input type="file" name="image_une" class="form-control imageInputActualite" 
                                         accept="image/*" required>
-                                    <small class="text-danger" id="sizeError" style="display: none;">L'image ne doit pas
-                                        dépasser 1
-                                        Mo.</small>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
 
+                                <div class="col-md-12 mt-4">
+                                    <label for="validationCustom01" class="form-label">Image de la page detail</label>
+                                    <input type="file" name="image_detail" class="form-control imageInputActualite" 
+                                        accept="image/*">
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -234,17 +239,17 @@
 
 
         // Vérification de la taille de l'image avant l'envoi en jQuery
-        $('#imageInputUne').on('change', function() {
-            var file = this.files[0];
-            var maxSize = 1 * 1024 * 1024; // 1 Mo en octets
+        // $('#imageInputUne').on('change', function() {
+        //     var file = this.files[0];
+        //     var maxSize = 1 * 1024 * 1024; // 1 Mo en octets
 
-            if (file && file.size > maxSize) {
-                $('#sizeError').show();
-                $(this).val(''); // Réinitialise le champ fichier
-            } else {
-                $('#sizeError').hide();
-            }
-        });
+        //     if (file && file.size > maxSize) {
+        //         $('#sizeError').show();
+        //         $(this).val(''); // Réinitialise le champ fichier
+        //     } else {
+        //         $('#sizeError').hide();
+        //     }
+        // });
 
 
 

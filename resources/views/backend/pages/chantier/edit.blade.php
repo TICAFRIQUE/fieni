@@ -36,11 +36,22 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label for="validationCustom01" class="form-label">Image </label>
-                            <input type="file" name="image" class="form-control" id="validationCustom01"
-                                accept="image/*" >
-                            <div class="valid-feedback">
-                                Looks good!
+                            <div class="row">
+                                <div class="col-md-4">
+                                   
+
+                                    <img src="{{ URL::asset($data_chantier->getFirstMediaUrl('image')) }}"
+                                        alt="image de chantier" class="img-fluid  mt-2 float-end" width="50px">
+                                </div>
+
+                                <div class="col-md-8">
+                                    <label for="validationCustom01" class="form-label">Image </label>
+                                    <input type="file" name="image" class="form-control" id="imageInput"
+                                        accept="image/*" accept="image/*">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-2">

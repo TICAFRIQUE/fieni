@@ -1,6 +1,7 @@
 @include('frontend.partials.header')
 
 <body>
+    
     <div class="section-wrapper">
 
 

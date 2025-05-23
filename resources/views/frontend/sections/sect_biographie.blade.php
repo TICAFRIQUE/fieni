@@ -3,15 +3,17 @@
          <div class="row">
              <div class="col-lg-5 order-2 order-lg-1 about-v2__image" data-aos="fade-right" data-aos-duration="1000"
                  data-aos-delay="250">
-                 <img class="img-fluid" src="assets_web/images/about-4.png" alt="" />
-                 <div class="about-v2__image__box">
+                 <img class="img-fluid"
+                     src="{{ URL::asset($biographie?->getFirstMediaUrl('image') ?? asset('assets_web/images/web/fieni.jpg')) }}"
+                     alt="image fieni" />
+                 {{-- <div class="about-v2__image__box">
                      <div class="image__box__content">
                          <div class="position-relative fs-4 fs-sm-2 fw-bold">
                              <span class="odometer" data-count="6"></span><sub>Times</sub>
                              <p>City Mayor</p>
                          </div>
                      </div>
-                 </div>
+                 </div> --}}
              </div>
              <div class="col-lg-6 offset-lg-1 mt-0 mt-lg-3 mb-3 mb-lg-0 order-1 order-lg-2" data-aos="fade-left"
                  data-aos-duration="1000" data-aos-delay="250">
@@ -152,37 +154,58 @@
                                     </div>
                                 </div>
                             </div> --}}
-                     <p>
+                     {{-- <p>
+                         {!! $data_biographie->description ?? '' !!}
+                     </p> --}}
 
+                     @php
+                         use Illuminate\Support\Str;
 
-                         Né en 1981 à Guiendé dans la sous-préfecture de TANDA, ivoirien de père (Kouassi Fiéni Daniel)
-                         et de mère (Feue Ama Fieni Elisabeth), et n’ayant jamais renoncé à sa nationalité, FIÉNI KOFFI
-                         KÉVIN est d’ethnie Abron, de la région du Gontougo, issue d’une famille modeste financièrement,
-                         il est propriétaire de plusieurs entreprises. Il a fait ses études primaires à l’EPP Guiendé,
-                         le secondaire au collège moderne de Tanda avant de s’installer à Bondoukou puis dans la
-                         capitale économique (Abidjan). Marié et père d’un enfant, il est chrétien tout en respectant la
-                         foi religieuse des autres. Entrepreneur, homme d’affaires et philanthrope, sa force provient de
-                         ses ambitions, de son Courage, de sa Détermination, de sa Persévérance, des échecs, des
-                         humiliations et autres obstacles qu'il a connus et surtout de sa foi en Dieu. Convaincu qu’il
-                         peut apporter sa pierre à l’édifice, donc à la reconstruction de la Côte d'Ivoire, il s'était
-                         présenté à la candidature de l’élection présidentielle de 2020 de son pays la Côte d’Ivoire, en
-                         vue de lui apporter une vraie Démocratie, une Prospérité remarquable et une Souveraineté sans
-                         faille.
+                         $descriptionHtml = $data_biographie->description ?? '';
+                         $description = html_entity_decode(strip_tags($descriptionHtml)); // texte sans HTML ni entités
+                         $maxLength = 1000;
+                     @endphp
 
-                         L'exécutif et le Législatif étant deux pouvoirs distincts, il a été Candidat à la candidature
-                         aux Législatives 2021 de TANDA pour un Parlement Honorable et Crédible gage du bien-être des
-                         populations.
+                     <div id="biographie-content">
+                         <span id="short-description">
+                             {{ Str::limit($description, $maxLength) }}
+                             @if (strlen($description) > $maxLength)
+                                 <a href="javascript:void(0);" id="read-more" class="btn__link ml-auto mr-0 d-flex justify-content-end">Lire plus <i class="icofont-rounded-right"></i></a>
+                             @endif
+                         </span>
 
-                         Par ailleurs, il est candidat à l'élection présidentielle de 2025 et entend faire de la Côte
-                         d'Ivoire une RÉPUBLIQUE FÉDÉRALE si la majorité des populations le portent au pouvoir.
+                         <span id="full-description" style="display:none;">
+                             {!! $data_biographie->description !!}
+                             <a href="javascript:void(0);" class="btn__link ml-auto mr-0 d-flex justify-content-end" id="read-less"><i class="icofont-rounded-left"></i>  Réduire</a>
+                         </span>
+                     </div>
 
-                         PRO-CÔTE D’IVOIRE
-
-                         Parce-que la Côte d'Ivoire mérite Mieux !
-
-                     </p>
                  </div>
              </div>
          </div>
      </div>
  </section>
+
+
+ <script>
+     document.addEventListener("DOMContentLoaded", function() {
+         const readMore = document.getElementById("read-more");
+         const readLess = document.getElementById("read-less");
+         const shortDesc = document.getElementById("short-description");
+         const fullDesc = document.getElementById("full-description");
+
+         if (readMore) {
+             readMore.addEventListener("click", function() {
+                 shortDesc.style.display = "none";
+                 fullDesc.style.display = "inline";
+             });
+         }
+
+         if (readLess) {
+             readLess.addEventListener("click", function() {
+                 shortDesc.style.display = "inline";
+                 fullDesc.style.display = "none";
+             });
+         }
+     });
+ </script>

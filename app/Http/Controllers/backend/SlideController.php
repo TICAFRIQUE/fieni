@@ -37,7 +37,9 @@ class SlideController extends Controller
                 'titre' => 'nullable|string|max:255',
                 'description' => 'nullable|string',
                 'status' => 'required',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048', // sécurise l'image
+                'image_background' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:1024', // sécurise l'image
+                'image_candidat' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:1024', // sécurise l'image
+
             ]);
 
             // Création du slide
@@ -48,9 +50,13 @@ class SlideController extends Controller
             ]);
 
             // Gestion de l'image (s'il y en a une)
-            if ($request->hasFile('image')) {
-                $slide->addMediaFromRequest('image')->toMediaCollection('image');
+            if ($request->hasFile('image_background')) {
+                $slide->addMediaFromRequest('image_background')->toMediaCollection('image_background');
             }
+            if ($request->hasFile('image_candidat')) {
+                $slide->addMediaFromRequest('image_candidat')->toMediaCollection('image_candidat');
+            }
+         
 
             // Message de succès
             Alert::success('Opération réussie', 'Le slide a bien été enregistré.');
@@ -79,9 +85,13 @@ class SlideController extends Controller
                 'status' => $request['status'],
             ]);
 
-            if (request()->hasFile('image')) {
-                $data_Slide->clearMediaCollection('image');
-                $data_Slide->addMediaFromRequest('image')->toMediaCollection('image');
+            if (request()->hasFile('image_background')) {
+                $data_Slide->clearMediaCollection('image_background');
+                $data_Slide->addMediaFromRequest('image_background')->toMediaCollection('image_background');
+            }
+            if (request()->hasFile('image_candidat')) {
+                $data_Slide->clearMediaCollection('image_candidat');
+                $data_Slide->addMediaFromRequest('image_candidat')->toMediaCollection('image_candidat');
             }
 
             Alert::success('Opération réussi', 'Success Message');

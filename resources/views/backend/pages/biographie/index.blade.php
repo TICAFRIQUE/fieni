@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('title')
-    A propos
+    Biographie
 @endsection
 @section('css')
     <!--datatable css-->

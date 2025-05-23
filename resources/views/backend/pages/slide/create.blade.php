@@ -13,6 +13,7 @@
                         </div>
                         <div class="modal-body">
 
+
                             <form class="row g-3 needs-validation" method="post" action="{{ route('slide.store') }}"
                                 novalidate enctype="multipart/form-data">
                                 @csrf
@@ -45,14 +46,31 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-8">
-                                    <label for="validationCustom01" class="form-label">Image du slide</label>
-                                    <input type="file" name="image" accept="image/*" class="form-control"
-                                        id="validationCustom01" required>
+
+                              
+
+
+                                <div class="col-md-6">
+                                    <label for="validationCustom01" class="form-label">Image background du slide</label>
+                                    <input type="file"  name="image_background" accept="image/*"
+                                        class="form-control imageInput"  required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
+
+                                <div class="col-md-6">
+                                    <label for="validationCustom01" class="form-label">Image candidat du slide</label>
+                                    <input type="file"  name="image_candidat" accept="image/*"
+                                        class="form-control imageInput"  required>
+
+
+
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+
 
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label">Statut du slide</label>
@@ -70,7 +88,7 @@
                                     <button type="submit" class="btn btn-primary ">Valider</button>
                                 </div>
                             </form>
-                            
+
                         </div>
 
                     </div><!-- /.modal-content -->
@@ -88,4 +106,31 @@
     <script src="{{ URL::asset('build/js/pages/modal.init.js') }}"></script>
     <script src="{{ URL::asset('build/js/app.js') }}"></script>
     
+@endsection --}}
+
+
+{{-- @section('script')
+    <script>
+        $(document).ready(function() {
+            $('#imageBackground').change(function() {
+                var file = this.files[0];
+                if (file.size > 1048576) { // 1 Mo = 1048576 octets
+                    $('#sizeError').show();
+                    $(this).val('');
+                } else {
+                    $('#sizeError').hide();
+                }
+            });
+
+            $('#imageCandidat').change(function() {
+                var file = this.files[0];
+                if (file.size > 1048576) { // 1 Mo = 1048576 octets
+                    $('#sizeError').show();
+                    $(this).val('');
+                } else {
+                    $('#sizeError').hide();
+                }
+            });
+        });
+    </script>
 @endsection --}}

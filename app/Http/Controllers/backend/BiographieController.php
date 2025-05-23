@@ -59,34 +59,39 @@ class BiographieController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'status' => 'required|string',
-            'description' => 'required|string',
-            'draft_token' => 'required|string',
-            'image' => 'nullable|image|max:1024',
-        ]);
 
-        $biographie = Biographie::create([
-            'status' => $request->status,
-            'description' => $request->description,
-        ]);
+        try {
+            $request->validate([
+                'status' => 'required|string',
+                'description' => 'required|string',
+                'draft_token' => 'required|string',
+                'image' => 'nullable|image|max:1024',
+            ]);
 
-        if ($request->hasFile('image')) {
-            $biographie->addMediaFromRequest('image')->toMediaCollection('image');
+            $biographie = Biographie::create([
+                'status' => $request->status,
+                'description' => $request->description,
+            ]);
+
+            if ($request->hasFile('image')) {
+                $biographie->addMediaFromRequest('image')->toMediaCollection('image');
+            }
+
+            // Associer les images TinyMCE au modèle enregistré
+            Media::where('custom_properties->draft_token', $request->draft_token)
+                ->where('model_type', Biographie::class)
+                ->where('model_id', 0)
+                ->get()
+                ->each(function ($media) use ($biographie) {
+                    $media->model_id = $biographie->id;
+                    $media->save();
+                });
+
+            Alert::success('Succès', 'Présentation enregistrée avec images.');
+            return back();
+        } catch (\Throwable $th) {
+            return back()->with('error', $th->getMessage());
         }
-
-        // Associer les images TinyMCE au modèle enregistré
-        Media::where('custom_properties->draft_token', $request->draft_token)
-            ->where('model_type', Biographie::class)
-            ->where('model_id', 0)
-            ->get()
-            ->each(function ($media) use ($biographie) {
-                $media->model_id = $biographie->id;
-                $media->save();
-            });
-
-        Alert::success('Succès', 'Présentation enregistrée avec images.');
-        return back();
     }
 
 
@@ -103,30 +108,36 @@ class BiographieController extends Controller
     public function update(Request $request, $id)
     {
 
-        //request validation ......
+        try {
 
-        $data_biographie = tap(Biographie::find($id))->update([
-            'status' => $request['status'],
-            'description' => $request['description'],
-        ]);
+            $data_biographie = tap(Biographie::find($id))->update([
+                'status' => $request['status'],
+                'description' => $request['description'],
+            ]);
 
-        if (request()->hasFile('image')) {
-            $data_biographie->clearMediaCollection('image');
-            $data_biographie->addMediaFromRequest('image')->toMediaCollection('image');
+            if (request()->hasFile('image')) {
+                $data_biographie->clearMediaCollection('image');
+                $data_biographie->addMediaFromRequest('image')->toMediaCollection('image');
+            }
+
+            // Associer les images TinyMCE au modèle enregistré
+            Media::where('custom_properties->draft_token', $request->draft_token)
+                ->where('model_type', Biographie::class)
+                ->where('model_id', 0)
+                ->get()
+                ->each(function ($media) use ($data_biographie) {
+                    $media->model_id = $data_biographie->id;
+                    $media->save();
+                });
+
+            Alert::success('Opération réussi', 'Success Message');
+            return back();
+        } catch (\Throwable $th) {
+            return back()->with('error', $th->getMessage());
         }
 
-        // Associer les images TinyMCE au modèle enregistré
-        Media::where('custom_properties->draft_token', $request->draft_token)
-            ->where('model_type', Biographie::class)
-            ->where('model_id', 0)
-            ->get()
-            ->each(function ($media) use ($data_biographie) {
-                $media->model_id = $data_biographie->id;
-                $media->save();
-            });
+        //request validation ......
 
-        Alert::success('Opération réussi', 'Success Message');
-        return back();
     }
 
 

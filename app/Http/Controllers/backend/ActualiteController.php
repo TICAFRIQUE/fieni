@@ -90,7 +90,12 @@ class ActualiteController extends Controller
 
             // image a la une
             if (request()->hasFile('image_une')) {
-                $actualite->addMediaFromRequest('image_une')->toMediaCollection('image');
+                $actualite->addMediaFromRequest('image_une')->toMediaCollection('image_une');
+            }
+
+            // image de la page detail
+            if (request()->hasFile('image_detail')) {
+                $actualite->addMediaFromRequest('image_detail')->toMediaCollection('image_detail');
             }
 
             // gallery d'images 1 ou plusieurs
@@ -199,8 +204,14 @@ class ActualiteController extends Controller
 
             // image a la une
             if (request()->hasFile('image_une')) {
-                $actualite->clearMediaCollection('image');
-                $actualite->addMediaFromRequest('image_une')->toMediaCollection('image');
+                $actualite->clearMediaCollection('image_une');
+                $actualite->addMediaFromRequest('image_une')->toMediaCollection('image_une');
+            }
+
+            // image de la page detail
+            if (request()->hasFile('image_detail')) {
+                $actualite->clearMediaCollection('image_detail');
+                $actualite->addMediaFromRequest('image_detail')->toMediaCollection('image_detail');
             }
 
 

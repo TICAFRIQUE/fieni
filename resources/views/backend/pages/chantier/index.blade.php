@@ -30,7 +30,7 @@
         @foreach ($data_chantier as $item)
             <div class="col-sm-6 col-xl-4" id="row_{{ $item['id'] }}">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="{{ URL::asset($item->getFirstMediaUrl('image')) }}"
+                    <img style="height: 400px; width: 100%; object-fit: cover;" class="card-img-top img-fluid" src="{{ URL::asset($item->getFirstMediaUrl('image')) }}"
                         alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title mb-2 fw-bold text-capitalize text-center"> {{ $item['titre'] }} </h4>

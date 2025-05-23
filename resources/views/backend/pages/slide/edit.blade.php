@@ -45,17 +45,40 @@
                          </div>
                      </div>
 
+                     <div class="alert alert-danger alert-dismissible fade show" id="sizeError" style="display: none;"
+                         role="alert">
+                         <strong>Erreur !</strong> La taille de l'image ne doit pas dépasser 1 Mo.
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </div>
 
 
 
-                     <div class="row">
+
+                     <div class="row my-3">
                          <div class="col-md-2">
-                             <img class="rounded-circle" src="{{ $item->getFirstMediaUrl('image') }}" width="50px"
+                             <img class="rounded-circle" src="{{ $item->getFirstMediaUrl('image_background') }}"
+                                 width="50px" alt="">
+                         </div>
+                         <div class="col-md-10">
+                             <label for="validationCustom01" class="form-label">Image background</label>
+                             <input accept="image/*" type="file"  name="image_background"
+                                 class="form-control imageInput" >
+                             <div class="valid-feedback">
+                                 Looks good!
+                             </div>
+                         </div>
+                     </div>
+
+
+                     <div class="row my-3">
+                         <div class="col-md-2">
+                             <img class="rounded-circle" src="{{ $item->getFirstMediaUrl('image_candidat') }}" width="50px"
                                  alt="">
                          </div>
                          <div class="col-md-10">
-                             <label for="validationCustom01" class="form-label">Image du slide</label>
-                             <input type="file" name="image" class="form-control" id="validationCustom01">
+                             <label for="validationCustom01" class="form-label">Image candidat</label>
+                             <input accept="image/*" type="file" name="image_candidat" class="form-control imageInput"
+                                 >
                              <div class="valid-feedback">
                                  Looks good!
                              </div>
@@ -96,3 +119,30 @@
     <script src="{{ URL::asset('build/js/app.js') }}"></script>
     
 @endsection --}}
+
+
+ {{-- @section('script')
+     <script>
+         $(document).ready(function() {
+             $('#imageBackground').change(function() {
+                 var file = this.files[0];
+                 if (file.size > 1048576) { // 1 Mo = 1048576 octets
+                     $('#sizeError').show();
+                     $(this).val('');
+                 } else {
+                     $('#sizeError').hide();
+                 }
+             });
+
+             $('#imageCandidat').change(function() {
+                 var file = this.files[0];
+                 if (file.size > 1048576) { // 1 Mo = 1048576 octets
+                     $('#sizeError').show();
+                     $(this).val('');
+                 } else {
+                     $('#sizeError').hide();
+                 }
+             });
+         });
+     </script>
+ @endsection --}}

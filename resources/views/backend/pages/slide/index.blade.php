@@ -32,7 +32,7 @@
         @foreach ($data_slide as $item)
             <div class="col-sm-6 col-xl-4" id="row_{{ $item['id'] }}">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="{{ URL::asset($item->getFirstMediaUrl('image')) }}"
+                    <img class="card-img-top img-fluid" src="{{ URL::asset($item->getFirstMediaUrl('image_candidat')) }}"
                         alt="Slide image">
                     <div class="card-body">
                         <h4 class="card-title mb-2 fw-bold text-capitalize text-center"> {{ $item['titre'] }} </h4>

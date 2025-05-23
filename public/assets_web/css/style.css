@@ -300,6 +300,48 @@ ul {
     outline: none;
     color: #ffffff; }
 
+    /**
+    * Button primary plus outline
+    */
+    .btn__primary-outline {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      padding: 10px 30px;
+      border-radius: 3px;
+      overflow: hidden;
+      text-transform: capitalize;
+      text-decoration: none;
+      border: 1px solid #0f3460;
+      background-color: #0f3460;
+      color: #ffffff;
+      transition: all 0.3s ease; }
+      .btn__primary-outline span {
+        position: relative;
+        z-index: 2;
+        color: inherit; }
+      .btn__primary-outline::before, .btn__primary-outline::after {
+        position: absolute;
+        content: "";
+        top: 0px;
+        width: 0px;
+        height: 100%;
+        z-index: 1;
+        opacity: 1;
+        background-color: #bf0d3e;
+        transition: all 0.4s; }
+      .btn__primary-outline::before {
+        left: 0px; }
+      .btn__primary-outline::after {
+        right: 0px; }
+      .btn__primary-outline:hover::before, .btn__primary-outline:hover::after {
+        width: 50%; }
+      .btn__primary-outline:hover, .btn__primary-outline:focus, .btn__primary-outline:visited {
+        text-decoration: none;
+        outline: none;
+        color: #ffffff; }
+      
+
 /**
 * Button Link
 */

@@ -25,6 +25,7 @@
                         enctype="multipart/form-data">
                         @csrf
 
+                       
                         <div class="col-md-4">
                             <img src="{{ $data_biographie->getFirstMediaUrl('image') }}" alt=""
                                 class="img-fluid w-25">
@@ -32,8 +33,7 @@
 
                         <div class="col-md-6">
                             <label for="validationCustom01" class="form-label">Image (1024x680) </label>
-                            <input type="file" name="image" class="form-control" id="validationCustom01" 
-                                accept="image/*" >
+                            <input type="file" name="image" class="form-control" id="imageInput" accept="image/*">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -124,6 +124,8 @@
                     .catch(error => failure('Upload échoué : ' + error.message));
             }
         });
+
+       
     </script>
 @endsection
 @endsection
