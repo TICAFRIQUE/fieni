@@ -120,15 +120,6 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     });
 
 
-    // mot directeur
-    Route::prefix('mot-directeur')->controller(MotDirecteurController::class)->group(function () {
-        route::get('', 'index')->name('mot-directeur.index');
-        route::get('create', 'create')->name('mot-directeur.create');
-        route::post('store', 'store')->name('mot-directeur.store');
-        route::get('edit{id}', 'edit')->name('mot-directeur.edit');
-        route::post('update/{id}', 'update')->name('mot-directeur.update');
-        route::get('delete/{id}', 'delete')->name('mot-directeur.delete');
-    });
 
 
     // chantier
@@ -155,17 +146,6 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('delete/{id}', 'delete')->name('actualite.delete');
     });
 
-
-
-    // reference
-    Route::prefix('reference')->controller(ReferenceController::class)->group(function () {
-        route::get('', 'index')->name('reference.index');
-        route::get('create', 'create')->name('reference.create');
-        route::post('store', 'store')->name('reference.store');
-        route::get('edit{id}', 'edit')->name('reference.edit');
-        route::post('update/{id}', 'update')->name('reference.update');
-        route::get('delete/{id}', 'delete')->name('reference.delete');
-    });
 
 
     // equipe
