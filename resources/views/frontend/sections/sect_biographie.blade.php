@@ -175,7 +175,7 @@
                          </span>
 
                          <span id="full-description" style="display:none;">
-                             {!! $data_biographie->description !!}
+                             {!! $data_biographie->description ?? '' !!}
                              <a href="javascript:void(0);" class="btn__link ml-auto mr-0 d-flex justify-content-end" id="read-less"><i class="icofont-rounded-left"></i>  Réduire</a>
                          </span>
                      </div>
