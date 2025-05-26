@@ -133,11 +133,31 @@
                 @endcan
 
 
-                  @can('voir-flashinfo')
+                @can('voir-flashinfo')
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('flash-infos.*') ? 'active' : '' }} "
                             href="{{ route('flash-infos.index') }}">
-                            <i class="ri-news-fill"></i> <span>Flash Infos</span>
+                            <i class="ri-information-fill"></i> <span>Flash Infos</span>
+                        </a>
+                    </li>
+                @endcan
+
+
+                @can('voir-agenda')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('agenda.*') ? 'active' : '' }} "
+                            href="{{ route('agenda.index') }}">
+                            <i class="ri-calendar-schedule-fill"></i> <span>Agendas</span>
+                        </a>
+                    </li>
+                @endcan
+
+
+                  @can('voir-temoignage')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('temoignage.*') ? 'active' : '' }} "
+                            href="{{ route('temoignage.index') }}">
+                           <i class="ri-message-fill"></i> <span>Temoignages</span>
                         </a>
                     </li>
                 @endcan

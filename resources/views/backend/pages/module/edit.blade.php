@@ -13,7 +13,7 @@
                      action="{{ route('module.update', $item['id']) }}" novalidate>
                      @csrf
                      <div class="col-md-12">
-                         <label for="validationCustom01" class="form-label">module name</label>
+                         <label for="validationCustom01" class="form-label">Nom module</label>
                          <input type="text" name="name" value="{{ $item['name'] }}" class="form-control"
                              id="validationCustom01" required>
                          <div class="valid-feedback">

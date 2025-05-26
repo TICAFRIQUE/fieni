@@ -28,7 +28,7 @@
 //     }
 // });
 
-$(document).on("change", "#imageInput, .imageInput , .imageInputActualite  ", function () {
+$(document).on("change", "#imageInput, .imageInput , .imageInputActualite , .imageInputAgenda  ", function () {
     const files = this.files;
 
     for (let i = 0; i < files.length; i++) {

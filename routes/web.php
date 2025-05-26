@@ -1,11 +1,13 @@
 <?php
 
 use App\Models\FlashInfo;
+use App\Models\Temoignage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\SlideController;
 use App\Http\Controllers\frontend\SiteController;
+use App\Http\Controllers\backend\AgendaController;
 use App\Http\Controllers\backend\EquipeController;
 use App\Http\Controllers\backend\ModuleController;
 use App\Http\Controllers\backend\ServiceController;
@@ -18,6 +20,7 @@ use App\Http\Controllers\backend\ProgrammeController;
 use App\Http\Controllers\backend\ReferenceController;
 use App\Http\Controllers\backend\BiographieController;
 use App\Http\Controllers\backend\PermissionController;
+use App\Http\Controllers\backend\TemoignageController;
 use App\Http\Controllers\backend\MotDirecteurController;
 
 Route::fallback(function () {
@@ -74,7 +77,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('', 'index')->name('permission.index');
         route::get('create', 'create')->name('permission.create');
         route::post('store', 'store')->name('permission.store');
-        route::get('edit{id}', 'edit')->name('permission.edit');
+        route::get('edit/{id}', 'edit')->name('permission.edit');
         route::put('update/{id}', 'update')->name('permission.update');
         route::get('delete/{id}', 'delete')->name('permission.delete');
     });
@@ -102,7 +105,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('create', 'create')->name('biographie.create');
         route::post('store', 'store')->name('biographie.store');
         route::post('upload-tinymce', 'uploadFromTinyMCE')->name('biographie.upload-tinymce'); // upload image tinymce
-        route::get('edit{id}', 'edit')->name('biographie.edit');
+        route::get('edit/{id}', 'edit')->name('biographie.edit');
         route::post('update/{id}', 'update')->name('biographie.update');
         route::get('delete/{id}', 'delete')->name('biographie.delete');
     });
@@ -114,7 +117,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('create', 'create')->name('programme.create');
         route::post('store', 'store')->name('programme.store');
         route::post('upload-tinymce', 'uploadFromTinyMCE')->name('programme.upload-tinymce'); // upload image tinymce
-        route::get('edit{id}', 'edit')->name('programme.edit');
+        route::get('edit/{id}', 'edit')->name('programme.edit');
         route::post('update/{id}', 'update')->name('programme.update');
         route::get('delete/{id}', 'delete')->name('programme.delete');
     });
@@ -128,7 +131,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('create', 'create')->name('chantier.create');
         route::post('upload-tinymce', 'uploadFromTinyMCE')->name('chantier.upload-tinymce'); // upload image tinymce
         route::post('store', 'store')->name('chantier.store');
-        route::get('edit{id}', 'edit')->name('chantier.edit');
+        route::get('edit/{id}', 'edit')->name('chantier.edit');
         route::post('update/{id}', 'update')->name('chantier.update');
         route::get('delete/{id}', 'delete')->name('chantier.delete');
     });
@@ -141,10 +144,25 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('create', 'create')->name('actualite.create');
         route::post('upload-tinymce', 'uploadFromTinyMCE')->name('actualite.upload-tinymce'); // upload image tinymce
         route::post('store', 'store')->name('actualite.store');
-        route::get('edit{id}', 'edit')->name('actualite.edit');
+        route::get('edit/{id}', 'edit')->name('actualite.edit');
         route::post('update/{id}', 'update')->name('actualite.update');
         route::get('delete/{id}', 'delete')->name('actualite.delete');
     });
+
+
+
+
+    // agenda
+    Route::prefix('agenda')->controller(AgendaController::class)->group(function () {
+        route::get('', 'index')->name('agenda.index');
+        route::get('create', 'create')->name('agenda.create');
+        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('agenda.upload-tinymce'); // upload image tinymce
+        route::post('store', 'store')->name('agenda.store');
+        route::get('edit/{id}', 'edit')->name('agenda.edit');
+        route::post('update/{id}', 'update')->name('agenda.update');
+        route::get('delete/{id}', 'delete')->name('agenda.delete');
+    });
+
 
 
     // flash infos
@@ -153,7 +171,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('create', 'create')->name('flash-infos.create');
         route::post('upload-tinymce', 'uploadFromTinyMCE')->name('flash-infos.upload-tinymce'); // upload image tinymce
         route::post('store', 'store')->name('flash-infos.store');
-        route::get('edit{id}', 'edit')->name('flash-infos.edit');
+        route::get('edit/{id}', 'edit')->name('flash-infos.edit');
         route::post('update/{id}', 'update')->name('flash-infos.update');
         route::get('delete/{id}', 'delete')->name('flash-infos.delete');
     });
@@ -165,9 +183,20 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('', 'index')->name('equipe.index');
         // route::get('create', 'create')->name('equipe.create');
         route::post('store', 'store')->name('equipe.store');
-        route::get('edit{id}', 'edit')->name('equipe.edit');
+        route::get('edit/{id}', 'edit')->name('equipe.edit');
         route::post('update/{id}', 'update')->name('equipe.update');
         route::get('delete/{id}', 'delete')->name('equipe.delete');
+    });
+
+
+
+    Route::prefix('temoignange')->controller(TemoignageController::class)->group(function () {
+        route::get('', 'index')->name('temoignage.index');
+        route::get('create', 'create')->name('temoignage.create');
+        route::post('store', 'store')->name('temoignage.store');
+        route::get('edit/{id}', 'edit')->name('temoignage.edit');
+        route::post('update/{id}', 'update')->name('temoignage.update');
+        route::get('delete/{id}', 'delete')->name('temoignage.delete');
     });
 });
 

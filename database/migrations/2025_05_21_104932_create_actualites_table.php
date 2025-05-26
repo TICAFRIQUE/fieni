@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('actualites', function (Blueprint $table) {
             $table->id();
             $table->string('titre')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->longText('description')->nullable();
             $table->enum('status', ['active', 'desactive'])->default('active');
             $table->enum('vedette', ['oui', 'non'])->default('non');

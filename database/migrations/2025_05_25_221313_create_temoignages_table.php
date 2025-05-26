@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('temoignages', function (Blueprint $table) {
             $table->id();
+            $table->string('nom')->nullable();
+            $table->string('fonction')->nullable();
+            $table->longText('description')->nullable();
+            $table->integer('ordre')->default(1);
+            $table->enum('status', ['active', 'desactive'])->default('active');
             $table->timestamps();
         });
     }

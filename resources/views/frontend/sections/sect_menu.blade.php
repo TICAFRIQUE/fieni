@@ -50,16 +50,18 @@
  <header class="header">
 
      <!-- ========== Start flash infos ========== -->
-     <div class="flash-container">
-         <div class="flash-label">Flash Info</div>
-         <div class="flash-text-wrapper">
-             <div class="flash-text">
-                @foreach ($data_flash_info as $item)
-                    {!!$item->description!!}
-                @endforeach
+     @if (isset($data_flash_info) && count($data_flash_info) > 0)
+         <div class="flash-container">
+             <div class="flash-label">Flash Info</div>
+             <div class="flash-text-wrapper">
+                 <div class="flash-text">
+                     @foreach ($data_flash_info as $item)
+                         {!! $item->description !!}
+                     @endforeach
+                 </div>
              </div>
          </div>
-     </div>
+     @endif
      <!-- ========== End flash infos ========== -->
 
 
