@@ -13,6 +13,7 @@ use App\Models\MotDirecteur;
 use App\Models\Presentation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\FlashInfo;
 
 class SiteController extends Controller
 {
@@ -40,11 +41,16 @@ class SiteController extends Controller
             //5-Recuperer les membres equipe actives
             $data_equipe = Equipe::active()->get();
 
+            //Flash infos
+            $data_flash_info = FlashInfo::active()->get();
+
+
             return view('frontend.index', compact(
                 'data_slide',
                 'data_biographie',
                 'data_chantier',
                 'data_actualite',
+                'data_flash_info',
             ));
         } catch (\Throwable $th) {
             return $th->getMessage();

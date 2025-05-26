@@ -45,7 +45,7 @@
             <div class="page-content">
                 <div class="container-fluid">
 
-                    @include('backend.components.alertMessage')
+                    {{-- @include('backend.components.alertMessage')  se trouve maintenant dans component breadcrumb--}} 
                     @include('backend.components.imageSizeAlert')
 
                     @include('sweetalert::alert')

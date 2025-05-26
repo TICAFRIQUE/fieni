@@ -36,7 +36,7 @@
                              <p>Minutes</p>
                          </li>
                          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
-                             <span class="secs">36</span>
+                             <span class="secs"></span>
                              <p>Secondes</p>
                          </li>
                      </ul>

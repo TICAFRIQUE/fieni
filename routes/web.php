@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\FlashInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\AdminController;
@@ -11,14 +12,13 @@ use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\ChantierController;
 use App\Http\Controllers\backend\ActualiteController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\FlashInfoController;
 use App\Http\Controllers\backend\ParametreController;
 use App\Http\Controllers\backend\ProgrammeController;
 use App\Http\Controllers\backend\ReferenceController;
 use App\Http\Controllers\backend\BiographieController;
 use App\Http\Controllers\backend\PermissionController;
 use App\Http\Controllers\backend\MotDirecteurController;
-
-
 
 Route::fallback(function () {
     return view('backend.utility.auth-404-basic');
@@ -147,6 +147,18 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     });
 
 
+    // flash infos
+    Route::prefix('flash-infos')->controller(FlashInfoController::class)->group(function () {
+        route::get('', 'index')->name('flash-infos.index');
+        route::get('create', 'create')->name('flash-infos.create');
+        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('flash-infos.upload-tinymce'); // upload image tinymce
+        route::post('store', 'store')->name('flash-infos.store');
+        route::get('edit{id}', 'edit')->name('flash-infos.edit');
+        route::post('update/{id}', 'update')->name('flash-infos.update');
+        route::get('delete/{id}', 'delete')->name('flash-infos.delete');
+    });
+
+
 
     // equipe
     Route::prefix('equipe')->controller(EquipeController::class)->group(function () {
@@ -162,5 +174,3 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
 //############################################ Routes Frontend ##########################################################
 Route::get('/', [SiteController::class, 'accueil'])->name('site.accueil'); // page d'accueil
-
-

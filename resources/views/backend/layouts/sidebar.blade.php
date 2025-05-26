@@ -123,11 +123,21 @@
                 @endcan
 
 
-                 @can('voir-actualite')
+                @can('voir-actualite')
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('actualite.*') ? 'active' : '' }} "
                             href="{{ route('actualite.index') }}">
                             <i class="ri-news-fill"></i> <span>Actualites</span>
+                        </a>
+                    </li>
+                @endcan
+
+
+                  @can('voir-flashinfo')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('flash-infos.*') ? 'active' : '' }} "
+                            href="{{ route('flash-infos.index') }}">
+                            <i class="ri-news-fill"></i> <span>Flash Infos</span>
                         </a>
                     </li>
                 @endcan

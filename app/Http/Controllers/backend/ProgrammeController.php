@@ -91,7 +91,8 @@ class ProgrammeController extends Controller
                     $media->save();
                 });
 
-            Alert::success('Succès', 'Présentation enregistrée avec images.');
+            Alert::Success('Opération', 'SuccessMessage');
+
             return back();
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());

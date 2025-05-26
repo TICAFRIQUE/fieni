@@ -21,6 +21,11 @@
         </div>
     </div>
 </div>
+
+
+
+@include('backend.components.alertMessage')
+
 <script>
     // go to back
     // document.getElementById('goBack').addEventListener('click', function() {

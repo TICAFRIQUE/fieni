@@ -54,9 +54,9 @@
          <div class="flash-label">Flash Info</div>
          <div class="flash-text-wrapper">
              <div class="flash-text">
-                 📰 Kévin FIÉNI, Président Fondateur du parti politique PRO CÔTE D'IVOIRE pour la Démocratie, la
-                 Prospérité
-                 et la Souveraineté (PROCI-DPS), Candidat pour faire de la Côte d'Ivoire une RÉPUBLIQUE FÉDÉRALE.
+                @foreach ($data_flash_info as $item)
+                    {!!$item->description!!}
+                @endforeach
              </div>
          </div>
      </div>
