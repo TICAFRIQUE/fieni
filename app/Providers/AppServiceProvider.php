@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use App\Models\Slide;
+use App\Models\Actualite;
 use App\Models\Parametre;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Schema;
@@ -27,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
 
-Carbon::setLocale('fr');
+        Carbon::setLocale('fr');
 
 
 
@@ -59,12 +60,22 @@ Carbon::setLocale('fr');
 
 
         //recuperer les parametres
-      if (Schema::hasTable('parametres')) {
-        $data_parametre = Parametre::with('media')->first();
-      }
+        if (Schema::hasTable('parametres')) {
+            $data_parametre = Parametre::with('media')->first();
+        }
+
+        // recuperer les actualites recentes
+        if (Schema::hasTable('slides')) {
+            // les actualites
+            $data_actualite = Actualite::active()
+                ->orderBy('date_publication', 'desc')
+                ->limit(3)
+                ->get();
+        }
 
         view()->share([
             'parametre' => $data_parametre ?? null,
+            'data_actualite' => $data_actualite ?? null,
         ]);
     }
 }

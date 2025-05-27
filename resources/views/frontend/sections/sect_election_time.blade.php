@@ -45,8 +45,8 @@
                  <!-- ========== Start ajouter les bouttons adherer et parrainer ========== -->
                  <div class="col-lg-12 text-center mt-4">
                      <div class="countdown__btn">
-                         <a href="#contact" class="btn__primary"> <span>j'adhére à PROCI-DPS</span></a>
-                         <a href="#contact" class="btn__primary-outline"> <span>Je parraine mon candidat</span></a>
+                         <a href="{{ route('site.adhesion') }}" class="btn__primary"> <span>j'adhére à PROCI-DPS</span></a>
+                         <a href="{{ route('site.parrainage') }}" class="btn__primary-outline"> <span>Je parraine mon candidat</span></a>
                          
                      </div>
                  </div>

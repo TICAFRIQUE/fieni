@@ -88,7 +88,7 @@
                       <p class="m-0 text-center">
                           &copy; @php
                               echo date('Y');
-                          @endphp - {{config('app.name')}} All right reserved. Made with
+                          @endphp - {{ config('app.name') }} All right reserved. Made with
                           <i class="icofont-heart"></i> by
                           <a href="https://www.ticafrique.ci" target="_blank">ticafrique.ci</a>
                       </p>

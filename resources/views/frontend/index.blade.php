@@ -4,10 +4,10 @@
 
 @section('content')
 
-
+{{-- 
   <!-- ========== Header start ========== -->
 @include('frontend.sections.sect_menu')
-<!-- ========== Header end ========== -->
+<!-- ========== Header end ========== --> --}}
 
 <!-- ========== Hero section start ========== -->
 @include('frontend.sections.sect_slide')

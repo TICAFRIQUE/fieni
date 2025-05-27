@@ -1,4 +1,4 @@
-@extends('frontend.pages.layouts.app')
+@extends('frontend.layouts.app')
 
 @section('title')
     Contact

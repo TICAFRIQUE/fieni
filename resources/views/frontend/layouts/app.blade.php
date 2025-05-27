@@ -3,7 +3,7 @@
 <body>
 
     <div class="section-wrapper">
-
+        @include('frontend.sections.sect_menu')
 
         @yield('content')
 

@@ -18,6 +18,15 @@
 
 
 
+<!-- Success Alert -->
+@if ($Msg = Session::get('success'))
+    <div class="alert alert-success alert-dismissible bg-success text-white alert-label-icon fade show material-shadow"
+        role="alert">
+        <i class="ri-check-line label-icon"></i><strong>{{ $Msg }}</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
 
 
 
@@ -67,3 +76,17 @@
     <i class="ri-refresh-line me-3 align-middle fs-16 text-body"></i><strong>Dark</strong> - Top border alert
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div> --}}
+
+
+<script>
+    // faire disparaître les alertes après 5 secondes
+    setTimeout(function() {
+        $('.alert').fadeOut('slow');
+    }, 5000); // 5000 ms = 5 secondes
+    // faire disparaître les alertes au clic
+    $(document).ready(function() {
+        $('.alert').on('click', function() {
+            $(this).fadeOut('slow');
+        });
+    });
+</script>

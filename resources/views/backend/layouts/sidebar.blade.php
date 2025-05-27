@@ -153,11 +153,11 @@
                 @endcan
 
 
-                  @can('voir-temoignage')
+                @can('voir-temoignage')
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('temoignage.*') ? 'active' : '' }} "
                             href="{{ route('temoignage.index') }}">
-                           <i class="ri-message-fill"></i> <span>Temoignages</span>
+                            <i class="ri-message-fill"></i> <span>Temoignages</span>
                         </a>
                     </li>
                 @endcan
@@ -187,6 +187,27 @@
                         <a class="nav-link menu-link {{ Route::is('equipe.*') ? 'active' : '' }} "
                             href="{{ route('equipe.index') }}">
                             <i class="ri-dashboard-2-line"></i> <span>Equipes</span>
+                        </a>
+                    </li>
+                @endcan
+
+
+                @can('voir-parrainage')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('parrainage.*') ? 'active' : '' }} "
+                            href="{{ route('parrainage.index') }}">
+                           <i class="ri-user-voice-fill"></i> <span>Parrainages</span>
+                        </a>
+                    </li>
+                @endcan
+
+
+
+                @can('voir-adhesion')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('adhesion.*') ? 'active' : '' }} "
+                            href="{{ route('adhesion.index') }}">
+                          <i class="ri-group-fill"></i> <span>Membres</span>
                         </a>
                     </li>
                 @endcan

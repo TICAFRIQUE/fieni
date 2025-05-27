@@ -44,8 +44,8 @@
                                     <h6>Donation Raised</h6>
                                 </div> --}}
 
-                                <a href="#" class="btn btn-sm btn__primary-outline my-4 fw-bold"><span>Devenir membre</span></a>
-                                 <a href="#" class="btn btn-sm btn__primary"><span>Parrainer mon candidat</span></a>
+                                <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline my-4 fw-bold"><span>Devenir membre</span></a>
+                                 <a href="{{ route('site.parrainage') }}" class="btn btn-sm btn__primary"><span>Parrainer mon candidat</span></a>
 
                             </li>
                         </ul>
