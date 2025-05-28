@@ -79,6 +79,23 @@
                   </div>
               </div>
           </div>
+
+          <!-- ========== Start compteur de visite ========== -->
+          <div class="container">
+              <div class="row">
+                  <div class="col-12 text-center">
+                      <div class="compteur">
+                          <h4>Visiteurs total</h4>
+                          <p>
+                              <span class="counter"> <b>{{ $compteur_visites }}</b></span>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- ========== End compteur de visite ========== -->
+
       </div>
       <hr />
       <div class="footer__copyright">

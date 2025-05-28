@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use App\Models\Slide;
+use App\Models\Compteur;
 use App\Models\Actualite;
 use App\Models\Parametre;
 use Spatie\Permission\Models\Role;
@@ -73,9 +74,15 @@ class AppServiceProvider extends ServiceProvider
                 ->get();
         }
 
+        //recuperer le compteur de visites
+        if (Schema::hasTable('compteurs')) {
+            $compteur_visites = Compteur::first()->visites ?? 554267;
+        }
+
         view()->share([
             'parametre' => $data_parametre ?? null,
             'data_actualite' => $data_actualite ?? null,
+            'compteur_visites' => $compteur_visites ?? 554267,
         ]);
     }
 }

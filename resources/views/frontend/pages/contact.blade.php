@@ -6,98 +6,79 @@
 
 @section('content')
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
-        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    @include('frontend.components.breadcrumb')
+    <!-- End Breadcrumbs -->
 
-            <h2>Contact</h2>
-            <ol>
-                <li><a href="{{ route('site.index') }}">Accueil</a></li>
-                <li>Contact</li>
-            </ol>
-
-        </div>
-    </div><!-- End Breadcrumbs -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row gy-4">
-                <div class="col-lg-6">
-                    <div class="info-item  d-flex flex-column justify-content-center align-items-center">
-                        <i class="bi bi-map"></i>
-                        <h3>Our Address</h3>
-                        <p>A108 Adam Street, New York, NY 535022</p>
+    <section class="section-padding contact mt-5" id="contact">
+        <div class="contact__area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="section__title__center">
+                            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                Contactez-nous.
+                            </p>
+                            <h3 class="color-light" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
+                               Vous voulez contribuer à la transformation de notre pays ?
+                            </h3>
+                        </div>
                     </div>
-                </div><!-- End Info Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="info-item d-flex flex-column justify-content-center align-items-center">
-                        <i class="bi bi-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p>contact@example.com</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                        <div class="contact__wrapper">
+                            <form id="contact-form" method="post" action="php/message.php">
+                               
+                                <div class="d-md-flex gap-3">
+                                    <div class="text-start w-100">
+                                        <input name="name" class="contact-name form__input" id="contact-name"
+                                            type="text" placeholder="Name" required="" />
+                                        <label for="contact-name" class="form__label">Nom & prenoms</label>
+                                    </div>
+                                    <div class="text-start w-100">
+                                        <input name="email" class="contact-email" id="contact-email" type="email"
+                                            placeholder="Email" required="" />
+                                        <label for="contact-email" class="form__label">Email</label>
+                                    </div>
+                                </div>
+                                <div class="text-start w-100">
+                                    <input name="subject" class="contact-subject" id="contact-subject" type="text"
+                                        placeholder="Subject" required="" />
+                                    <label for="contact-subject" class="form__label">Objet</label>
+                                </div>
+                                <div class="text-start w-100">
+                                    <textarea name="message" class="contact-message" id="contact-message" placeholder="Message" rows="3"
+                                        required=""></textarea>
+                                    <label for="contact-message" class="form__label">Message</label>
+                                </div>
+                                <button class="btn__primary align-items-center">
+                                    <span>Envoyer</span>
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div><!-- End Info Item -->
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="info-item  d-flex flex-column justify-content-center align-items-center">
-                        <i class="bi bi-telephone"></i>
-                        <h3>Call Us</h3>
-                        <p>+1 5589 55488 55</p>
-                    </div>
-                </div><!-- End Info Item -->
-
-            </div>
-
-            <div class="row gy-4 mt-1">
-
-                <div class="col-lg-6 ">
-                    <div style="text-decoration:none; overflow:hidden;max-width:100%;width:auto;height:450px;">
-                        <div id="embed-map-display" style="height:100%; width:100%;max-width:100%;">
-                            {!! $parametre['google_maps'] ?? null !!}
-                        </div><a class="googlecoder" href="https://www.bootstrapskins.com/themes"
-                            id="authorize-maps-data"></a>
-                        <style>
-                            #embed-map-display img {
-                                max-width: none !important;
-                                background: none !important;
-                                font-size: inherit;
-                                font-weight: inherit;
-                            }
-                        </style>
-                    </div>
-                </div><!-- End Google Maps -->
-
-                <div class="col-lg-6">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row gy-4">
-                            <div class="col-lg-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" required>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                        <div class="contact__address">
+                            <div id="map">
+                                 {!! $parametre['google_maps'] ?? null !!}
                             </div>
-                            <div class="col-lg-6 form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" required>
-                            </div>
+                            <ul>
+                                <li>
+                                    <i class="icofont-google-map"></i> {{ $parametre->adresse ?? 'Adresse non définie' }}</li>
+                                </li>
+                                <li>
+                                    <i class="icofont-email"></i>
+                                    <a href="#">{{ $parametre->email1 ?? 'Email non définie' }}</a>
+                                </li>
+                                <li>
+                                    <i class="icofont-ui-call"></i>
+                                    <a href="tel:{{ $parametre->contact1 ?? 'Tel non définie' }}">{{ $parametre->contact1 ?? 'Tel non définie' }}</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
-                    </form>
-                </div><!-- End Contact Form -->
-
+                    </div>
+                </div>
             </div>
-
         </div>
-    </section><!-- End Contact Section -->
+    </section>
 @endsection

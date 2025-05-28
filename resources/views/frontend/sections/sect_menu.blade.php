@@ -82,6 +82,9 @@
                                  class="icofont-instagram"></i></a>
                          <a href="{{ $parametre->lien_youtube ?? '' }}" class="text-dark"><i
                                  class="icofont-youtube-play"></i></a>
+
+                         <a href="#" class="text-dark"><i class=" icofont-eye-alt"></i> {{ $compteur_visites }}
+                         </a>
                      </div>
                  </div>
 
@@ -132,10 +135,11 @@
                          <li class="nav-item {{ Route::is('site.programme') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.programme') }}">Mon programme</a>
                          </li>
-                         <li class="nav-item {{ Route::is('site.actualite') ? 'active' : '' }}">
+                         <li
+                             class="nav-item {{ Route::is('site.actualite') || Route::is('site.actualite_details') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.actualite') }}">Actualités</a>
                          </li>
-                         <li class="nav-item dropdown submenu">
+                         {{-- <li class="nav-item dropdown submenu">
                              <a class="nav-link scroll" href="#">Mediathèque </a>
                              <span class="sub-menu-toggle dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                  aria-expanded="false">
@@ -149,13 +153,13 @@
                                      <a href="#" class="nav-link">Videos</a>
                                  </li>
                              </ul>
-                         </li>
+                         </li> --}}
                          <li class="nav-item {{ Route::is('site.programme') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.agenda') }}">Agenda</a>
                          </li>
 
-                         <li class="nav-item">
-                             <a class="nav-link scroll" href="#">Contact-nous</a>
+                         <li class="nav-item {{ Route::is('site.contact') ? 'active' : '' }}">
+                             <a class="nav-link scroll" href="{{ route('site.contact') }}">Contact-nous</a>
                          </li>
 
 

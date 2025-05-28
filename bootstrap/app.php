@@ -14,7 +14,10 @@ return Application::configure(basePath: dirname(__DIR__))
         //ajouter le middleware admin
         $middleware->alias([
             'admin' => App\Http\Middleware\Admin::class,
+            'compteur.visites' => App\Http\Middleware\CompteurVisitesMiddleware::class,
         ]);
+
+      
       
     })
     ->withExceptions(function (Exceptions $exceptions) {

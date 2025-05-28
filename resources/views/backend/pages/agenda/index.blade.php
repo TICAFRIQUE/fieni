@@ -45,6 +45,9 @@
                             Public: <span class="badge {{ $item['is_public'] == true ? 'bg-success' : 'bg-danger' }}">
                                 {{ $item['is_public']== true ? 'Oui' : 'Non' }} </span>
                         </p>
+                        <p class="card-text mb-0">
+                            date de debut: <span class="badge bg-info"> {{ \Carbon\Carbon::parse($item['date_debut'])->format('d-m-Y') }} </span>
+                        </p>
                        
                         <p class="card-text mb-0">
                             date de publication: <span class="badge bg-info"> {{ $item['created_at']->format('d-m-Y') }} </span>

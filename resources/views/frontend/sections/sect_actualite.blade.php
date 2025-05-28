@@ -32,7 +32,7 @@
             @endforeach
 
                 <div class="text-center mt-4">
-                    <a href="#" class=" btn btn__primary w-50 text-center"> <span>Voir toutes les actualités</span> <i class="icofont-rounded-right"></i> </a>
+                    <a href="{{ route('site.actualite') }}" class=" btn btn__primary w-50 text-center"> <span>Voir toutes les actualités</span> <i class="icofont-rounded-right"></i> </a>
                 </div>
         </div>
     </div>

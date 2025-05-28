@@ -5,15 +5,18 @@ namespace App\Http\Controllers\frontend;
 use App\Models\Slide;
 use App\Models\Agenda;
 use App\Models\Equipe;
+use App\Models\Visite;
 use App\Models\Service;
 use App\Models\Adhesion;
 use App\Models\Chantier;
+use App\Models\Compteur;
 use App\Models\Actualite;
 use App\Models\FlashInfo;
 use App\Models\Programme;
 use App\Models\Reference;
 use App\Models\Biographie;
 use App\Models\Parrainage;
+use App\Models\Temoignage;
 use App\Models\MotDirecteur;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -33,7 +36,7 @@ class SiteController extends Controller
             $data_biographie = Biographie::active()->first();
 
             // programme du candidat
-            $data_chantier = Chantier::active()->get();
+            $data_chantier = Chantier::active()->orderBy('created_at', 'asc')->get();
 
             // les actualites
             $data_actualite = Actualite::active()
@@ -41,19 +44,34 @@ class SiteController extends Controller
                 ->limit(3)
                 ->get();
 
+            // events à venir
+            $data_agenda = Agenda::public()
+                ->where('date_debut', '>', now())
+                ->orderBy('date_debut', 'asc')
+                ->limit(5)
+                ->get();
+
+            // dd($data_agenda);
+
             //5-Recuperer les membres equipe actives
             $data_equipe = Equipe::active()->get();
 
             //Flash infos
             $data_flash_info = FlashInfo::active()->get();
 
+            // temoignages
+            $data_temoignage = Temoignage::active()->orderBy('created_at', 'asc')->get();
 
+         
             return view('frontend.index', compact(
                 'data_slide',
                 'data_biographie',
                 'data_chantier',
                 'data_actualite',
                 'data_flash_info',
+                'data_agenda',
+                'data_temoignage',
+               
             ));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -147,6 +165,36 @@ class SiteController extends Controller
     }
 
 
+    public function contact()
+    {
+        try {
+            //page du formulaire de contact
+            return view('frontend.pages.contact');
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de l\'affichage du formulaire de contact : ' . $th->getMessage());
+        }
+    }
+    // public function contact_store(Request $request)
+    // {
+    //     try {
+    //         //traitement du formulaire de contact
+    //         $data = $request->validate([
+    //             'nom' => 'required|string|max:100',
+    //             'email' => 'required|email|max:255',
+    //             'sujet' => 'required|string|max:255',
+    //             'message' => 'required|string|max:500',
+    //         ]);
+
+    //         // Enregistrer le message de contact
+    //         Contact::create($data);
+
+    //         return back()->with('success', 'Votre message a été envoyé avec succès.');
+    //     } catch (\Throwable $th) {
+    //         return back()->with('error', 'Une erreur est survenue lors de l\'envoi du message : ' . $th->getMessage());
+    //     }
+    // }
+
+
 
     /**PAGES ET DETAILS DES PAGES */
 
@@ -176,11 +224,30 @@ class SiteController extends Controller
         }
     }
 
+
+    //Détails d'un programme -- chantier
+    public function chantier($slug)
+    {
+        try {
+            // recuperer l'actualité active par son slug
+            $chantier = Chantier::active()->whereSlug($slug)->first();
+            if (!$chantier) {
+                return back()->with('error', 'programme non trouvée ou inactive.');
+            }
+            $chantier = Chantier::active()->findOrFail($chantier->id);
+
+            return view('frontend.pages.chantier_detail', compact('chantier'));
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de la récupération des détails de l\'actualité : ' . $th->getMessage());
+        }
+    }
+
+
     //Actualités
     public function actualite()
     {
         try {
-            $actualite = Actualite::active()->orderBy('created_at', 'desc')->get();
+            $actualite = Actualite::active()->orderBy('created_at', 'desc')->paginate(12);
 
             return view('frontend.pages.actualite', compact('actualite'));
         } catch (\Throwable $th) {
@@ -189,13 +256,57 @@ class SiteController extends Controller
     }
 
 
+    //Détails d'une actualité
+    public function actualite_details($slug)
+    {
+        try {
+            // recuperer l'actualité active par son slug
+            $actualite = Actualite::active()->whereSlug($slug)->first();
+            if (!$actualite) {
+                return back()->with('error', 'Actualité non trouvée ou inactive.');
+            }
+            $actualite = Actualite::active()->findOrFail($actualite->id);
+            $actualite->load('media');
+
+            // Récupérer les médias associés à l'actualité
+            $galerie = $actualite->getMedia('galerie');
+
+
+            return view('frontend.pages.actualite_detail', compact('actualite', 'galerie'));
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de la récupération des détails de l\'actualité : ' . $th->getMessage());
+        }
+    }
+
+
     public function agenda()
     {
         try {
-            $agenda = Agenda::public()->orderBy('created_at', 'desc')->get();
+            $agenda = Agenda::public()->orderBy('date_debut', 'asc')
+                ->paginate(12);
             return view('frontend.pages.agenda', compact('agenda'));
         } catch (\Throwable $th) {
             return back()->with('error', 'Une erreur est survenue lors de la récupération des agendas : ' . $th->getMessage());
         }
     }
+
+    public function agenda_details($slug)
+    {
+        try {
+            // recuperer l'actualité active par son slug
+            $agenda = Agenda::public()->whereSlug($slug)->first();
+            if (!$agenda) {
+                return back()->with('error', 'Agenda non trouvée ou inactive.');
+            }
+            $agenda = Agenda::public()->findOrFail($agenda->id);
+
+
+            return view('frontend.pages.agenda_detail', compact('agenda'));
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de la récupération des détails de l\'agenda : ' . $th->getMessage());
+        }
+    }
+
+
+
 }

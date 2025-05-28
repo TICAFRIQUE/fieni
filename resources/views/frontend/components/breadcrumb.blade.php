@@ -19,6 +19,14 @@
                   data-aos-duration="1000"
                   data-aos-delay="250"
                 >
+                  <a href="#" onclick="history.back()">Retour</a>
+                </li>
+                <li
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-delay="250"
+                >
+                  <i class="icofont-rounded-right"></i>
                   <a href="{{ route('site.accueil') }}">Accueil</a>
                 </li>
                 <li

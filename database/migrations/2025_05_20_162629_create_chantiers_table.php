@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('chantiers', function (Blueprint $table) {
             $table->id();
             $table->string('titre')->nullable();
+            $table->string('slug')->unique()->nullable(); // slug unique pour l'URL
             $table->longText('description')->nullable(); // mot en texte
             $table->enum('status', ['active', 'desactive'])->nullable();
             $table->timestamps();

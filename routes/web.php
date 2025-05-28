@@ -230,35 +230,46 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
 
 //############################################ Routes Frontend ##########################################################
-Route::get('/', [SiteController::class, 'accueil'])->name('site.accueil'); // page d'accueil
+route::middleware(['compteur.visites'])->group(function () {
+    Route::get('/', [SiteController::class, 'accueil'])->name('site.accueil'); // page d'accueil
 
 
-/**ROUTE DES FORMULAIRES */
-// parrainage
-Route::get('/parrainage', [SiteController::class, 'parrainage'])->name('site.parrainage'); // page formulaire parrainage
-Route::post('/parrainage', [SiteController::class, 'parrainage'])->name('site.parrainage.store'); // traitement du formulaire de parrainage
+    /**ROUTE DES FORMULAIRES */
+    // parrainage
+    Route::get('/parrainage', [SiteController::class, 'parrainage'])->name('site.parrainage'); // page formulaire parrainage
+    Route::post('/parrainage', [SiteController::class, 'parrainage'])->name('site.parrainage.store'); // traitement du formulaire de parrainage
 
 
-//adhesion
-Route::get('/adhesion', [SiteController::class, 'adhesion'])->name('site.adhesion'); // page formulaire adhesion
-Route::post('/adhesion', [SiteController::class, 'adhesion'])->name('site.adhesion.store'); // traitement du formulaire d'adhesion
+    //adhesion
+    Route::get('/adhesion', [SiteController::class, 'adhesion'])->name('site.adhesion'); // page formulaire adhesion
+    Route::post('/adhesion', [SiteController::class, 'adhesion'])->name('site.adhesion.store'); // traitement du formulaire d'adhesion
 
 
-/** ROUTES DES PAGES ET DETAILS */
+    /** ROUTES DES PAGES ET DETAILS */
 
-// biographie du candidat
-Route::get('/biographie', [SiteController::class, 'biographie'])->name('site.biographie'); // page biographie du candidat
-// programme du candidat
-Route::get('/programme', [SiteController::class, 'programme'])->name('site.programme'); // page programme du candidat
-// chantiers du candidat
-Route::get('/chantier', [SiteController::class, 'chantier'])->name('site.chantier'); // page chantiers du candidat
-// actualites du candidat
-Route::get('/actualite', [SiteController::class, 'actualite'])->name('site.actualite'); // page actualites du candidat
-// agenda du candidat
-Route::get('/agenda', [SiteController::class, 'agenda'])->name('site.agenda'); // page agenda du candidat
-// temoignages
-Route::get('/temoignages', [SiteController::class, 'temoignages'])->name('site.temoignages'); // page temoignages du candidat
-// contact
-Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact'); // page contact
-// traitement du formulaire de contact
-Route::post('/contact', [SiteController::class, 'contact'])->name('site.contact.store'); // traitement du formulaire de contact
+    // biographie du candidat
+    Route::get('/biographie', [SiteController::class, 'biographie'])->name('site.biographie'); // page biographie du candidat
+
+
+    // programme du candidat
+    Route::get('/programme', [SiteController::class, 'programme'])->name('site.programme'); // page programme du candidat
+
+    // chantiers du candidat
+    Route::get('/chantier/{slug}', [SiteController::class, 'chantier'])->name('site.chantier'); // page chantiers du candidat
+
+    // actualites du candidat
+    Route::get('/actualite', [SiteController::class, 'actualite'])->name('site.actualite'); // page actualites du candidat
+    // actualites du candidat
+    Route::get('/actualite/{slug}', [SiteController::class, 'actualite_details'])->name('site.actualite_details'); // page actualites du candidat', [SiteController::class, 'actualite'])->name('site.actualite'); // page actualites du candidat
+
+    // agenda du candidat
+    Route::get('/agenda', [SiteController::class, 'agenda'])->name('site.agenda'); // page agenda du candidat
+    Route::get('/agenda/{slug}', [SiteController::class, 'agenda_details'])->name('site.agenda_details'); // page actualites du candidat', [SiteController::class, 'actualite'])->name('site.actualite'); // page actualites du candidat
+
+    // temoignages
+    Route::get('/temoignages', [SiteController::class, 'temoignages'])->name('site.temoignages'); // page temoignages du candidat
+    // contact
+    Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact'); // page contact
+    // traitement du formulaire de contact
+    Route::post('/contact', [SiteController::class, 'contact'])->name('site.contact.store'); // traitement du formulaire de contact
+});
