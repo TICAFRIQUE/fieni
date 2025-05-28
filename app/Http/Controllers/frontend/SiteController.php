@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\Slide;
+use App\Models\Agenda;
 use App\Models\Equipe;
 use App\Models\Service;
 use App\Models\Adhesion;
 use App\Models\Chantier;
 use App\Models\Actualite;
 use App\Models\FlashInfo;
+use App\Models\Programme;
 use App\Models\Reference;
 use App\Models\Biographie;
+use App\Models\Parrainage;
 use App\Models\MotDirecteur;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Parrainage;
 
 class SiteController extends Controller
 {
@@ -149,18 +151,51 @@ class SiteController extends Controller
     /**PAGES ET DETAILS DES PAGES */
 
     //biographie du candidat
-    /**
-     * Affiche la biographie du candidat.
-     *
-     * @return \Illuminate\View\View
-     */
+
     public function biographie()
     {
         try {
             $biographie = Biographie::active()->first();
             return view('frontend.pages.biographie', compact('biographie'));
         } catch (\Throwable $th) {
-            return back()->with('error', 'Une erreur est survenue lors de la récupération des services : ' . $th->getMessage());
+            return back()->with('error', 'Une erreur est survenue lors de la récupération de la biographie : ' . $th->getMessage());
+        }
+    }
+
+
+    //programme du candidat
+    public function programme()
+    {
+        try {
+            $programme = Programme::active()->first();
+            $data_chantier = Chantier::active()->get();
+
+            return view('frontend.pages.programme', compact('programme', 'data_chantier'));
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de la récupération des programmes : ' . $th->getMessage());
+        }
+    }
+
+    //Actualités
+    public function actualite()
+    {
+        try {
+            $actualite = Actualite::active()->orderBy('created_at', 'desc')->get();
+
+            return view('frontend.pages.actualite', compact('actualite'));
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de la récupération des actualites : ' . $th->getMessage());
+        }
+    }
+
+
+    public function agenda()
+    {
+        try {
+            $agenda = Agenda::public()->orderBy('created_at', 'desc')->get();
+            return view('frontend.pages.agenda', compact('agenda'));
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de la récupération des agendas : ' . $th->getMessage());
         }
     }
 }

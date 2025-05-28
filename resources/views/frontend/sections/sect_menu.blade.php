@@ -88,8 +88,10 @@
                  <!-- Boutons à droite -->
                  <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
                      <div class="top-buttons d-flex gap-2">
-                         <a href="{{ route('site.parrainage') }}" class="btn btn-sm btn__primary"><span>Parrainer mon candidat</span></a>
-                         <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline"><span>Adhérez à PROCI-DPS</span></a>
+                         <a href="{{ route('site.parrainage') }}" class="btn btn-sm btn__primary"><span>Parrainer mon
+                                 candidat</span></a>
+                         <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline"><span>Adhérez à
+                                 PROCI-DPS</span></a>
                          <a href="#" class="btn btn-sm btn__primary"><span>Faire un Don</span></a>
 
                      </div>
@@ -121,16 +123,16 @@
                  </div>
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul id="onepage-nav" class="navbar-nav menu ms-lg-auto align-items-lg-center">
-                         <li class="nav-item">
+                         <li class="nav-item {{ Route::is('site.accueil') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="/">Accueil</a>
                          </li>
-                         <li class="nav-item">
+                         <li class="nav-item {{ Route::is('site.biographie') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.biographie') }}">Biographie</a>
                          </li>
-                         <li class="nav-item">
+                         <li class="nav-item {{ Route::is('site.programme') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.programme') }}">Mon programme</a>
                          </li>
-                         <li class="nav-item">
+                         <li class="nav-item {{ Route::is('site.actualite') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.actualite') }}">Actualités</a>
                          </li>
                          <li class="nav-item dropdown submenu">
@@ -148,7 +150,7 @@
                                  </li>
                              </ul>
                          </li>
-                         <li class="nav-item">
+                         <li class="nav-item {{ Route::is('site.programme') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.agenda') }}">Agenda</a>
                          </li>
 
