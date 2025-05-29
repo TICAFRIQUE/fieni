@@ -1167,6 +1167,7 @@ blockquote p {
     min-height: 750px;
     transition: all 2s;
     z-index: 999;
+    margin-top: 50px;
 }
 @media only screen and (max-width: 1199px) {
     .hero__image {
@@ -1200,6 +1201,7 @@ blockquote p {
     .hero__image .back-shape {
         height: 450px;
     }
+
 }
 .hero__image .front-img {
     position: absolute;

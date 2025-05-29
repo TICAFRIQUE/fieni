@@ -15,7 +15,7 @@
          <div class="row justify-content-center">
              <div class="owl-carousel owl-theme">
                  @foreach ($data_chantier as $item)
-                     <div class="col-lg-12 col-md-12 mb-4 mb-xl-0" data-aos="fade-up" data-aos-duration="1000"
+                     <div class="col-lg-12 col-md-12  mb-xl-0" data-aos="fade-up" data-aos-duration="1000"
                          data-aos-delay="300">
                          <div class="missionv2__item">
                              <div class="missionv2__item__image">
@@ -24,7 +24,7 @@
                                      alt="Mission" />
                              </div>
                              <h3 class="missionv2__item__title fs-3">
-                                 <a href="#">{{ $item->titre }}</a>
+                                 <a href="{{ route('site.chantier', $item->slug) }}">{{ $item->titre }}</a>
                              </h3>
                              {{-- <p class="missionv2__item__desc">
                              {!! substr(strip_tags($item['description']), 0, 100) !!}...

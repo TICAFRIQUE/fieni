@@ -18,11 +18,11 @@
              <div class="col-lg-6 offset-lg-1 mt-0 mt-lg-3 mb-3 mb-lg-0 order-1 order-lg-2" data-aos="fade-left"
                  data-aos-duration="1000" data-aos-delay="250">
                  <div class="section__title__left">
-                     {{-- <p>About Candidate</p> --}}
+                     <p class="mb-3">Ma biographie</p>
                      <h3>Qui est FIÉNI</h3>
-                     <p>
+                     {{-- <p>
                          Je suis Pro-Côte d'Ivoire Parce que la Côte d'Ivoire mérite mieux
-                     </p>
+                     </p> --}}
                  </div>
                  <!-- About tab  -->
                  <div class="about-v2">
@@ -167,19 +167,22 @@
                      @endphp
 
                      <div id="biographie-content">
-                         <span id="short-description">
+                         {{-- <span id="short-description">
                              {{ Str::limit($description, $maxLength) }}
                              @if (strlen($description) > $maxLength)
                                  <a href="javascript:void(0);" id="read-more" class="btn__link ml-auto mr-0 d-flex justify-content-end">Lire plus <i class="icofont-rounded-right"></i></a>
                              @endif
-                         </span>
-
-                         <span id="full-description" style="display:none;">
+                         </span> --}}
+                         {!! Str::limit($data_biographie->description, 2000 , '...') ?? '' !!}
+                         {{-- <span id="full-description" style="display:none;">
                              {!! $data_biographie->description ?? '' !!}
                              <a href="javascript:void(0);" class="btn__link ml-auto mr-0 d-flex justify-content-end" id="read-less"><i class="icofont-rounded-left"></i>  Réduire</a>
-                         </span>
+                         </span> --}}
                      </div>
 
+                        <div class="about-v2__content__btn">
+                            <a href="{{ route('site.biographie') }}" class="btn btn-sm btn__primary  fw-bold float-end"><span>Lire plus ma biographie <i class="icofont-rounded-right"></i></span></a>
+                        </div>
                  </div>
              </div>
          </div>

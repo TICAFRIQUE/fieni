@@ -82,20 +82,35 @@
                                  class="icofont-instagram"></i></a>
                          <a href="{{ $parametre->lien_youtube ?? '' }}" class="text-dark"><i
                                  class="icofont-youtube-play"></i></a>
-
+                         {{-- <div> <i class=" icofont-eye-alt"></i> <span class="odometer" data-count="{{ $compteur_visites }}"></span></div> --}}
                          <a href="#" class="text-dark"><i class=" icofont-eye-alt"></i> {{ $compteur_visites }}
                          </a>
                      </div>
                  </div>
 
                  <!-- Boutons à droite -->
-                 <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+                 <div
+                     class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end d-none d-lg-block d-md-block">
                      <div class="top-buttons d-flex gap-2">
-                         <a href="{{ route('site.parrainage') }}" class="btn btn-sm btn__primary"><span>Parrainer mon
-                                 candidat</span></a>
+                         <a href="{{ route('site.parrainage') }}" class="btn btn-sm btn__primary"><span>Parrainer
+                             </span></a>
                          <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline"><span>Adhérez à
                                  PROCI-DPS</span></a>
                          <a href="#" class="btn btn-sm btn__primary"><span>Faire un Don</span></a>
+
+                     </div>
+                 </div>
+
+
+                 <!-- Boutons à droite mobile-->
+                 <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end d-lg-none d-md-none">
+                     <div class="top-buttons d-flex gap-2">
+                         <a href="{{ route('site.parrainage') }}" class="btn btn-sm text-white "
+                             style="background-color: #0f3460"><span>Parrainer </span></a>
+                         <a href="{{ route('site.adhesion') }}" class="btn btn-sm text-white "
+                             style="background-color: #bf0d3e"><span>Devenir membre</span></a>
+                         <a href="#" class="btn btn-sm text-white " style="background-color: #0f3460"><span>Faire
+                                 un Don</span></a>
 
                      </div>
                  </div>
@@ -118,7 +133,7 @@
 
                      </a>
 
-                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                     <button class="navbar-toggler collapsed my-auto" type="button" data-bs-toggle="collapse"
                          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                          aria-expanded="true" aria-label="Toggle navigation">
                          <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -154,7 +169,7 @@
                                  </li>
                              </ul>
                          </li> --}}
-                         <li class="nav-item {{ Route::is('site.programme') ? 'active' : '' }}">
+                         <li class="nav-item {{ Route::is('site.agenda') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.agenda') }}">Agenda</a>
                          </li>
 

@@ -87,7 +87,9 @@
                       <div class="compteur">
                           <h4>Visiteurs total</h4>
                           <p>
-                              <span class="counter"> <b>{{ $compteur_visites }}</b></span>
+                              {{-- <div> <i class=" icofont-eye-alt"></i> <span class="odometer" data-count="{{ $compteur_visites }}"></span></div> --}}
+
+                              <span class="counter"> <b><i class=" icofont-eye-alt"></i> {{ $compteur_visites }}</b></span>
                           </p>
                       </div>
                   </div>
