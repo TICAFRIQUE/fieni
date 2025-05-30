@@ -58,7 +58,8 @@
                     @endphp
                     <!-- ========== End generer un code uuid pour attribuer a limage temporaire ========== -->
 
-                    <form id="videoForm" class="row g-3 needs-validation" method="POST" action="{{ route('video.store') }}" novalidate enctype="multipart/form-data">
+                    <form id="videoForm" class="row g-3 needs-validation" method="POST" action="{{ route('video.store') }}"
+                        novalidate enctype="multipart/form-data">
                         @csrf
                         <div class="row my-3">
                             <div class="col-md-9 border border-primary rounded p-3 mb-3">
@@ -87,6 +88,15 @@
 
                                 <div class="col-md-12">
                                     <label for="validationCustom01" class="form-label">Lien de la video </label>
+                                    <label for="validationCustom01" class="form-label">Lien de la video </label>
+                                    <br><span>NB: Dans lien vous devez mettre uniquement l'ID de la vidéo YouTube.
+                                        Par exemple, si le lien est https://www.youtube.com/watch?v=abcd1234, vous devez
+                                        mettre <span><span class="text-danger"> "abcd1234"</span> dans le champ lien.
+                                        </span>
+                                        <span class="text-danger">Attention: Si vous mettez un lien complet, la vidéo ne
+                                            s'affichera pas correctement.</span>
+
+                                    </span>
                                     <input type="text" name="lien" class="form-control" required>
                                     <div class="valid-feedback">
                                         Looks good!
@@ -175,12 +185,6 @@
                     .catch(error => failure('Upload échoué : ' + error.message));
             }
         });
-
-
-
-
-
-       
     </script>
 @endsection
 @endsection
