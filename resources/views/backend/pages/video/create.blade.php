@@ -58,7 +58,7 @@
                     @endphp
                     <!-- ========== End generer un code uuid pour attribuer a limage temporaire ========== -->
 
-                    <form id="videoForm" class="row g-3 needs-validation" novalidate enctype="multipart/form-data">
+                    <form id="videoForm" class="row g-3 needs-validation" method="POST" action="{{ route('video.store') }}" novalidate enctype="multipart/form-data">
                         @csrf
                         <div class="row my-3">
                             <div class="col-md-9 border border-primary rounded p-3 mb-3">
@@ -178,148 +178,9 @@
 
 
 
-        // Vérification de la taille de l'image avant l'envoi en javascript
-        // document.getElementById('imageInput').addEventListener('change', function(e) {
-        //     const file = e.target.files[0];
-        //     const error = document.getElementById('sizeError');
-
-        //     if (file && file.size > 1024 * 1024) {
-        //         error.style.display = 'block';
-        //         e.target.value = ''; // Réinitialise le champ
-        //     } else {
-        //         error.style.display = 'none';
-        //     }
-        // });
 
 
-        // Vérification de la taille de l'image avant l'envoi en jQuery
-        // $('#imageInputUne').on('change', function() {
-        //     var file = this.files[0];
-        //     var maxSize = 1 * 1024 * 1024; // 1 Mo en octets
-
-        //     if (file && file.size > maxSize) {
-        //         $('#sizeError').show();
-        //         $(this).val(''); // Réinitialise le champ fichier
-        //     } else {
-        //         $('#sizeError').hide();
-        //     }
-        // });
-
-
-
-
-
-
-        /// Ajout de l'image dans la galerie
-        let addedImages = [];
-
-        function showAlert(message, type = 'danger') {
-            const alert = `
-            <div class="alert alert-${type} alert-dismissible fade show" role="alert">
-                ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        `;
-            $('#alertContainer').html(alert);
-        }
-
-        $('#imageInput').on('change', function(e) {
-            const files = e.target.files;
-
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-
-                if (file.size > 1048576) { // 1 Mo
-                    showAlert(`L'image "${file.name}" dépasse la taille maximale de 1 Mo.`);
-                    continue;
-                } else {
-                    $('#alertContainer').html('');
-                }
-
-
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const base64Data = event.target.result;
-
-                    if (addedImages.includes(base64Data)) {
-                        showAlert(`L'image "${file.name}" a déjà été ajoutée.`);
-                        return;
-                    } else {
-                        $('#alertContainer').html('');
-                    }
-
-                    addedImages.push(base64Data);
-
-                    const image = `
-                    <div class="col-12 col-md-6">
-                        <div class="image-wrapper border border-secondary rounded">
-                            <img src="${base64Data}" alt="Image">
-                            <button type="button" class="remove-image">&times;</button>
-                        </div>
-                    </div>
-                `;
-                    $('#imageTableBody').append(image);
-                };
-
-                reader.readAsDataURL(file);
-            }
-        });
-
-        $(document).on('click', '.remove-image', function() {
-            const src = $(this).siblings('img').attr('src');
-            addedImages = addedImages.filter(img => img !== src);
-            $(this).closest('.col-12').remove();
-        });
-
-
-
-        // Envoyer les données au backend
-        $('#videoForm').submit(function(e) {
-            e.preventDefault();
-
-            // 🔥 Met à jour le textarea avec le contenu de TinyMCE
-            tinymce.triggerSave();
-
-            const formData = new FormData(this);
-            addedImages.forEach((image, index) => {
-                formData.append(`galerie[]`, image);
-            });
-
-
-            $.ajax({
-                url: "{{ route('video.store') }}",
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-
-                    if (response.success === true) {
-                        $('#imageTableBody').empty(); // Effacer le contenu de la galerie
-                        Swal.fire({
-                            title: 'Good job!',
-                            text: 'You clicked the button!',
-                            icon: 'success',
-                            showCancelButton: true,
-                            customClass: {
-                                confirmButton: 'btn btn-primary w-xs me-2 mt-2',
-                                cancelButton: 'btn btn-danger w-xs mt-2',
-                            },
-                            buttonsStyling: false,
-                            showCloseButton: true
-                        })
-
-                        window.location.href = "{{ route('video.index') }}";
-                        // location.reload()
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Gérer les erreurs
-                    console.error(error);
-                }
-
-            });
-        })
+       
     </script>
 @endsection
 @endsection

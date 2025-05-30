@@ -99,8 +99,8 @@ class VideoController extends Controller
 
             // Réponse en cas de succès
             Alert::success('Opération réussi', 'Success Message');
-
             return redirect()->route('video.index')->with('success', 'Video créé avec succès');
+            
         } catch (\Throwable $th) {
             // Réponse en cas d'erreur
             return back()->with('error', 'Erreur lors de la création de la Video : ' . $th->getMessage());
@@ -115,7 +115,7 @@ class VideoController extends Controller
 
             // dd($data_Video->toArray());
 
-            return view('backend.pages.Video.edit', compact('data_video'));
+            return view('backend.pages.video.edit', compact('data_video'));
         } catch (\Throwable $th) {
             return back()->with('error',  $th->getMessage());
         }
