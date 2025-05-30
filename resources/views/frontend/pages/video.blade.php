@@ -51,12 +51,13 @@
                             <div class="missionv2__item__meta">
                                 <span class="missionv2__item__date">
                                     <i class="icofont-calendar"></i>
-                                    {{\Carbon\Carbon::parse($item->created_at)->diffForHumans() ?? \Carbon\Carbon::parse($item->created_at)->format('d/m/Y')}} 
+                                    {{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() ?? \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}
                                 </span>
                                 <span class="missionv2__item__author">
                                     <i class="icofont-user"></i>
-                                    {{ $item->auteur ?? 'Auteur inconnu' }}
+                                    {{ $item->auteur ?? 'Admin' }}
                                 </span>
+                            </div>
                         </div>
                     </div>
                 @endforeach
