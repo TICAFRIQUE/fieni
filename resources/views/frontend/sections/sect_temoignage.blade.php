@@ -12,7 +12,7 @@
                             </h3> --}}
                         </div>
                     </div>
-                    <div class="col-lg-10 col-xl-10 order-2 order-lg-1 testimonialv2">
+                    <div class="col-lg-9 col-xl-9 col-md-9 col-sm-12 order-2 order-lg-1 testimonialv2">
                         <div class="row testi-row">
                             <div class="col-12">
                                 <div class="testimonialv2__wrapper">
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-xl-2 order-1 order-lg-2 testimonialv2__image">
+                    <div class="col-lg-3 col-xl-3 col-md-3 d-sm-none order-1 order-lg-2 testimonialv2__image">
                         <img class="img-fluid" src="{{ URL::asset('assets_web/images/web/fieni.jpg') }}" alt="" />
                     </div>
                 </div>
