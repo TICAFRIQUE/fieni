@@ -62,7 +62,6 @@ class SiteController extends Controller
             // temoignages
             $data_temoignage = Temoignage::active()->orderBy('created_at', 'asc')->get();
 
-         
             return view('frontend.index', compact(
                 'data_slide',
                 'data_biographie',

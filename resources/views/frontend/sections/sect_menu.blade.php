@@ -29,11 +29,11 @@
          position: absolute;
          white-space: nowrap;
          will-change: transform;
-         animation: scroll-left 30s linear infinite;
-         color: #000;
-         background: white;
+         animation: scroll-left 60s linear infinite;
+         color: rgb(0, 0, 0);
+         background: #ffffff;
+         font-weight: 500;
          padding-left: 100%;
-         /* pour bien démarrer hors-écran */
      }
 
      @keyframes scroll-left {
@@ -55,9 +55,9 @@
              <div class="flash-label">Flash Info</div>
              <div class="flash-text-wrapper">
                  <div class="flash-text">
-                     @foreach ($data_flash_info as $item)
-                         {!! $item->description !!}
-                     @endforeach
+                     {!! strip_tags(
+                         $data_flash_info->pluck('description')->implode('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'),
+                     ) !!}
                  </div>
              </div>
          </div>
