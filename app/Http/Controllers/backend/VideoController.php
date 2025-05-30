@@ -2,31 +2,33 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Models\Chantier;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class ChantierController extends Controller
+class VideoController extends Controller
 {
-
+    //
     public function index()
     {
         try {
-            $data_chantier = Chantier::with('media')->get();
-
-            return view('backend.pages.chantier.index', compact('data_chantier'));
-        } catch (\Throwable $th) {
-            return $th->getMessage();
+            $data_video = Video::active()->get();
+            return view('backend.pages.video.index', compact('data_video'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error',  $e->getMessage());
+        }
+    }
+    public function create()
+    {
+        try {
+            return view('backend.pages.video.create');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error',  $e->getMessage());
         }
     }
 
-
-    public function create(Request $request)
-    {
-        return view('backend.pages.chantier.create');
-    }
 
 
     /**
@@ -43,11 +45,11 @@ class ChantierController extends Controller
             'draft_token' => 'required|string',
         ]);
 
-        $fakeprogramme = new Chantier();
-        $fakeprogramme->id = 0; // modèle fictif
-        $fakeprogramme->exists = true;
+        $fakedata = new Video();
+        $fakedata->id = 0; // modèle fictif
+        $fakedata->exists = true;
 
-        $media = $fakeprogramme->addMediaFromRequest('file')
+        $media = $fakedata->addMediaFromRequest('file')
             ->usingFileName(time() . '_' . $request->file('file')->getClientOriginalName())
             ->withCustomProperties(['draft_token' => $request->draft_token])
             ->toMediaCollection('tiny-images');
@@ -62,48 +64,46 @@ class ChantierController extends Controller
     {
         try {
             //request validation .....
+            // dd($request->all());
 
             $request->validate([
-                'status' => 'required|string',
                 'titre' => 'required|string',
-                'description' => 'required|string',
+                'description' => '',
+                'lien' => 'required|string',
                 'draft_token' => 'required|string',
-                'image' => 'nullable|image|max:1024',
+                'status' => 'required',
+                'vedette' => 'nullable',
             ]);
-            // verifier si le chantier existe en base de données
-            $condition = Chantier::where('titre', $request['titre'])->exists();
 
 
-            if ($condition) {
-                return back()->with('error', 'Le chantier existe deja');
-            }
-
-            $chantier = Chantier::firstOrCreate([
+            $Video = Video::firstOrCreate([
                 'titre' => $request['titre'],
-                'status' => $request['status'],
                 'description' => $request['description'],
+                'lien' => $request['lien'],
+                'status' => $request['status'],
+                'vedette' => $request['vedette'],
             ]);
 
-            if (request()->hasFile('image')) {
-                $chantier->addMediaFromRequest('image')->toMediaCollection('image');
-            }
+
 
             // Associer les images TinyMCE au modèle enregistré
             Media::where('custom_properties->draft_token', $request->draft_token)
-                ->where('model_type', Chantier::class)
+                ->where('model_type', Video::class)
                 ->where('model_id', 0)
                 ->get()
-                ->each(function ($media) use ($chantier) {
-                    $media->model_id = $chantier->id;
+                ->each(function ($media) use ($Video) {
+                    $media->model_id = $Video->id;
                     $media->save();
                 });
 
 
-            Alert::Success('Opération', 'SuccessMessage');
-            return redirect()->route('chantier.index')->with('success', 'Chantier créé avec succès.');
-        } catch (\Throwable $th) {
+            // Réponse en cas de succès
+            Alert::success('Opération réussi', 'Success Message');
 
-            return back()->with('error', $th->getMessage());
+            return redirect()->route('video.index')->with('success', 'Video créé avec succès');
+        } catch (\Throwable $th) {
+            // Réponse en cas d'erreur
+            return back()->with('error', 'Erreur lors de la création de la Video : ' . $th->getMessage());
         }
     }
 
@@ -111,11 +111,13 @@ class ChantierController extends Controller
     public function edit($id)
     {
         try {
-            $data_chantier = Chantier::find($id);
+            $data_video = Video::findOrFail($id);
 
-            return view('backend.pages.chantier.edit', compact('data_chantier'));
+            // dd($data_Video->toArray());
+
+            return view('backend.pages.Video.edit', compact('data_video'));
         } catch (\Throwable $th) {
-            return $th->getMessage();
+            return back()->with('error',  $th->getMessage());
         }
     }
 
@@ -126,47 +128,50 @@ class ChantierController extends Controller
 
         try {
             //request validation ......
+            // dd($request->all());
+
             $request->validate([
                 'titre' => 'required|string',
-                'status' => 'required|string',
-                'description' => 'required|string',
+                'description' => '',
+                'lien' => 'required|string',
                 'draft_token' => 'required|string',
-                'image' => 'nullable|image|max:1024',
+                'status' => 'required',
+                'vedette' => 'nullable',
             ]);
 
-            $chantier = tap(Chantier::find($id))->update([
+
+            $Video = tap(Video::find($id))->update([
                 'titre' => $request['titre'],
-                'status' => $request['status'],
                 'description' => $request['description'],
+                'lien' => $request['lien'],
+                'status' => $request['status'],
+                'vedette' => $request['vedette'],
             ]);
-
-            if (request()->hasFile('image')) {
-                $chantier->clearMediaCollection('image');
-                $chantier->addMediaFromRequest('image')->toMediaCollection('image');
-            }
 
 
             // Associer les images TinyMCE au modèle enregistré
             Media::where('custom_properties->draft_token', $request->draft_token)
-                ->where('model_type', Chantier::class)
+                ->where('model_type', Video::class)
                 ->where('model_id', 0)
                 ->get()
-                ->each(function ($media) use ($chantier) {
-                    $media->model_id = $chantier->id;
+                ->each(function ($media) use ($Video) {
+                    $media->model_id = $Video->id;
                     $media->save();
                 });
 
+            // Réponse en cas de succès
             Alert::success('Opération réussi', 'Success Message');
-            return redirect()->route('chantier.index')->with('success', 'Chantier mis à jour avec succès.');
+            return redirect()->route('video.index')->with('success', 'Video modifié avec succès');
         } catch (\Throwable $th) {
-            return back()->with('error', $th->getMessage());
+            // Réponse en cas d'erreur
+            return back()->with('error', 'Erreur lors de la modification de la Video : ' . $th->getMessage());
         }
     }
 
 
     public function delete($id)
     {
-        Chantier::find($id)->delete();
+        Video::find($id)->delete();
         return response()->json([
             'status' => 200,
         ]);

@@ -9,8 +9,8 @@
     @include('frontend.components.breadcrumb')
     <!-- End Breadcrumbs -->
 
-    <section class="section-padding contact mt-5" id="contact">
-        <div class="contact__area">
+    <section class=" contact my-4 " id="contact">
+        <div class="contact__area bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
@@ -18,9 +18,9 @@
                             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                                 Contactez-nous.
                             </p>
-                            <h3 class="color-light" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
+                            <h5 class="color-light text-dark " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
                                Vous voulez contribuer à la transformation de notre pays ?
-                            </h3>
+                            </h5>
                         </div>
                     </div>
                 </div>

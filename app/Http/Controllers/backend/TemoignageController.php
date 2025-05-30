@@ -90,8 +90,8 @@ class temoignageController extends Controller
                 });
 
             Alert::Success('Opération', 'SuccessMessage');
+            return redirect()->route('temoignage.index')->with('success', 'Temoignage créé avec succès.');
 
-            return back();
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
@@ -136,7 +136,7 @@ class temoignageController extends Controller
                 });
 
             Alert::success('Opération réussi', 'Success Message');
-            return back();
+            return redirect()->route('temoignage.index')->with('success', 'Temoignage modifié avec succès.');
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }

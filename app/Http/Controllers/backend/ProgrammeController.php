@@ -92,8 +92,8 @@ class ProgrammeController extends Controller
                 });
 
             Alert::Success('Opération', 'SuccessMessage');
+            return redirect()->route('programme.index')->with('success', 'Programme créé avec succès.');
 
-            return back();
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
@@ -104,7 +104,7 @@ class ProgrammeController extends Controller
     public function edit($id)
     {
         try {
-            $data_programme = Programme::find($id);
+            $data_programme = Programme::findOrFail($id);
 
             return view('backend.pages.programme.edit', compact('data_programme'));
         } catch (\Throwable $th) {
@@ -143,7 +143,7 @@ class ProgrammeController extends Controller
 
 
             Alert::success('Opération réussi', 'Success Message');
-            return back();
+            return redirect()->route('programme.index')->with('success', 'Programme modifié avec succès');
         } catch (\Throwable $th) {
             return $th->getMessage();
         }

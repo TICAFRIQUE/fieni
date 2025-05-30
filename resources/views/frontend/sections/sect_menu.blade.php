@@ -154,6 +154,8 @@
                              class="nav-item {{ Route::is('site.actualite') || Route::is('site.actualite_details') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.actualite') }}">Actualités</a>
                          </li>
+
+                          
                          {{-- <li class="nav-item dropdown submenu">
                              <a class="nav-link scroll" href="#">Mediathèque </a>
                              <span class="sub-menu-toggle dropdown-toggle" role="button" data-bs-toggle="dropdown"
@@ -172,9 +174,13 @@
                          <li class="nav-item {{ Route::is('site.agenda') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.agenda') }}">Agenda</a>
                          </li>
+                         <li
+                             class="nav-item {{ Route::is('site.video') ? 'active' : '' }}">
+                             <a class="nav-link scroll" href="{{ route('site.video') }}"> <i class="icofont-youtube-play"></i>  Fieni TV</a>
+                         </li>
 
                          <li class="nav-item {{ Route::is('site.contact') ? 'active' : '' }}">
-                             <a class="nav-link scroll" href="{{ route('site.contact') }}">Contact-nous</a>
+                             <a class="nav-link scroll" href="{{ route('site.contact') }}">M'ecrire</a>
                          </li>
 
 

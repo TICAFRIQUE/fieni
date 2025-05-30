@@ -88,6 +88,7 @@ class BiographieController extends Controller
                 });
 
             Alert::Success('Opération', 'SuccessMessage');
+            return redirect()->route('biographie.index')->with('success', 'Biographie créée avec succès.');
 
             return back();
         } catch (\Throwable $th) {
@@ -132,6 +133,7 @@ class BiographieController extends Controller
                 });
 
             Alert::success('Opération réussi', 'Success Message');
+            return redirect()->route('biographie.index')->with('success', 'Biographie modifiée avec succès.');
             return back();
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());

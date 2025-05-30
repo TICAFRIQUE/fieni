@@ -14,9 +14,13 @@ class FlashInfoController extends Controller
 
     public function index()
     {
-        $data_flash = FlashInfo::get();
+        try {
 
-        return view('backend.pages.flash-info.index', compact('data_flash'));
+            $data_flash = FlashInfo::get();
+            return view('backend.pages.flash-info.index', compact('data_flash'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error',  $e->getMessage());
+        }
     }
 
 
@@ -88,8 +92,8 @@ class FlashInfoController extends Controller
                 });
 
             Alert::Success('Opération', 'SuccessMessage');
+            return redirect()->route('flash-infos.index')->with('success', 'Flash Info créée avec succès.');
 
-            return back();
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
@@ -99,9 +103,12 @@ class FlashInfoController extends Controller
 
     public function edit($id)
     {
-        $data_flash = FlashInfo::find($id);
-
-        return view('backend.pages.flash-info.edit', compact('data_flash'));
+        try {
+            $data_flash = FlashInfo::findOrFail($id);
+            return view('backend.pages.flash-info.edit', compact('data_flash'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error',  $e->getMessage());
+        }
     }
 
 
@@ -132,7 +139,7 @@ class FlashInfoController extends Controller
                 });
 
             Alert::Success('Opération', 'SuccessMessage');
-            return back();
+            return redirect()->route('flash-infos.index')->with('success', 'Flash Info modifiée avec succès.');
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }

@@ -23,7 +23,7 @@
                                      src="{{ URL::asset($item?->getFirstMediaUrl('image') ?? asset('assets_web/images/web/fieni.jpg')) }}"
                                      alt="Mission" />
                              </div>
-                             <h3 class="missionv2__item__title fs-3">
+                             <h3 class="missionv2__item__title fs-4 text-capitalize">
                                  <a href="{{ route('site.chantier', $item->slug) }}">{{ $item->titre }}</a>
                              </h3>
                              {{-- <p class="missionv2__item__desc">

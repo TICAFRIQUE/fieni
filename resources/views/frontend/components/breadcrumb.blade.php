@@ -2,7 +2,7 @@
      <div class="container">
          <div class="row">
              <div class="blog-title ">
-                 <h1 class="display-3 mt-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                 <h1 class=" display-3 mt-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                      @yield('title')
                  </h1>
                  <ul>

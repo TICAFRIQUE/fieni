@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\Slide;
+use App\Models\Video;
 use App\Models\Agenda;
 use App\Models\Equipe;
 use App\Models\Visite;
@@ -61,6 +62,8 @@ class SiteController extends Controller
 
             // temoignages
             $data_temoignage = Temoignage::active()->orderBy('created_at', 'asc')->get();
+
+           
 
             return view('frontend.index', compact(
                 'data_slide',
@@ -220,6 +223,17 @@ class SiteController extends Controller
             return view('frontend.pages.programme', compact('programme', 'data_chantier'));
         } catch (\Throwable $th) {
             return back()->with('error', 'Une erreur est survenue lors de la récupération des programmes : ' . $th->getMessage());
+        }
+    }
+
+    // videotheque
+    public function videotheque()
+    {
+        try {
+            $data_video = Video::active()->get();
+            return view('frontend.pages.video', compact('data_video'));
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de la récupération de la vidéothèque : ' . $th->getMessage());
         }
     }
 

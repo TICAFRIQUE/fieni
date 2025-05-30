@@ -23,8 +23,8 @@
                         </div>
                         <div class="blog__content">
                             <p>{{ \Carbon\Carbon::parse($item->date_publication)->translatedFormat('d F Y') }}</p>
-                            <h3 class="fs-5">
-                                <a href="#">{{ $item->titre }}</a>
+                            <h3 class="fs-6 text-capitalize">
+                                <a href="{{ route('site.actualite_details', $item->slug) }}">{{ $item->titre }}</a>
                             </h3>
                         </div>
                     </div>

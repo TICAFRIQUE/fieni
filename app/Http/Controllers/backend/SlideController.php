@@ -60,6 +60,7 @@ class SlideController extends Controller
 
             // Message de succès
             Alert::success('Opération réussie', 'Le slide a bien été enregistré.');
+            return redirect()->route('slide.index')->with('success', 'Slide créé avec succès.');
 
             return back();
         } catch (\Throwable $th) {
@@ -95,7 +96,7 @@ class SlideController extends Controller
             }
 
             Alert::success('Opération réussi', 'Success Message');
-            return back();
+            return redirect()->route('slide.index')->with('success', 'Slide modifiée avec succès.');
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }

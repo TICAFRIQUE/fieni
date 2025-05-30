@@ -143,6 +143,16 @@
                 @endcan
 
 
+                   @can('voir-video')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::is('video.*') ? 'active' : '' }} "
+                            href="{{ route('video.index') }}">
+                            <i class="ri-video-fill"></i> <span>Videos</span>
+                        </a>
+                    </li>
+                @endcan
+
+
                 @can('voir-agenda')
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('agenda.*') ? 'active' : '' }} "
@@ -163,40 +173,33 @@
                 @endcan
 
 
-                @can('voir-mot du directeur')
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{ Route::is('mot-directeur.*') ? 'active' : '' }} "
-                            href="{{ route('mot-directeur.index') }}">
-                            <i class="ri-dashboard-2-line"></i> <span>Mot du directeur</span>
-                        </a>
-                    </li>
-                @endcan
+             
 
-                @can('voir-reference')
+                {{-- @can('voir-reference')
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('reference.*') ? 'active' : '' }} "
                             href="{{ route('reference.index') }}">
                             <i class="ri-dashboard-2-line"></i> <span>References</span>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
 
-                @can('voir-equipe')
+                {{-- @can('voir-equipe')
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('equipe.*') ? 'active' : '' }} "
                             href="{{ route('equipe.index') }}">
                             <i class="ri-dashboard-2-line"></i> <span>Equipes</span>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
 
                 @can('voir-parrainage')
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('parrainage.*') ? 'active' : '' }} "
                             href="{{ route('parrainage.index') }}">
-                           <i class="ri-user-voice-fill"></i> <span>Parrainages</span>
+                            <i class="ri-user-voice-fill"></i> <span>Parrainages</span>
                         </a>
                     </li>
                 @endcan
@@ -207,7 +210,7 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::is('adhesion.*') ? 'active' : '' }} "
                             href="{{ route('adhesion.index') }}">
-                          <i class="ri-group-fill"></i> <span>Membres</span>
+                            <i class="ri-group-fill"></i> <span>Membres</span>
                         </a>
                     </li>
                 @endcan

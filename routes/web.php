@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\SlideController;
+use App\Http\Controllers\backend\VideoController;
 use App\Http\Controllers\frontend\SiteController;
 use App\Http\Controllers\backend\AgendaController;
 use App\Http\Controllers\backend\EquipeController;
@@ -181,6 +182,18 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     });
 
 
+    // videos
+    Route::prefix('video')->controller(VideoController::class)->group(function () {
+        route::get('', 'index')->name('video.index');
+        route::get('create', 'create')->name('video.create');
+        route::post('upload-tinymce', 'uploadFromTinyMCE')->name('video.upload-tinymce'); // upload image tinymce
+        route::post('store', 'store')->name('video.store');
+        route::get('edit/{id}', 'edit')->name('video.edit');
+        route::post('update/{id}', 'update')->name('video.update');
+        route::get('delete/{id}', 'delete')->name('video.delete');
+    });
+
+
 
     // equipe
     Route::prefix('equipe')->controller(EquipeController::class)->group(function () {
@@ -250,7 +263,8 @@ route::middleware(['compteur.visites'])->group(function () {
 
     // biographie du candidat
     Route::get('/biographie', [SiteController::class, 'biographie'])->name('site.biographie'); // page biographie du candidat
-
+//    // videos du candidat
+    Route::get('/video', [SiteController::class, 'videotheque'])->name('site.video'); // page video du candidat
 
     // programme du candidat
     Route::get('/programme', [SiteController::class, 'programme'])->name('site.programme'); // page programme du candidat
