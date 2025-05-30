@@ -9,7 +9,7 @@
                              <div class="counters__stats__icon">
                                  <i class="icofont-users"></i>
                              </div>
-                             <div><span class="odometer" data-count="845"></span>+</div>
+                             <div><span class="odometer" data-count="{{ $compteur_membres }}"></span>+</div>
                              <h6>Membres</h6>
                          </div>
                      </li>

@@ -84,7 +84,7 @@
 
                                 <div class="form-group col-md-3">
                                     <label for="contact">Contact <span class="text-danger">*</span></label>
-                                    <input type="tel" class="form-control" id="contact" name="contact"
+                                    <input type="number" class="form-control" id="contact" name="contact"
                                         placeholder="Ex: 0700000000" required />
                                 </div>
 

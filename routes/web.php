@@ -221,6 +221,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('edit/{id}', 'edit')->name('adhesion.edit');
         route::post('update/{id}', 'update')->name('adhesion.update');
         route::get('delete/{id}', 'delete')->name('adhesion.delete');
+        route::get('insertDataFromCsv', 'insertDataFromCsv')->name('adhesion.insertDataFromCsv'); // export adhésion
     });
 });
 

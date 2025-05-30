@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use App\Models\Slide;
+use App\Models\Adhesion;
 use App\Models\Compteur;
 use App\Models\Actualite;
 use App\Models\Parametre;
@@ -79,10 +80,18 @@ class AppServiceProvider extends ServiceProvider
             $compteur_visites = Compteur::first()->visites ?? 554267;
         }
 
+        // nombre de membres
+        if (Schema::hasTable('adhesions')) {
+            $nombre_membres = Adhesion::count();
+        } else {
+            $nombre_membres = 0;
+        }
+
         view()->share([
             'parametre' => $data_parametre ?? null,
             'data_actualite' => $data_actualite ?? null,
             'compteur_visites' => $compteur_visites ?? 554267,
+            'compteur_membres' => $nombre_membres ?? 0,
         ]);
     }
 }
