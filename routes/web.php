@@ -207,7 +207,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
 
     // temoignages
-    Route::prefix('temoignange')->controller(TemoignageController::class)->group(function () {
+    Route::prefix('temoignage')->controller(TemoignageController::class)->group(function () {
         route::get('', 'index')->name('temoignage.index');
         route::get('create', 'create')->name('temoignage.create');
         route::post('store', 'store')->name('temoignage.store');
