@@ -45,7 +45,7 @@
                   <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="1000"
                       data-aos-delay="350">
                       <div class="footer-wrapper">
-                          <h3 class="footer__title fs-3">Agendas</h3>
+                          <h3 class="footer__title fs-3">Lien rapide</h3>
                           <ul class="footer__event">
 
 
@@ -78,7 +78,7 @@
                               @foreach ($data_actualite as $item)
                                   <li class="footer-news-text">
                                       <h4 class="footer__event__title">
-                                          <a href="details-right-sidebar.html">{{ $item->titre }}</a>
+                                          <a href="{{ route('site.actualite_details', $item->slug) }}">{{ $item->titre }}</a>
                                       </h4>
                                       <span>{{ \Carbon\Carbon::parse($item->date_publication)->diffForHumans() }}</span>
                                   </li>
