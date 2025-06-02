@@ -1,13 +1,13 @@
- <section id="mission" class="section-padding missionv2">
-     <div class="container">
+ <section id="mission" class="section-padding missionv2" style="background-color: #101324;">
+     <div class="container py-2" style="background-color: #ffffff;">
          <div class="row">
              <div class="col-lg-10 offset-lg-1">
                  <div class="section__title__center">
                      <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                         Mon Programme de société
+                         Projets de société
                      </p>
                      <h4 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
-                         Je suis Pro-Côte d'Ivoire Parce que la Côte d'Ivoire mérite mieux
+                        Faire de la Côte d'Ivoire une RÉPUBLIQUE FÉDÉRALE
                      </h4>
                  </div>
              </div>

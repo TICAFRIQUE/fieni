@@ -11,7 +11,7 @@
      }
 
      .flash-label {
-         background-color: #0d1224;
+         background-color: var(--secondary);
          padding: 10px 15px;
          font-weight: bold;
          font-style: italic;
@@ -30,8 +30,9 @@
          white-space: nowrap;
          will-change: transform;
          animation: scroll-left 60s linear infinite;
-         color: rgb(0, 0, 0);
-         background: #ffffff;
+         color: rgb(255, 255, 255);
+         /* background: #ffffff; */
+         
          font-weight: 500;
          padding-left: 100%;
      }
@@ -94,8 +95,8 @@
                      <div class="top-buttons d-flex gap-2">
                          <a href="{{ route('site.parrainage') }}" class="btn btn-sm btn__primary"><span>Parrainer
                              </span></a>
-                         <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline"><span>Adhérez à
-                                 PROCI-DPS</span></a>
+                         <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline" style="text-transform: none"><span>Adhérez à
+                                 <b>PRO CÔTE D'IVOIRE</b></span></a>
                          <a href="#" class="btn btn-sm btn__primary"><span>Faire un Don</span></a>
 
                      </div>
@@ -148,7 +149,7 @@
                              <a class="nav-link scroll" href="{{ route('site.biographie') }}">Biographie</a>
                          </li>
                          <li class="nav-item {{ Route::is('site.programme') ? 'active' : '' }}">
-                             <a class="nav-link scroll" href="{{ route('site.programme') }}">Mon programme</a>
+                             <a class="nav-link scroll" href="{{ route('site.programme') }}">Projets de société</a>
                          </li>
                          <li
                              class="nav-item {{ Route::is('site.actualite') || Route::is('site.actualite_details') ? 'active' : '' }}">
@@ -184,14 +185,14 @@
                          </li>
 
 
-                         <li class="nav-item">
+                         {{-- <li class="nav-item">
                              <div class="switch-box">
                                  <label id="switch" class="switch">
                                      <input type="checkbox" onchange="toggleTheme()" id="slider" />
                                      <span class="slider round"></span>
                                  </label>
                              </div>
-                         </li>
+                         </li> --}}
                      </ul>
                  </div>
 

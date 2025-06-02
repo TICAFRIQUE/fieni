@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('title')
-    Mon programme
+   Projet de société 
 @endsection
 
 

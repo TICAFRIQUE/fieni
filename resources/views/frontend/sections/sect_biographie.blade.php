@@ -1,4 +1,4 @@
- <section class="section-padding about-v2" id="about">
+ <section class="section-padding about-v2" id="about" style="background-color: #101324; color: white">
      <div class="container">
          <div class="row">
              <div class="col-lg-5 order-2 order-lg-1 about-v2__image" data-aos="fade-right" data-aos-duration="1000"
@@ -19,7 +19,7 @@
                  data-aos-duration="1000" data-aos-delay="250">
                  <div class="section__title__left">
                      <p class="mb-3">Ma biographie</p>
-                     <h3>Qui est FIÉNI</h3>
+                     <h3 class="color-light" style="text-transform: none">Qui est FIÉNI</h3>
                      {{-- <p>
                          Je suis Pro-Côte d'Ivoire Parce que la Côte d'Ivoire mérite mieux
                      </p> --}}

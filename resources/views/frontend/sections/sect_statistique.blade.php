@@ -1,5 +1,5 @@
  <section class="section-padding section-bg-dark counters">
-     <div class="container">
+     <div class="container" class="bg-white">
          <div class="row">
              <div class="col-md-12">
                  <ul class="counters__stats m-0 p-0 row text-center">
@@ -47,19 +47,18 @@
                          <div class="row">
                              <div class="col-md-6">
                                  <a href="{{ route('site.biographie') }}"
-                                     class="btn btn-sm btn__primary-outline my-4 fw-bold"><span>Voir
+                                     class="btn btn-sm btn__primary-outline my-4 fw-bold border-white border-3"><span>Voir
                                          ma biographie</span></a>
                                  <a href="{{ route('site.programme') }}"
-                                     class="btn btn-sm btn__primary"><span>Lire mon discours</span></a>
+                                     class="btn btn-sm btn__primary fw-bold"><span>Lire mon discours</span></a>
                              </div>
 
                              <div class="col-md-6">
                                  <a href="{{ route('site.adhesion') }}"
-                                     class="btn btn-sm btn__primary-outline my-4 fw-bold"><span>Devenir
+                                     class="btn btn-sm btn__primary-outline my-4 fw-bold border-white border-3"><span>Devenir
                                          membre</span></a>
                                  <a href="{{ route('site.parrainage') }}"
-                                     class="btn btn-sm btn__primary"><span>Parrainer mon
-                                         candidat</span></a>
+                                     class="btn btn-sm btn__primary fw-bold"><span>Parrainer </span></a>
                              </div>
                          </div>
 

@@ -1,14 +1,16 @@
- <section id="event" class="section-padding event">
+ <section id="event" class="section-padding event" style="background-color: #101324;">
      <div class="container">
          <div class="row">
              <div class="col-lg-6 offset-lg-3">
                  <div class="section__title__center">
-                     <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
+
+                     <h3 class="color-light" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                         AGENDA
+                     </h3>
+
+                      <p style="color: var(--primary)" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
                          Rejoignez-nous pour un événement spécial
                      </p>
-                     {{-- <h3 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                                let's Change the nation
-                            </h3> --}}
                  </div>
              </div>
          </div>
@@ -78,7 +80,8 @@
                                      </ul>
                                  </div>
                                  <h3 class="fs-3">
-                                     <a href="{{ route('site.agenda_details', $item->slug) }}">{{ $item->titre ?? 'Titre non spécifique' }}</a>
+                                     <a
+                                         href="{{ route('site.agenda_details', $item->slug) }}">{{ $item->titre ?? 'Titre non spécifique' }}</a>
                                  </h3>
                                  <p>
                                      {{ Str::limit(strip_tags($item->description), 100, '...') ?? 'Description non spécifique' }}
@@ -90,16 +93,16 @@
                          </div>
                      @endforeach
 
-                    
+
 
                      <!-- Event single details end -->
                  </div>
              </div>
 
-              <div class="text-center my-4">
-                         <a href="{{ route('site.agenda') }}" class=" btn btn__primary w-50 text-center"> <span>Voir
-                                 tous les agendas</span> <i class="icofont-rounded-right"></i> </a>
-                     </div>
+             <div class="text-center my-4">
+                 <a href="{{ route('site.agenda') }}" class=" btn btn__primary w-50 text-center"> <span>Voir
+                         tous les agendas</span> <i class="icofont-rounded-right"></i> </a>
+             </div>
          </div>
      </div>
  </section>

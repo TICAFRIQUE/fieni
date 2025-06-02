@@ -15,7 +15,7 @@
     <section class="all-events section-padding">
         <div class="container">
             <div class="row justify-content-center">
-                @foreach ($agenda as $item)
+                @forelse ($agenda as $item)
                     <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="350">
                         <div class="all-event__item">
                             <img class="img-fluid" src="{{ URL::asset($item->getFirstMediaUrl('image_une') ?? '') }}"
@@ -38,16 +38,23 @@
                                     </ul>
                                 </div>
                                 <h3 class="fs-4">
-                                    <a href="{{ route('site.agenda_details', $item->slug) }}" class="text-capital">{{ $item->titre ?? 'Titre non spécifique' }}</a>
+                                    <a href="{{ route('site.agenda_details', $item->slug) }}"
+                                        class="text-capital">{{ $item->titre ?? 'Titre non spécifique' }}</a>
                                 </h3>
                                 <p>
                                     {!! Str::limit($item->description, 100, '...') ?? 'Description non spécifiée' !!}
                                 </p>
-                                <a href="{{ route('site.agenda_details', $item->slug) }}" class="btn__link ml-auto mr-0 d-flex justify-content-end">Lire Plus<i
+                                <a href="{{ route('site.agenda_details', $item->slug) }}"
+                                    class="btn__link ml-auto mr-0 d-flex justify-content-end">Lire Plus<i
                                         class="icofont-rounded-right"></i></a>
                             </div>
                         </div>
                     </div>
+                @empty
+                    <div class="col-md-12">
+                        <div class="alert alert-info text-center">
+                            <strong>Aucun événement trouvé.</strong>
+                        </div>
                 @endforeach
 
             </div>

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title')
-    Video
+   Fieni - TV
 @endsection
 
 @section('content')
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                @foreach ($data_video as $item)
+                @forelse($data_video as $item)
                     <div class="col-lg-4 col-md-6 mb-4 mb-xl-0" data-aos="fade-up" data-aos-duration="1000"
                         data-aos-delay="300">
                         <div class="missionv2__item">
@@ -60,7 +60,13 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-md-12">
+                        <div class="alert alert-info text-center">
+                            <strong>Aucune vidéo trouvée.</strong>
+                        </div>
+                    </div>
+                @endforelse
 
             </div>
         </div>

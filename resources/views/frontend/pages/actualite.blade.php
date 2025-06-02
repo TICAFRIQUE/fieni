@@ -15,7 +15,7 @@
     <section class="section-padding all-blogs-area">
         <div class="container">
             <div class="row justify-content-center">
-                @foreach ($actualite as $item)
+                @forelse($actualite as $item)
                     <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="350">
                         <div class="blogv2__item">
                             <div class="blogv2__item__image">
@@ -38,17 +38,26 @@
                                 </li>
                             </ul> --}}
                                 <h3 class="fs-6">
-                                    <a href="{{route('site.actualite_details', $item->slug)}}">{{ $item->titre }}</a>
+                                    <a href="{{ route('site.actualite_details', $item->slug) }}">{{ $item->titre }}</a>
                                 </h3>
                                 <p>
                                     {!! Str::limit(strip_tags($item->description), 100, '...') ?? 'Description non spécifique' !!}
                                 </p>
-                                <a href="{{route('site.actualite_details', $item->slug)}}" class="btn__link justify-content-end">Lire plus <i
+                                <a href="{{ route('site.actualite_details', $item->slug) }}"
+                                    class="btn__link justify-content-end">Lire plus <i
                                         class="icofont-rounded-right"></i></a>
                             </div>
                         </div>
                     </div>
-                @endforeach
+
+                @empty
+                    <div class="col-md-12">
+                        <div class="alert alert-info text-center">
+                            <strong>Aucune actualité trouvée.</strong>
+                        </div>
+                    </div>
+                @endforelse
+
 
             </div>
             {{-- <div class="blog__pagination" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">

@@ -21,7 +21,7 @@
                         <div class="blog-details__content">
                             <h2 class="blog-details__title my-3">{{ $chantier->titre ?? 'Aucune titre disponible.' }}</h2>
                             <p class="para">
-                                {!! $chantier->description ?? 'Aucune chantier disponible.' !!}
+                                {!! $chantier->description ?? 'Aucune description disponible.' !!}
                             </p>
 
 

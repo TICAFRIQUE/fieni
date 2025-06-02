@@ -8,7 +8,7 @@
                              KÉVIN FIÉNI,
                              Président de Pro-Côte d'Ivoire
                          </p>
-                         <h5 class="color-light" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
+                         <h5 class="text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
                              Les élections présidentielles de 2025 approchent à grands pas et il est temps de se
                              préparer pour
                              faire entendre notre voix.
@@ -21,23 +21,23 @@
                      <ul>
                          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                              <span class="month">05</span>
-                             <p>Mois</p>
+                             <p class="text-white">Mois</p>
                          </li>
                          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                              <span class="days">19</span>
-                             <p>Jours</p>
+                             <p class="text-white">Jours</p>
                          </li>
                          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="350">
                              <span class="hours">04</span>
-                             <p>Heures</p>
+                             <p class="text-white">Heures</p>
                          </li>
                          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                              <span class="mins">14</span>
-                             <p>Minutes</p>
+                             <p class="text-white">Minutes</p>
                          </li>
                          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
                              <span class="secs"></span>
-                             <p>Secondes</p>
+                             <p class="text-white">Secondes</p>
                          </li>
                      </ul>
                  </div>

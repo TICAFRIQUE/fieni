@@ -1,8 +1,8 @@
   <footer>
-      <div class="footer">
+      <div class="footer text-white">
           <div class="container">
               <div class="row">
-                  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="1000"
+                  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 " data-aos="fade-up" data-aos-duration="1000"
                       data-aos-delay="250">
                       <div class="footer-wrapper">
                           {{-- <h3 class="footer__title fs-3">Statesman</h3> --}}
@@ -13,7 +13,7 @@
                                         For any additional inquiries please feel free to send us
                                         an e-mail or call
                                     </p> --}}
-                              <h4>Adresse</h4>
+                              <h4 class="text-white">Adresse</h4>
                               <p class="color-primary">{{ $parametre->email1 ?? '' }}</p>
                               <span class="color-primary">{{ $parametre->contact1 ?? '' }}</span>
                           </div>
@@ -50,10 +50,19 @@
 
 
                               <li class="footer-news-text">
-                                  <h4 class="footer__event__title">
-                                      <a href="single-event.html">Prochaine Rencontre</a>
-                                  </h4>
-                                  <span>Bientot</span>
+                                  <h5 class="footer__event__title">
+                                      <ul>
+                                          <li><a class="nav-link " href="{{ route('site.accueil') }}">Accueil</a></li>
+                                          <li><a href="{{ route('site.biographie') }}">Biographie</a></li>
+                                          <li><a href="{{ route('site.programme') }}">Projet de société</a></li>
+                                          <li><a href="{{ route('site.adhesion') }}">Adhésion</a></li>
+                                          <li><a href="{{ route('site.parrainage') }}">Parrainage</a></li>
+                                          <li><a href="{{ route('site.actualite') }}">Actualités</a></li>
+                                          <li><a href="{{ route('site.contact') }}">Contact</a></li>
+                                      </ul>
+
+                                  </h5>
+                                  
                               </li>
                           </ul>
                       </div>
@@ -85,11 +94,12 @@
               <div class="row">
                   <div class="col-12 text-center">
                       <div class="compteur">
-                          <h4>Visiteurs total</h4>
+                          <h4 class="text-white">Visiteurs total</h4>
                           <p>
                               {{-- <div> <i class=" icofont-eye-alt"></i> <span class="odometer" data-count="{{ $compteur_visites }}"></span></div> --}}
 
-                              <span class="counter"> <b><i class=" icofont-eye-alt"></i> {{ $compteur_visites }}</b></span>
+                              <span class="counter"> <b><i class=" icofont-eye-alt"></i>
+                                      {{ $compteur_visites }}</b></span>
                           </p>
                       </div>
                   </div>
@@ -104,12 +114,12 @@
           <div class="container">
               <div class="row">
                   <div class="col-12">
-                      <p class="m-0 text-center">
+                      <p class="m-0 text-center text-white">
                           &copy; @php
                               echo date('Y');
                           @endphp - {{ config('app.name') }} All right reserved. Made with
                           <i class="icofont-heart"></i> by
-                          <a href="https://www.ticafrique.ci" target="_blank">ticafrique.ci</a>
+                          <a class="text-white" href="https://www.ticafrique.ci" target="_blank">ticafrique.ci</a>
                       </p>
                   </div>
               </div>
