@@ -9,7 +9,7 @@
 
                  </div>
              </div>
-             <div class="col-lg-9 col-xl-9 col-md-9 col-sm-12 m-auto order-2 order-lg-1 testimonialv2">
+             <div class="col-lg-12 col-xl-9 col-md-9 col-sm-12 m-auto order-2 order-lg-1 testimonialv2">
                  <div class="row testi-row">
                      <div class="col-12">
                          <div class="testimonialv2__wrapper">

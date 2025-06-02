@@ -84,7 +84,7 @@
                                          href="{{ route('site.agenda_details', $item->slug) }}">{{ $item->titre ?? 'Titre non spécifique' }}</a>
                                  </h3>
                                  <p>
-                                     {{ Str::limit(strip_tags($item->description), 100, '...') ?? 'Description non spécifique' }}
+                                    {!! Str::limit(strip_tags($item->description), 100, '...') ?? 'Description non spécifique' !!}
                                  </p>
                                  <a href="{{ route('site.agenda_details', $item->slug) }}"
                                      class="btn__link ml-auto mr-0 d-flex justify-content-end">Lire

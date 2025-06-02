@@ -32,7 +32,7 @@
          animation: scroll-left 60s linear infinite;
          color: rgb(255, 255, 255);
          /* background: #ffffff; */
-         
+
          font-weight: 500;
          padding-left: 100%;
      }
@@ -89,13 +89,14 @@
                      </div>
                  </div>
 
-                 <!-- Boutons à droite -->
+                 <!-- Menu Top header laptop -->
                  <div
                      class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end d-none d-lg-block d-md-block">
                      <div class="top-buttons d-flex gap-2">
                          <a href="{{ route('site.parrainage') }}" class="btn btn-sm btn__primary"><span>Parrainer
                              </span></a>
-                         <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline" style="text-transform: none"><span>Adhérez à
+                         <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline"
+                             style="text-transform: none"><span>Adhérez à
                                  <b>PRO CÔTE D'IVOIRE</b></span></a>
                          <a href="#" class="btn btn-sm btn__primary"><span>Faire un Don</span></a>
 
@@ -103,13 +104,13 @@
                  </div>
 
 
-                 <!-- Boutons à droite mobile-->
+                 <!-- Menu Top header mobile-->
                  <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end d-lg-none d-md-none">
                      <div class="top-buttons d-flex gap-2">
                          <a href="{{ route('site.parrainage') }}" class="btn btn-sm text-white "
                              style="background-color: #0f3460"><span>Parrainer </span></a>
                          <a href="{{ route('site.adhesion') }}" class="btn btn-sm text-white "
-                             style="background-color: #bf0d3e"><span>Devenir membre</span></a>
+                             style="background-color: #cf9b1b"><span>Devenir membre</span></a>
                          <a href="#" class="btn btn-sm text-white " style="background-color: #0f3460"><span>Faire
                                  un Don</span></a>
 
@@ -156,7 +157,7 @@
                              <a class="nav-link scroll" href="{{ route('site.actualite') }}">Actualités</a>
                          </li>
 
-                          
+
                          {{-- <li class="nav-item dropdown submenu">
                              <a class="nav-link scroll" href="#">Mediathèque </a>
                              <span class="sub-menu-toggle dropdown-toggle" role="button" data-bs-toggle="dropdown"
@@ -175,9 +176,9 @@
                          <li class="nav-item {{ Route::is('site.agenda') ? 'active' : '' }}">
                              <a class="nav-link scroll" href="{{ route('site.agenda') }}">Agenda</a>
                          </li>
-                         <li
-                             class="nav-item {{ Route::is('site.video') ? 'active' : '' }}">
-                             <a class="nav-link scroll" href="{{ route('site.video') }}"> <i class="icofont-youtube-play"></i>  Fieni TV</a>
+                         <li class="nav-item {{ Route::is('site.video') ? 'active' : '' }}">
+                             <a class="nav-link scroll" href="{{ route('site.video') }}"> <i
+                                     class="icofont-youtube-play"></i> Fieni TV</a>
                          </li>
 
                          <li class="nav-item {{ Route::is('site.contact') ? 'active' : '' }}">

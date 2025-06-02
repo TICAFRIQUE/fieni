@@ -749,6 +749,7 @@ blockquote p {
     border-radius: 0px;
     padding: 0px;
     border: 0px;
+    
 }
 .header .navbar-toggler:focus {
     outline: none;
@@ -759,7 +760,7 @@ blockquote p {
     position: absolute;
     height: 1px;
     width: 50%;
-    background: #1f2937;
+    background: #fdfdfd;
     opacity: 1;
     transform: rotate(0deg);
     transition: 0.25s ease-in-out;
@@ -895,6 +896,7 @@ blockquote p {
     .menu > .nav-item a::after {
         left: 10px;
         background: inherit;
+        
     }
 }
 .menu > .nav-item.submenu .dropdown-menu {
@@ -1013,7 +1015,7 @@ blockquote p {
         position: absolute;
         left: 0;
         top: 100%;
-        background: #ffffff;
+        background: #101324;
         box-shadow: 4px 6px 10px rgba(1, 6, 33, 0.11);
         z-index: 8;
         width: 100%;
@@ -3772,7 +3774,7 @@ blockquote p {
 }
 
 .footer {
-    background-color: #101324;
+    background-color: #101324f0;
     padding-top: 60px;
     padding-bottom: 60px;
     color: #ffffff;
