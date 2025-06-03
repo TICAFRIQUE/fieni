@@ -749,7 +749,6 @@ blockquote p {
     border-radius: 0px;
     padding: 0px;
     border: 0px;
-    
 }
 .header .navbar-toggler:focus {
     outline: none;
@@ -896,7 +895,6 @@ blockquote p {
     .menu > .nav-item a::after {
         left: 10px;
         background: inherit;
-        
     }
 }
 .menu > .nav-item.submenu .dropdown-menu {
@@ -1150,6 +1148,8 @@ blockquote p {
     color: #cf9b1b;
 }
 
+/* Hero1 Section Styles */
+
 .hero__content {
     color: #ffffff;
     z-index: 999;
@@ -1203,7 +1203,6 @@ blockquote p {
     .hero__image .back-shape {
         height: 450px;
     }
-
 }
 .hero__image .front-img {
     position: absolute;
@@ -1294,7 +1293,7 @@ blockquote p {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    animation: inOut 9s infinite alternate;
+    /* animation: inOut 9s infinite alternate; */
 }
 .hero .swiper-slide::before {
     position: absolute;
@@ -1304,7 +1303,7 @@ blockquote p {
     bottom: 0;
     content: "";
     z-index: -1;
-    background-color: #282f31b2;
+    /* background-color: #282f31b2; */
 }
 @media only screen and (max-width: 1400px) {
     .hero .swiper-slide {
@@ -1334,6 +1333,8 @@ blockquote p {
         left: 15px;
     }
 }
+
+/* End Hero1 Section Styles */
 
 .hero-2__wrapper {
     padding: 210px 0px 120px 0px;
@@ -3783,7 +3784,6 @@ blockquote p {
     padding-right: 20%;
     margin-bottom: 30px;
     color: #ffffff;
-
 }
 .footer__info {
     margin-top: 20px;
@@ -3920,7 +3920,7 @@ footer hr {
 }
 
 .all-blogs {
-    background-image: url(../images/web/Actualitéimage1200sur500/#Actualite1200X500C.jpg);   
+    background-image: url(../images/web/Actualitéimage1200sur500/#Actualite1200X500C.jpg);
     padding: 170px 0 80px 0;
     background-repeat: no-repeat;
     background-size: cover;

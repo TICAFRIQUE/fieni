@@ -1,22 +1,19 @@
 <!-- Inclure Bootstrap CSS (si ce n’est pas déjà fait) -->
 
 <style>
-    /* Style principal */
-    #herocarousel {
-        padding-top: 130px;
-        /* Espace pour le header sur desktop */
+    #hero {
+        margin-top: 130px
     }
 
     .carousel-item {
         position: relative;
-        /* height: calc(100vh - 70px); */
-        /* hauteur écran moins header */
+        height: calc(100vh - 70px);
     }
 
     .carousel-item img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     .carousel-caption {
@@ -25,42 +22,26 @@
         border-radius: 0.5rem;
     }
 
-    /* Responsive mobile */
     @media (max-width: 768px) {
-        #herocarousel {
-            padding-top: 50px;
-            padding-bottom: 0
-        }
-
         .carousel-item {
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background-color: #000;
-            /* ou autre couleur de fond */
+            height: 30vh;
+            /* hauteur = 60% de la hauteur de la fenêtre */
         }
 
         .carousel-item img {
-            padding-top: 150px;
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        .carousel-inner {
-            overflow: hidden;
+            height: 30vh;
+            /* même hauteur que le parent */
+            /* width: 100%; */
+            object-fit: cover;
+            /* image remplie sans déformation */
         }
 
         .carousel-caption {
             position: absolute;
-            bottom: 15px;
+            bottom: 20px;
             left: 20px;
             right: 20px;
             text-align: center;
-            padding: 0.75rem;
         }
 
         .carousel-caption h5 {
@@ -70,11 +51,15 @@
         .carousel-caption p {
             font-size: 0.9rem;
         }
+
+        .carousel-caption {
+            bottom: 15px;
+            padding: 0.75rem;
+        }
     }
 </style>
 
-
-<section id="herocarousel">
+<section id="hero">
     <div id="carouselHero" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($data_slide as $key => $item)
