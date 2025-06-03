@@ -25,10 +25,10 @@
  <!-- Default font version -->
  <link rel="stylesheet" href="{{ asset('assets_web/css/fonts/inter-raleway.css') }}" id="font-switch" />
 
- <link rel="stylesheet" href="{{ asset('demo/demo.css') }}" />
+ {{-- <link rel="stylesheet" href="{{ asset('demo/demo.css') }}" /> --}}
 
  <!--====== CDN LINK ======-->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightzoom/dist/css/lightzoom.min.css">
+ {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightzoom/dist/css/lightzoom.min.css"> --}}
  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
  <!-- Owl Carousel -->

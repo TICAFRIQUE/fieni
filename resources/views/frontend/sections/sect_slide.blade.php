@@ -34,20 +34,17 @@
 
         .carousel-item {
             height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background-color: #000;
+          
+            background-color: #101324;
+            /* Couleur secondaire de Bootstrap */
             /* ou autre couleur de fond */
         }
 
         .carousel-item img {
             padding-top: 150px;
-            max-height: 100%;
-            max-width: 100%;
+            /* max-height: 100%;
+            max-width: 100%; */
             object-fit: contain;
-            display: block;
         }
 
         .carousel-inner {
@@ -73,28 +70,17 @@
     }
 </style>
 
-
 <section id="herocarousel">
-    <div id="carouselHero" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselHero" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true" data-bs-interval="4000">
         <div class="carousel-inner">
             @foreach ($data_slide as $key => $item)
                 <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
                     <img src="{{ asset($item->getFirstMediaUrl('image_background')) }}" class="d-block w-100 img-fluid"
                         alt="Slide">
-                    {{-- <div class="carousel-caption text-start text-white">
-                        <h5>{{ $item->titre }}</h5>
-                        @if ($item->sous_titre)
-                            <p>{{ $item->sous_titre }}</p>
-                        @endif
-                        @if ($item->lien)
-                            <a href="{{ $item->lien }}" class="btn btn-primary mt-2">En savoir plus</a>
-                        @endif
-                    </div> --}}
                 </div>
             @endforeach
         </div>
 
-        <!-- Contrôles gauche/droite -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselHero" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
@@ -102,12 +88,25 @@
             <span class="carousel-control-next-icon"></span>
         </button>
 
-        <!-- Indicateurs -->
         <div class="carousel-indicators">
             @foreach ($data_slide as $key => $item)
                 <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="{{ $key }}"
-                    class="{{ $key === 0 ? 'active' : '' }}" aria-label="Slide {{ $key + 1 }}"></button>
+                    class="{{ $key === 0 ? 'active' : '' }}" aria-label="Slide {{ $key + 1 }}">
+                </button>
             @endforeach
         </div>
     </div>
 </section>
+
+@push('scripts')
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> --}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var carousel = new bootstrap.Carousel(document.getElementById('carouselHero'), {
+                interval: 4000,
+                touch: true
+            });
+        });
+    </script>
+@endpush

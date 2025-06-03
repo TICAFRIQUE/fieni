@@ -23,7 +23,7 @@
 
 
  <!--====== CDN LINK ======-->
- <script src="https://cdn.jsdelivr.net/npm/lightzoom/dist/js/lightzoom.min.js"></script>
+ {{-- <script src="https://cdn.jsdelivr.net/npm/lightzoom/dist/js/lightzoom.min.js"></script> --}}
  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
  <!-- Owl Carousel -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
