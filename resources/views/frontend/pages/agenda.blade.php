@@ -55,7 +55,7 @@
                         <div class="alert alert-info text-center">
                             <strong>Aucun événement trouvé.</strong>
                         </div>
-                @endforeach
+                @endforelse
 
             </div>
             <div class="blog__pagination" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
