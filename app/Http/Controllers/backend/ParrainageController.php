@@ -44,6 +44,12 @@ class ParrainageController extends Controller
     public function show(string $id)
     {
         //
+        try {
+            $data_parrainage = Parrainage::findOrFail($id);
+            return view('backend.pages.parrainage.show', compact('data_parrainage'));
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur est survenue lors de la récupération des parrainages : ' . $th->getMessage());
+        }
     }
 
     /**

@@ -78,6 +78,13 @@
                                                             Modifier
                                                         </a>
                                                     </li>
+                                                      <li>
+                                                        <a href="{{ route('parrainage.show', $item->id) }}"
+                                                            class="dropdown-item edit-item-btn">
+                                                            <i class="ri-eye-fill align-bottom me-2 text-muted"></i>
+                                                            Voir la fiche
+                                                        </a>
+                                                    </li>
                                                     <li>
                                                         <a href="#" class="dropdown-item remove-item-btn delete"
                                                             data-id="{{ $item['id'] }}">

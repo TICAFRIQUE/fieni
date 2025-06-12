@@ -221,6 +221,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         route::get('', 'index')->name('parrainage.index');
         route::get('create', 'create')->name('parrainage.create');
         route::post('store', 'store')->name('parrainage.store');
+        route::get('show/{id}', 'show')->name('parrainage.show');
         route::get('edit/{id}', 'edit')->name('parrainage.edit');
         route::post('update/{id}', 'update')->name('parrainage.update');
         route::get('delete/{id}', 'delete')->name('parrainage.delete');
