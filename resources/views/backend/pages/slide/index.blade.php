@@ -38,7 +38,6 @@
                         <h4 class="card-title mb-2 fw-bold text-capitalize text-center"> {{ $item['titre'] }} </h4>
                         <p class="card-text mb-0">
                             {!! substr(strip_tags($item['description']), 0, 100) !!}....
-
                         </p>
                     </div>
                     <div class="card-footer">

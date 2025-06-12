@@ -62,7 +62,7 @@
                                 <div class="col-md-6">
                                     <label for="validationCustom01" class="form-label">Image candidat du slide</label>
                                     <input type="file"  name="image_candidat" accept="image/*"
-                                        class="form-control imageInput"  required>
+                                        class="form-control imageInput" >
 
 
 

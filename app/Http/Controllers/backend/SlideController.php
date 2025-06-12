@@ -38,7 +38,7 @@ class SlideController extends Controller
                 'description' => 'nullable|string',
                 'status' => 'required',
                 'image_background' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:1024', // sécurise l'image
-                'image_candidat' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:1024', // sécurise l'image
+                'image_candidat' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1024', // sécurise l'image
 
             ]);
 
