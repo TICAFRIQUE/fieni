@@ -18,7 +18,7 @@
                     <div class="blog-details__wrapper">
                         <div>
                             <img class="img-fluid" src="{{ URL::asset($programme?->getFirstMediaUrl('image') ?? '') }}"
-                                alt="image fieni" />
+                                alt="" />
                         </div>
                         <div class="blog-details__content">
 

@@ -18,7 +18,7 @@
                                  <div class="post-content">
                                      <h6>
                                          <a
-                                             href="{{ route('site.actualite_details', $item->slug) }}">{{ Str::substr($item->titre, 1, 50) }}...</a>
+                                             href="{{ route('site.actualite_details', $item->slug) }}">{{ Str::substr($item->titre, 0, 50) }}...</a>
                                      </h6>
                                      <span><i class="icofont-ui-calendar"></i>
                                          {{ \Carbon\Carbon::parse($item->date_publication)->diffForHumans() }}</span>

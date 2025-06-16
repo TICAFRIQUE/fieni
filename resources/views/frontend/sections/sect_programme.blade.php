@@ -7,8 +7,9 @@
                          Projets de société
                      </p>
                      <h4 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
-                        Faire de la Côte d'Ivoire une RÉPUBLIQUE FÉDÉRALE
+                         PRO-CÔTE D’IVOIRE pour la Démocratie, la Prospérité et la Souveraineté (PROCI-DPS)
                      </h4>
+                     <h5> Faire de la Côte d’Ivoire une République Fédérale</h5>
                  </div>
              </div>
          </div>
