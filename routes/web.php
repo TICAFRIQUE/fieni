@@ -271,7 +271,7 @@ route::middleware(['compteur.visites'])->group(function () {
     Route::get('/programme', [SiteController::class, 'programme'])->name('site.programme'); // page programme du candidat
 
     // chantiers du candidat
-    Route::get('/chantier/{slug}', [SiteController::class, 'chantier'])->name('site.chantier'); // page chantiers du candidat
+    Route::get('/projet-de-societe/{slug}', [SiteController::class, 'chantier'])->name('site.chantier'); // page chantiers / projets du candidat
 
     // actualites du candidat
     Route::get('/actualite', [SiteController::class, 'actualite'])->name('site.actualite'); // page actualites du candidat
