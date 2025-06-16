@@ -98,7 +98,7 @@
                          <a href="{{ route('site.adhesion') }}" class="btn btn-sm btn__primary-outline"
                              style="text-transform: none"><span>Adhérez à
                                  <b>PRO CÔTE D'IVOIRE</b></span></a>
-                         <a href="#" class="btn btn-sm btn__primary"><span>Faire un Don</span></a>
+                         <a href="https://www.donation-proci.com/" target="_blank" class="btn btn-sm btn__primary"><span>Faire un Don</span></a>
 
                      </div>
                  </div>
@@ -111,7 +111,7 @@
                              style="background-color: #0f3460"><span>Parrainer </span></a>
                          <a href="{{ route('site.adhesion') }}" class="btn btn-sm text-white "
                              style="background-color: #cf9b1b"><span>Devenir membre</span></a>
-                         <a href="#" class="btn btn-sm text-white " style="background-color: #0f3460"><span>Faire
+                         <a href="https://www.donation-proci.com/" target="_blank" class="btn btn-sm text-white " style="background-color: #0f3460"><span>Faire
                                  un Don</span></a>
 
                      </div>
