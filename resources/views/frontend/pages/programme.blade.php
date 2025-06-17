@@ -1,8 +1,8 @@
 @extends('frontend.layouts.app')
 
-@section('title')
-   Projet de société 
-@endsection
+@section('title' , '  Le projet de société ' )
+ 
+
 
 
 
