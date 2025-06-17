@@ -3,9 +3,9 @@
     height: 70px;               /* Ajuste selon ton design */
     overflow: hidden;           /* Cache l'excès de texte */
     display: -webkit-box;
-    -webkit-line-clamp: 3;      /* Limite à 2 lignes */
+    -webkit-line-clamp: 4;      /* Limite à 2 lignes */
     -webkit-box-orient: vertical;
-    line-height: 28px;         /* Ajuste selon la taille de la police */
+    line-height: 24px;         /* Ajuste selon la taille de la police */
 }
 
  </style>
