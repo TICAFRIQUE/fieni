@@ -254,11 +254,11 @@ a {
     transition: 0.3s;
 }
 
-/* ul {
+ul {
     margin-bottom: 0;
     padding-left: 0;
     list-style: none;
-} */
+}
 
 *,
 *::after,

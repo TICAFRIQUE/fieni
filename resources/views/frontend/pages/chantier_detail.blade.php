@@ -4,6 +4,38 @@
 @section('description', $chantier->titre ?? 'Aucune description disponible pour cette actualité.')
 
 @section('content')
+    {{-- @push('css')
+        <style>
+           ul {
+                list-style-type:none;
+                padding-left: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+           ol {
+                list-style-type: decimal;
+                padding-left: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+             li {
+                margin-bottom: 0.5rem;
+            }
+
+             p {
+                margin-bottom: 0.75rem;
+            }
+
+           
+        </style>
+    @endpush --}}
+
+
+   
+
+
+
+
     <!-- ======= Breadcrumbs ======= -->
     @include('frontend.components.breadcrumb')
     <!-- End Breadcrumbs -->
@@ -14,18 +46,27 @@
                 <div class="col-lg-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
                     <div class="blog-details__wrapper">
                         <div class="blog-details__wrapper__image">
-                            <img class="img-fluid"
-                                src="{{ URL::asset($chantier?->getFirstMediaUrl('image') ?? '') }}"
+                            <img class="img-fluid" src="{{ URL::asset($chantier?->getFirstMediaUrl('image') ?? '') }}"
                                 alt="image fieni" />
                         </div>
                         <div class="blog-details__content">
                             <h2 class="blog-details__title my-3">{{ $chantier->titre ?? 'Aucune titre disponible.' }}</h2>
                             <p class="para">
                                 {!! $chantier->description ?? 'Aucune description disponible.' !!}
+
+
+
                             </p>
 
 
-{{-- 
+                            <ul>
+                                <li>Réduction de l’assurance maladie à 1 000 FCFA/an</li>
+                                <li>Suppression des frais de consultation</li>
+                                <li>Recrutement massif des agents de santé</li>
+                            </ul>
+
+
+                            {{-- 
                             <!-- ========== Start afficher la galerie ========== -->
                             <div class="col-lg-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                                 <div class="blog-details__wrapper__image">
@@ -72,13 +113,15 @@
                 <!-- ========== Start actualité recentes ========== -->
                 @include('frontend.partials.actualite_recente')
                 <!-- ========== End actualité recentes ========== -->
-                
-              
+
+
             </div>
         </div>
 
 
     </div>
+
+
 
 
     @push('scripts')
