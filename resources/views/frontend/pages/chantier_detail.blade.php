@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Projet de société')
+@section('title', 'Le projet de société')
 @section('description', $chantier->titre ?? 'Aucune description disponible pour cette actualité.')
 
 @section('content')

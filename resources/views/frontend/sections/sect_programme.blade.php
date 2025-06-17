@@ -16,7 +16,7 @@
              <div class="col-lg-10 offset-lg-1">
                  <div class="section__title__center">
                      <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                         Projets de société
+                         Le projet de société
                      </p>
                      <h4 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
                          PRO-CÔTE D’IVOIRE pour la Démocratie, la Prospérité et la Souveraineté (PROCI-DPS)
