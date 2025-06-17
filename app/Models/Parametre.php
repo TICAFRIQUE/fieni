@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Parametre extends Model implements HasMedia
 {
     //
-    use HasFactory, InteractsWithMedia ;
+    use HasFactory, InteractsWithMedia;
 
     public $incrementing = false;
 
@@ -22,6 +22,7 @@ class Parametre extends Model implements HasMedia
         'lien_twitter',
         'lien_linkedin',
         'lien_tiktok',
+        'lien_youtube',
 
         //infos application
         'nom_projet', //nom du projet || nom de l'entreprise

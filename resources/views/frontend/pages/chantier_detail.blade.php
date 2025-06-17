@@ -31,9 +31,6 @@
     @endpush --}}
 
 
-   
-
-
 
 
     <!-- ======= Breadcrumbs ======= -->
@@ -46,6 +43,25 @@
                 <div class="col-lg-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
                     <div class="blog-details__wrapper">
                         <div class="blog-details__wrapper__image">
+
+
+                            {{-- <style>
+                                .image-cover {
+                                    width: 100%;
+                                    /* ou une largeur fixe */
+                                    height: 300px;
+                                    /* définit la hauteur */
+                                    background-image: url('{{ URL::asset($chantier?->getFirstMediaUrl('image') ?? '') }}');
+                                    background-size: cover;
+                                    /* ✅ pour que l’image remplisse la div */
+                                    background-position: center center;
+                                    /* centre l’image */
+                                    background-repeat: no-repeat;
+                                    /* empêche la répétition */
+                                }
+                            </style>
+                            <div class="image-cover"></div> --}}
+
                             <img class="img-fluid" src="{{ URL::asset($chantier?->getFirstMediaUrl('image') ?? '') }}"
                                 alt="image fieni" />
                         </div>

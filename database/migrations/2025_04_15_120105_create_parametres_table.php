@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longText('lien_twitter')->nullable();
             $table->longText('lien_linkedin')->nullable();
             $table->longText('lien_tiktok')->nullable();
+            $table->longText('lien_youtube')->nullable();
 
             //infos application
             $table->string('nom_projet')->nullable();

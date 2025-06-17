@@ -1,3 +1,15 @@
+ <style>
+    .missionv2__item__title {
+    height: 70px;               /* Ajuste selon ton design */
+    overflow: hidden;           /* Cache l'excès de texte */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;      /* Limite à 2 lignes */
+    -webkit-box-orient: vertical;
+    line-height: 28px;         /* Ajuste selon la taille de la police */
+}
+
+ </style>
+ 
  <section id="mission" class="section-padding missionv2" style="background-color: #101324;">
      <div class="container py-2" style="background-color: #ffffff;">
          <div class="row">

@@ -1,3 +1,28 @@
+ <style>
+    #all-blogs {
+background-image: url('/assets_web/images/web/Image_detail/1200X500B.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#all-blogs::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* noir semi-transparent */
+    z-index: 1;
+}
+
+#all-blogs .container {
+    position: relative;
+    z-index: 2; /* pour que le contenu passe au-dessus du filtre */
+}
+
+
+ </style>
+ 
+ 
  <section id="all-blogs" class="all-blogs overflow-hidden position-relative">
      <div class="container">
          <div class="row">

@@ -259,7 +259,7 @@
                                                 </span>
                                             </div>
                                             <input type="text" name="lien_twitter" class="form-control"
-                                                id="pinterestName" value="{{ $data_parametre['lien_twitter'] ?? '' }}">
+                                                id="pinterestName" value="{{ $data_parametre['lien_tiktok'] ?? '' }}">
                                         </div>
                                         <div class="mb-3 d-flex">
                                             <div class="avatar-xs d-block flex-shrink-0 me-3">
@@ -278,7 +278,17 @@
                                                 </span>
                                             </div>
                                             <input type="text" name="lien_tiktok" class="form-control"
-                                                id="pinterestName" value="{{ $data_parametre['lien_tiktok'] ?? '' }}">
+                                                id="pinterestName" value="{{ $data_parametre['lien_twitter'] ?? '' }}">
+                                        </div>
+
+                                        <div class="mb-3 d-flex">
+                                            <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                                <span class="avatar-title rounded-circle fs-16 bg-danger material-shadow">
+                                                    <i class=" ri-youtube-fill"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" name="lien_youtube" class="form-control"
+                                                id="pinterestName" value="{{ $data_parametre['lien_youtube'] ?? '' }}">
                                         </div>
                                     </div>
                                     <!-- ========== End social network ========== -->

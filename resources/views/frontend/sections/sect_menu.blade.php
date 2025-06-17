@@ -122,7 +122,7 @@
          </div>
      </div>
 
-     <div class="container-fluid">
+     <div class="container">
          <div class="row">
              <nav class="navbar navbar-expand-lg">
                  <div class="d-flex justify-content-between ">
