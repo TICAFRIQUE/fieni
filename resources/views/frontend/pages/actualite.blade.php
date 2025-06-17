@@ -5,6 +5,22 @@
 @endsection
 
 
+<style>
+    .blogv2__item__content__title,
+    .blogv2__item__content__text {
+        height: 70px;
+        /* Ajuste selon ton design */
+        overflow: hidden;
+        /* Cache l'excès de texte */
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        /* Limite à 2 lignes */
+        -webkit-box-orient: vertical;
+        line-height: 18px;
+        /* Ajuste selon la taille de la police */
+    }
+</style>
+
 @section('content')
     <!-- ======= Breadcrumbs ======= -->
     @include('frontend.components.breadcrumb')
@@ -37,10 +53,10 @@
                                     <a href="#">Comments (8)</a>
                                 </li>
                             </ul> --}}
-                                <h3 class="fs-6">
+                                <h3 class="fs-6 blogv2__item__content__title">
                                     <a href="{{ route('site.actualite_details', $item->slug) }}">{{ $item->titre }}</a>
                                 </h3>
-                                <p>
+                                <p class="blogv2__item__content__text">
                                     {!! Str::limit(strip_tags($item->description), 100, '...') ?? 'Description non spécifique' !!}
                                 </p>
                                 <a href="{{ route('site.actualite_details', $item->slug) }}"

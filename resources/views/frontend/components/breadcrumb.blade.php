@@ -30,6 +30,10 @@ background-image: url('/assets_web/images/web/1200X500B.webp');
                  <h1 class=" display-3 mt-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                      @yield('title')
                  </h1>
+
+                 <h3 class="text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    @yield('subtitle')
+                 </h3>
                  <ul>
                      <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
                          <a href="#" onclick="history.back()">Retour</a>
