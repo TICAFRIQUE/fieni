@@ -1,6 +1,8 @@
 @extends('frontend.layouts.app')
 
 @section('title' , '  Le projet de société ' )
+@section('subtitle', 'Faire de la Côte d’Ivoire une République Fédérale')
+
  
 
 
