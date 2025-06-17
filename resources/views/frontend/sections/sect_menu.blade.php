@@ -110,7 +110,7 @@
                      <div class="top-buttons d-flex gap-2">
                          <a href="{{ route('site.parrainage') }}" class="btn btn-sm text-white "
                              style="background-color: #0f3460"><span>Parrainer </span></a>
-                         <a href="https://www.donation-proci.com/" target="_blank" class="btn btn-sm text-white "
+                         <a href="https://www.donation-proci.com/#adhesion" target="_blank" class="btn btn-sm text-white "
                              style="background-color: #cf9b1b"><span>Devenir membre</span></a>
                          <a href="https://www.donation-proci.com/" target="_blank" class="btn btn-sm text-white "
                              style="background-color: #0f3460"><span>Faire
