@@ -260,7 +260,7 @@ class SiteController extends Controller
     public function actualite()
     {
         try {
-            $actualite = Actualite::active()->orderBy('created_at', 'asc')->paginate(12);
+            $actualite = Actualite::active()->orderBy('date_publication ', 'asc')->get();
 
             return view('frontend.pages.actualite', compact('actualite'));
         } catch (\Throwable $th) {
