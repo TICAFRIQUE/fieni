@@ -1,6 +1,6 @@
  <style>
     #all-blogs {
-background-image: url('/assets_web/images/web/Image_detail/1200X500B.jpg');
+background-image: url('/assets_web/images/web/1200X500B.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
