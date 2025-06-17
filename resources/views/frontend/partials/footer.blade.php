@@ -18,13 +18,13 @@
                               <span class="color-primary">{{ $parametre->contact1 ?? '' }}</span>
                           </div>
                           <div class="social-icon">
-                              <a href="{{ $parametre->lien_facebook ?? '' }}" class="text-dark"><i
+                              <a href="{{ $parametre->lien_facebook ?? '' }}" class="text-dark" target="_blank"><i
                                       class="icofont-facebook"></i></a>
-                              <a href="{{ $parametre->lien_twitter ?? '' }}" class="text-dark"><i
+                              <a href="{{ $parametre->lien_twitter ?? '' }}" class="text-dark" target="_blank"><i
                                       class="icofont-twitter"></i></a>
-                              <a href="{{ $parametre->lien_instagram ?? '' }}" class="text-dark"><i
+                              <a href="{{ $parametre->lien_instagram ?? '' }}" class="text-dark" target="_blank"><i
                                       class="icofont-instagram"></i></a>
-                              <a href="{{ $parametre->lien_youtube ?? '' }}" class="text-dark"><i
+                              <a href="{{ $parametre->lien_youtube ?? '' }}" class="text-dark" target="_blank"><i
                                       class="icofont-youtube-play"></i></a>
                           </div>
                       </div>

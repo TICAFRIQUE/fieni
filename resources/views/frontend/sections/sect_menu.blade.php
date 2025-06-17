@@ -75,13 +75,13 @@
                  <!-- Réseaux sociaux à gauche -->
                  <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start mb-2 mb-md-0">
                      <div class="social-icons d-flex gap-3">
-                         <a href="{{ $parametre->lien_facebook ?? '' }}" class="text-dark"><i
+                         <a href="{{ $parametre->lien_facebook ?? '' }}" class="text-dark" target="_blank"><i
                                  class="icofont-facebook"></i></a>
-                         <a href="{{ $parametre->lien_twitter ?? '' }}" class="text-dark"><i
+                         <a href="{{ $parametre->lien_twitter ?? '' }}" class="text-dark" target="_blank"><i
                                  class="icofont-twitter"></i></a>
-                         <a href="{{ $parametre->lien_instagram ?? '' }}" class="text-dark"><i
+                         <a href="{{ $parametre->lien_instagram ?? '' }}" class="text-dark" target="_blank"><i
                                  class="icofont-instagram"></i></a>
-                         <a href="{{ $parametre->lien_youtube ?? '' }}" class="text-dark"><i
+                         <a href="{{ $parametre->lien_youtube ?? '' }}" class="text-dark" target="_blank"><i
                                  class="icofont-youtube-play"></i></a>
                          {{-- <div> <i class=" icofont-eye-alt"></i> <span class="odometer" data-count="{{ $compteur_visites }}"></span></div> --}}
                          <a href="#" class="text-dark"><i class=" icofont-eye-alt"></i> {{ $compteur_visites }}
