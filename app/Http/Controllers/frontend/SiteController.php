@@ -63,7 +63,7 @@ class SiteController extends Controller
             // temoignages
             $data_temoignage = Temoignage::active()->orderBy('created_at', 'asc')->get();
 
-           
+
 
             return view('frontend.index', compact(
                 'data_slide',
@@ -73,7 +73,7 @@ class SiteController extends Controller
                 'data_flash_info',
                 'data_agenda',
                 'data_temoignage',
-               
+
             ));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -242,16 +242,19 @@ class SiteController extends Controller
     public function chantier($slug)
     {
         try {
-            // recuperer l'actualité active par son slug
+            // recuperer le chantier active par son slug
             $chantier = Chantier::active()->whereSlug($slug)->first();
             if (!$chantier) {
                 return back()->with('error', 'programme non trouvée ou inactive.');
             }
             $chantier = Chantier::active()->findOrFail($chantier->id);
 
-            return view('frontend.pages.chantier_detail', compact('chantier'));
+
+            $data_chantier = Chantier::active()->get(); // recuperer la liste des chantiers
+
+            return view('frontend.pages.chantier_detail', compact('chantier' , 'data_chantier'));
         } catch (\Throwable $th) {
-            return back()->with('error', 'Une erreur est survenue lors de la récupération des détails de l\'actualité : ' . $th->getMessage());
+            return back()->with('error', 'Une erreur est survenue lors de la récupération des détails du chantier : ' . $th->getMessage());
         }
     }
 
@@ -260,7 +263,7 @@ class SiteController extends Controller
     public function actualite()
     {
         try {
-            $actualite = Actualite::active()->orderBy('date_publication', 'desc')->paginate(24);
+            $actualite = Actualite::active()->orderBy('date_publication', 'desc')->paginate(9);
 
             return view('frontend.pages.actualite', compact('actualite'));
         } catch (\Throwable $th) {
@@ -319,7 +322,4 @@ class SiteController extends Controller
             return back()->with('error', 'Une erreur est survenue lors de la récupération des détails de l\'agenda : ' . $th->getMessage());
         }
     }
-
-
-
 }

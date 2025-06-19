@@ -9,8 +9,10 @@
                              <div class="counters__stats__icon">
                                  <i class="icofont-users"></i>
                              </div>
-                             <div><span class="odometer" data-count="{{ $compteur_membres }}"></span>+</div>
-                             <h6>Membres</h6>
+                             {{-- <div><span class="odometer" data-count="{{ $compteur_membres }}"></span>+</div> --}}
+                             <div><span class="odometer" data-count="816018"></span>+</div>
+
+                             <h6>Membres actifs </h6>
                          </div>
                      </li>
                      <li class="col-md-4 col-sm-6 col-12 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="1000"
@@ -20,7 +22,7 @@
                                  <i class="icofont-building"></i>
                              </div>
                              <div><span class="odometer" data-count="7"></span></div>
-                             <h6>Chantiers d'Etat</h6>
+                             <h6>Projets de société</h6>
                          </div>
                      </li>
                      {{-- <li class="col-md-3 col-sm-6 col-12 mb-4 mb-sm-0" data-aos="fade-up"

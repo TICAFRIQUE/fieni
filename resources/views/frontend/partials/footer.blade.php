@@ -55,7 +55,7 @@
                                           <li><a class="nav-link " href="{{ route('site.accueil') }}">Accueil</a></li>
                                           <li><a href="{{ route('site.biographie') }}">Biographie</a></li>
                                           <li><a href="{{ route('site.programme') }}">Projet de société</a></li>
-                                          <li><a href="{{ route('site.adhesion') }}">Adhésion</a></li>
+                                          <li><a href="https://www.donation-proci.com/#adhesion">Adhésion</a></li>
                                           <li><a href="{{ route('site.parrainage') }}">Parrainage</a></li>
                                           <li><a href="{{ route('site.actualite') }}">Actualités</a></li>
                                           <li><a href="{{ route('site.contact') }}">Contact</a></li>
