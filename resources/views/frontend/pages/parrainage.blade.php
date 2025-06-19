@@ -57,18 +57,18 @@
                             action="{{ route('site.parrainage.store') }}">
                             {{-- <h4 class="text-center my-4">Formulaire de Parrainage</h4> --}}
                             @csrf
-                            <div class="row my-4">
-                                <div class="form-group col-md-4">
+                            <div class="row mt-2">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="carte_electeur">Numéro de carte d'électeur (facultatif)</label>
                                     <input type="text" class="form-control" id="carte_electeur" name="carte_electeur"
                                         placeholder="Ex: 123456789" />
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="numero_cni">Numéro de CNI ou Pièce produite à l'enrôlement</label>
                                     <input type="text" class="form-control" id="numero_cni" name="numero_cni"
                                         placeholder="Ex: CNI0012345" />
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="lieu_enrolement">Lieu d’enrôlement (Région) <span
                                             class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="lieu_enrolement" name="lieu_enrolement"
@@ -77,35 +77,35 @@
                             </div>
 
                             <div class="row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="nom">Nom <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="nom" name="nom"
                                         placeholder="Ex: Fieni" required />
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="prenoms">Prénoms <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="prenoms" name="prenoms"
                                         placeholder="Ex: Fieni" required />
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="nom_epouse">Nom d'épouse (si inscrit sur la carte d'électeur)</label>
                                     <input type="text" class="form-control" id="nom_epouse" name="nom_epouse"
                                         placeholder="Ex: Fieni" />
                                 </div>
                             </div>
 
-                            <div class="row my-4">
-                                <div class="form-group col-md-4">
+                            <div class="row">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="date_naissance">Date de naissance <span class="text-danger">*</span></label>
                                     <input type="date" class="form-control" id="date_naissance" name="date_naissance"
                                         required />
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="lieu_naissance">Lieu de naissance <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="lieu_naissance" name="lieu_naissance"
                                         placeholder="Ex: Abidjan" required />
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 mb-3">
                                     <label for="contact">Contact <span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" id="contact" name="contact"
                                         placeholder="Ex: 0700000000" required />
