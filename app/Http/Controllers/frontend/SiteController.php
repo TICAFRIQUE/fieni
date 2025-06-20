@@ -31,7 +31,7 @@ class SiteController extends Controller
     {
         try {
             //1- recuperer les sliders 
-            $data_slide = Slide::active()->get();
+            $data_slide = Slide::active()->orderBy('position', 'asc')->get();
 
             // recuperer la biographie du candidat
             $data_biographie = Biographie::active()->first();
