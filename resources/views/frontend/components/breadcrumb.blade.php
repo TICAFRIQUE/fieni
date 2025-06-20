@@ -1,7 +1,7 @@
  <style>
     #all-blogs {
 background-image: url('/assets_web/images/web/arr_plan_bread.webp');
-margin-top:160px;
+margin-top:130px;
     background-size:auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,7 +28,7 @@ margin-top:160px;
      <div class="container">
          <div class="row">
              <div class="blog-title ">
-                 <h1 class=" display-3 mt-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                 <h1 class=" display-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                      @yield('title')
                  </h1>
 

@@ -14,7 +14,7 @@ class VideoController extends Controller
     public function index()
     {
         try {
-            $data_video = Video::active()->get();
+            $data_video = Video::active()->orderBy('position', 'asc')->get();
             return view('backend.pages.video.index', compact('data_video'));
         } catch (\Exception $e) {
             return redirect()->back()->with('error',  $e->getMessage());
@@ -73,8 +73,11 @@ class VideoController extends Controller
                 'draft_token' => 'required|string',
                 'status' => 'required',
                 'vedette' => 'nullable',
+                'position' => 'nullable',
             ]);
 
+            // pour incrementer la position
+            $data_count = Video::count();
 
             $Video = Video::firstOrCreate([
                 'titre' => $request['titre'],
@@ -82,6 +85,7 @@ class VideoController extends Controller
                 'lien' => $request['lien'],
                 'status' => $request['status'],
                 'vedette' => $request['vedette'],
+                'position' => $data_count + 1,
             ]);
 
 
@@ -100,7 +104,6 @@ class VideoController extends Controller
             // Réponse en cas de succès
             Alert::success('Opération réussi', 'Success Message');
             return redirect()->route('video.index')->with('success', 'Video créé avec succès');
-            
         } catch (\Throwable $th) {
             // Réponse en cas d'erreur
             return back()->with('error', 'Erreur lors de la création de la Video : ' . $th->getMessage());
@@ -113,9 +116,13 @@ class VideoController extends Controller
         try {
             $data_video = Video::findOrFail($id);
 
+
+            // recuperer toutes les videos
+            $videos_count = Video::count();
+
             // dd($data_Video->toArray());
 
-            return view('backend.pages.video.edit', compact('data_video'));
+            return view('backend.pages.video.edit', compact('data_video', 'videos_count'));
         } catch (\Throwable $th) {
             return back()->with('error',  $th->getMessage());
         }
@@ -137,6 +144,7 @@ class VideoController extends Controller
                 'draft_token' => 'required|string',
                 'status' => 'required',
                 'vedette' => 'nullable',
+                'position' => 'nullable',
             ]);
 
 
@@ -146,6 +154,7 @@ class VideoController extends Controller
                 'lien' => $request['lien'],
                 'status' => $request['status'],
                 'vedette' => $request['vedette'],
+                'position' => $request['position'],
             ]);
 
 
@@ -171,7 +180,22 @@ class VideoController extends Controller
 
     public function delete($id)
     {
-        Video::find($id)->delete();
+        // Video::find($id)->delete();
+        // // reorganiser l'ordre la position
+        // $data_count = Video::count();// count the number of records
+        // Video::where('id', '>', $id)->decrement('position');
+        // return response()->json([
+        //     'status' => 200,
+        // ]);
+
+
+        $video = Video::findOrFail($id);
+        $deletedPosition = $video->position;
+        $video->delete();
+
+        // Réorganiser les positions : toutes celles après la supprimée
+        Video::where('position', '>', $deletedPosition)->decrement('position');
+
         return response()->json([
             'status' => 200,
         ]);

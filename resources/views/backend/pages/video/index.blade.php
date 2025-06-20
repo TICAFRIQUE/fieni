@@ -60,6 +60,11 @@
                             </span>
                         </p>
 
+                         <p class="card-text mb-0">
+                           Position <b class="badge bg-dark"> {{ $item['position'] }}
+                            </b>
+                        </p>
+
 
                         <div class="card-footer">
                             <a href="/" target="_blank" class="card-link link-secondary"><i

@@ -21,6 +21,7 @@ class Video extends Model implements HasMedia
         'lien', // URL of the video
         'status',
         'vedette', // video in featured section
+        'position',
     ];
 
 
