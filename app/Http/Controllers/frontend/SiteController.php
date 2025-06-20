@@ -31,7 +31,7 @@ class SiteController extends Controller
     {
         try {
             //1- recuperer les sliders 
-            $data_slide = Slide::active()->orderBy('position', 'asc')->get();
+            $data_slide = Slide::active()->get();
 
             // recuperer la biographie du candidat
             $data_biographie = Biographie::active()->first();
@@ -230,7 +230,7 @@ class SiteController extends Controller
     public function videotheque()
     {
         try {
-            $data_video = Video::active()->get();
+            $data_video = Video::active()->orderBy('position', 'asc')->get();
             return view('frontend.pages.video', compact('data_video'));
         } catch (\Throwable $th) {
             return back()->with('error', 'Une erreur est survenue lors de la récupération de la vidéothèque : ' . $th->getMessage());
