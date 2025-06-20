@@ -1,7 +1,8 @@
  <style>
     #all-blogs {
-background-image: url('/assets_web/images/web/1200X500B.webp');
-    background-size: cover;
+background-image: url('/assets_web/images/web/arr_plan_bread.webp');
+margin-top:160px;
+    background-size:auto;
     background-position: center;
     background-repeat: no-repeat;
 }
