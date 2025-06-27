@@ -13,7 +13,7 @@
                  <form class="row g-3 needs-validation" method="post" action="{{ route('slide.update', $item['id']) }}"
                      novalidate enctype="multipart/form-data">
                      @csrf
-                     <div class="alert alert-info alert-dismissible alert-label-icon label-arrow fade show material-shadow"
+                     {{-- <div class="alert alert-info alert-dismissible alert-label-icon label-arrow fade show material-shadow"
                          role="alert">
                          <i class="ri-airplay-line label-icon"></i><strong>Dimensions (px) : </strong>
                          <ol>
@@ -21,21 +21,21 @@
 
                          </ol>
                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                     </div>
+                     </div> --}}
 
 
 
-                     <div class="col-md-12">
+                     {{-- <div class="col-md-12">
                          <label for="validationCustom01" class="form-label">Titre du slide</label>
                          <input type="text" name="titre" value="{{ $item['titre'] }}" class="form-control"
                              id="validationCustom01">
                          <div class="valid-feedback">
                              Looks good!
                          </div>
-                     </div>
+                     </div> --}}
 
 
-                     <div class="col-md-12">
+                     {{-- <div class="col-md-12">
                          <label for="validationCustom01" class="form-label">Description</label>
                          <textarea name="description" class="form-control" id="" cols="30" rows="3">
                              {{ $item['description'] }}
@@ -43,7 +43,7 @@
                          <div class="valid-feedback">
                              Looks good!
                          </div>
-                     </div>
+                     </div> --}}
 
                      <div class="alert alert-danger alert-dismissible fade show" id="sizeError" style="display: none;"
                          role="alert">
@@ -60,7 +60,7 @@
                                  width="50px" alt="">
                          </div>
                          <div class="col-md-10">
-                             <label for="validationCustom01" class="form-label">Image background</label>
+                             <label for="validationCustom01" class="form-label">Image background (2000 * 900 px)</label>
                              <input accept="image/*" type="file"  name="image_background"
                                  class="form-control imageInput" >
                              <div class="valid-feedback">
@@ -70,7 +70,7 @@
                      </div>
 
 
-                     <div class="row my-3">
+                     {{-- <div class="row my-3">
                          <div class="col-md-2">
                              <img class="rounded-circle" src="{{ $item->getFirstMediaUrl('image_candidat') }}" width="50px"
                                  alt="">
@@ -83,7 +83,7 @@
                                  Looks good!
                              </div>
                          </div>
-                     </div>
+                     </div> --}}
 
                      <div class="col-md-12">
                          <label for="validationCustom01" class="form-label">Statut</label>

@@ -14,7 +14,7 @@ class ActualiteController extends Controller
     public function index()
     {
         try {
-            $data_actualite = Actualite::with('media')->get();
+            $data_actualite = Actualite::with('media')->orderBy('date_publication', 'desc')->get();
 
             return view('backend.pages.actualite.index', compact('data_actualite'));
         } catch (\Throwable $th) {

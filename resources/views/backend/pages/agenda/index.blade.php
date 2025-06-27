@@ -41,6 +41,7 @@
                         </p>
                     </div>
                     <div class="card-body">
+
                         <p class="card-text mb-0">
                             Public: <span class="badge {{ $item['is_public'] == true ? 'bg-success' : 'bg-danger' }}">
                                 {{ $item['is_public']== true ? 'Oui' : 'Non' }} </span>

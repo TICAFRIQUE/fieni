@@ -17,7 +17,7 @@ class SlideController extends Controller
     {
         try {
 
-            $data_slide = Slide::with('media')->get();
+            $data_slide = Slide::with('media')->orderBy('created_at', 'desc')->get();
 
             return view('backend.pages.slide.index', compact('data_slide'));
         } catch (\Throwable $e) {

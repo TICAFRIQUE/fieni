@@ -39,6 +39,8 @@
                         <p class="card-text mb-0">
                             {!! substr(strip_tags($item['description']), 0, 100) !!}....
                         </p>
+                        <p>Statut:  <span class="badge {{ $item['status'] == 'active' ? 'bg-success' : 'bg-danger' }}"> {{ $item['status'] }} </span></p>
+                    <p>Crée le:  <span class="badge bg-info"> {{ $item['created_at']->format('d-m-Y') }} </span></p>
                     </div>
                     <div class="card-footer">
                         <a href="/" target="_blank" class="card-link link-secondary"><i class="ri ri-eye-2-fill "></i>

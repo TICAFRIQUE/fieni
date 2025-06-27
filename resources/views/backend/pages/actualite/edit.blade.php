@@ -100,7 +100,7 @@
                                 </div>
 
                                 <div class="row my-3">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 d-none">
                                         <label for="validationCustom01" class="form-label">Vedette</label>
                                         <select name="vedette" class="form-control">
                                             <option value="non"
@@ -114,7 +114,7 @@
                                     </div>
 
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="validationCustom01" class="form-label">Public</label>
                                         <select name="status" class="form-control">
                                             <option value="active"
@@ -134,7 +134,7 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <label for="validationCustom01" class="form-label">Image à la une</label>
+                                    <label for="validationCustom01" class="form-label">Image à la une (520x350) </label>
                                     <img src="{{ URL::asset($data_actualite->getFirstMediaUrl('image_une')) }}" alt="image_une"
                                         class="img-fluid mb-2" style="width: 100%; height: 200px; object-fit: cover;">
 
@@ -148,7 +148,7 @@
 
 
                                 <div class="col-md-12 mt-4">
-                                    <label for="validationCustom01" class="form-label">Image de la page detail</label>
+                                    <label for="validationCustom01" class="form-label">Image de la page detail (900x500) </label>
                                     <img src="{{ URL::asset($data_actualite->getFirstMediaUrl('image_detail')) }}"
                                         alt="image_detail" class="img-fluid mb-2"
                                         style="width: 100%; height: 200px; object-fit: cover;">
@@ -166,7 +166,7 @@
                                         <div class="col-md-12 border border-dark rounded border-dashed text-center px-5 mt-4"
                                             style=" cursor: pointer;">
                                             <i class="ri ri-image-add-fill fs-1 "></i>
-                                            <h6>Ajouter une galerie d'image </h6>
+                                            <h6>Ajouter une galerie d'image (520x350) </h6>
                                         </div>
                                     </label>
                                     <input type="file" id="imageInput" accept="image/*" class="form-control d-none"

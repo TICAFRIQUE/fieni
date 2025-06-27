@@ -13,7 +13,7 @@ class AgendaController extends Controller
     public function index()
     {
         try {
-            $data_agenda = Agenda::public()->get();
+            $data_agenda = Agenda::public()->orderBy('created_at', 'desc')->get();
             return view('backend.pages.agenda.index', compact('data_agenda'));
         } catch (\Exception $e) {
             return redirect()->back()->with('error',  $e->getMessage());

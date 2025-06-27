@@ -18,18 +18,10 @@
                                 novalidate enctype="multipart/form-data">
                                 @csrf
 
-                                <div class="alert alert-info alert-dismissible alert-label-icon label-arrow fade show material-shadow"
-                                    role="alert">
-                                    <i class="ri-airplay-line label-icon"></i><strong>Dimensions (px) : </strong>
-                                    <ol>
-                                        <li>Carrousel : <strong>1920 * 685 ou 1080</strong></li>
-                                    </ol>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
+                               
 
 
-                                <div class="col-md-12">
+                                {{-- <div class="col-md-12">
                                     <label for="validationCustom01" class="form-label">Titre du slide</label>
                                     <input type="text" name="titre" class="form-control" id="validationCustom01">
                                     <div class="valid-feedback">
@@ -44,14 +36,14 @@
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                               
 
 
                                 <div class="col-md-6">
-                                    <label for="validationCustom01" class="form-label">Image background du slide</label>
+                                    <label for="validationCustom01" class="form-label">Image background du slide (2000 * 900 px)</label>
                                     <input type="file"  name="image_background" accept="image/*"
                                         class="form-control imageInput"  required>
                                     <div class="valid-feedback">
@@ -59,7 +51,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <label for="validationCustom01" class="form-label">Image candidat du slide</label>
                                     <input type="file"  name="image_candidat" accept="image/*"
                                         class="form-control imageInput" >
@@ -69,7 +61,7 @@
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                                 <div class="col-md-4">

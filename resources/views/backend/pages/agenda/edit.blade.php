@@ -152,7 +152,7 @@
 
 
                                 <div class="col-md-12">
-                                    <label for="validationCustom01" class="form-label">Image à la une</label>
+                                    <label for="validationCustom01" class="form-label">Image à la une (770x400) </label>
                                     <img src="{{ URL::asset($data_agenda->getFirstMediaUrl('image_une')) }}" alt="image_une"
                                         class="img-fluid mb-2" style="width: 100%; height: 200px; object-fit: cover;">
 
@@ -166,7 +166,7 @@
 
 
                                 <div class="col-md-12 mt-4">
-                                    <label for="validationCustom01" class="form-label">Image de la page detail</label>
+                                    <label for="validationCustom01" class="form-label">Image de la page detail (900x500) </label>
                                     <img src="{{ URL::asset($data_agenda->getFirstMediaUrl('image_detail')) }}"
                                         alt="image_detail" class="img-fluid mb-2"
                                         style="width: 100%; height: 200px; object-fit: cover;">

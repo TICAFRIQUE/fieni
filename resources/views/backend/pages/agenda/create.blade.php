@@ -148,7 +148,7 @@
 
 
                                 <div class="col-md-12">
-                                    <label for="validationCustom01" class="form-label">Image à la une</label>
+                                    <label for="validationCustom01" class="form-label">Image à la une (770x400) </label>
                                     <input type="file" name="image_une" class="form-control imageInputAgenda"
                                         accept="image/*" required>
                                     <div class="valid-feedback">
@@ -157,7 +157,7 @@
                                 </div>
 
                                 <div class="col-md-12 mt-3">
-                                    <label for="validationCustom01" class="form-label">Image de la page detail</label>
+                                    <label for="validationCustom01" class="form-label">Image de la page detail (900x500) </label>
                                     <input type="file" name="image_detail" class="form-control imageInputAgenda"
                                         accept="image/*">
                                     <div class="valid-feedback">
